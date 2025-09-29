@@ -23,7 +23,7 @@ const navigation = [
 ]
 
 export function TeacherSidebar() {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <div className="fixed left-0 top-16 w-64 h-[calc(100vh-4rem)] bg-white shadow-lg border-r border-blue-100 z-40 overflow-y-auto">
@@ -47,7 +47,7 @@ export function TeacherSidebar() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200",
+                    "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer",
                     isActive
                       ? "bg-blue-50 text-blue-700 border-r-2 border-blue-600"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",

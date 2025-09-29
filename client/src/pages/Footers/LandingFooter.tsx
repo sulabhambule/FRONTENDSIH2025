@@ -86,7 +86,7 @@ export function Footer() {
                         <li key={linkIndex}>
                           <a
                             href="#"
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200 hover:underline block"
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200 hover:underline block cursor-pointer"
                           >
                             {link}
                           </a>
@@ -122,13 +122,13 @@ export function Footer() {
               &copy; 2025 Smart Student Hub. All rights reserved.
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-6 text-sm">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                 Privacy Policy
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                 Terms of Service
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">
                 Academic Integrity
               </a>
             </div>

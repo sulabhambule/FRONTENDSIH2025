@@ -45,36 +45,39 @@ export function Header() {
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <button
-              onClick={() => scrollToSection('features')}
-              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
-            >
-              Features
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection('benefits')}
-              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
-            >
-              Benefits
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection('footer')}
-              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
-            >
-              About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection('footer')}
-              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
-            >
-              Contact
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </button>
-          </nav>
+          <div className="mr-35">
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+              <button
+                onClick={() => scrollToSection('features')}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
+              >
+                Features
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              <button
+                onClick={() => scrollToSection('benefits')}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
+              >
+                Benefits
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              <button
+                onClick={() => scrollToSection('footer')}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
+              >
+                About
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              <button
+                onClick={() => scrollToSection('footer')}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium relative group cursor-pointer"
+              >
+                Contact
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </button>
+            </nav>
+          </div>
+
 
           {/* Action Buttons */}
           <div className="flex items-center space-x-2 lg:space-x-3">

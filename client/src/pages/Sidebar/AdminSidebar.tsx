@@ -12,9 +12,9 @@ import { cn } from "../../lib/utils"
 
 const navigation = [
   { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
+  { name: "Roles & Permissions", href: "/admin/roles", icon: Shield },
   { name: "Student Management", href: "/admin/students", icon: Users },
   { name: "Faculty Management", href: "/admin/teachers", icon: GraduationCap },
-  { name: "Roles & Permissions", href: "/admin/roles", icon: Shield },
   // { name: "Department Overview", href: "/admin/departments", icon: Building2 },
   { name: "Performance Analytics", href: "/admin/performance", icon: Trophy },
   { name: "Reports & Analytics", href: "/admin/reports", icon: BarChart3 },
@@ -50,7 +50,7 @@ export function AdminSidebar() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200",
+                    "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer",
                     isActive
                       ? "bg-blue-50 text-blue-700 border-r-2 border-blue-600"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
