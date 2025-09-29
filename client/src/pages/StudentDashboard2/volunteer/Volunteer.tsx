@@ -461,7 +461,7 @@ export default function VolunteerPage() {
                     <Button
                       variant="outline"
                       onClick={() => setIsAddOpen(false)}
-                      className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                      className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
                     >
                       Cancel
                     </Button>

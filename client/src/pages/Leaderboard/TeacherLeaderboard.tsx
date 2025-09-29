@@ -505,7 +505,7 @@ export function TeacherLeaderboard() {
                 <Button
                   variant="outline"
                   onClick={clearAllFilters}
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
                 >
                   Clear All Filters
                 </Button>
@@ -599,7 +599,7 @@ export function TeacherLeaderboard() {
                             variant="ghost"
                             size="sm"
                             onClick={() => setShowDetails(isExpanded ? null : student.id)}
-                            className="text-blue-600 hover:text-blue-800 hover:bg-blue-50"
+                            className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
                           >
                             {isExpanded ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                           </Button>

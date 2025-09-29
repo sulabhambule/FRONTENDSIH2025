@@ -287,7 +287,7 @@ export const MentoredStudents: React.FC<MentoredStudentsProps> = ({ students }) 
                       <Button
                         variant="outline"
                         onClick={() => setIsScheduleModalOpen(false)}
-                        className="border-gray-300 hover:border-gray-400 hover:bg-gray-50 w-full sm:w-auto"
+                        className="border-gray-300 hover:border-gray-400 hover:bg-gray-100 w-full sm:w-auto"
                       >
                         Cancel
                       </Button>

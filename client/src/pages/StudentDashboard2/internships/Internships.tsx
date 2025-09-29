@@ -414,7 +414,7 @@ export default function InternshipsPage() {
                     <Button
                       variant="outline"
                       onClick={() => setIsAddOpen(false)}
-                      className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                      className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                     >
                       Cancel
                     </Button>
@@ -432,7 +432,7 @@ export default function InternshipsPage() {
             <TabsContent value="overview" className="space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
                 <Card className="bg-white/80 border-blue-200 shadow-lg">
-                  <CardHeader className="bg-blue-50 border-b border-blue-100">
+                  <CardHeader className=" border-b border-blue-100">
                     <CardTitle className="text-blue-900">Application Progress</CardTitle>
                     <CardDescription className="text-blue-700">Track your job application pipeline</CardDescription>
                   </CardHeader>
@@ -477,7 +477,7 @@ export default function InternshipsPage() {
                 </Card>
 
                 <Card className="bg-white/80 border-blue-200 shadow-lg">
-                  <CardHeader className="bg-blue-50 border-b border-blue-100">
+                  <CardHeader className=" border-b border-blue-100">
                     <CardTitle className="text-blue-900">Recent Activity</CardTitle>
                     <CardDescription className="text-blue-700">Latest updates on your applications</CardDescription>
                   </CardHeader>
@@ -525,7 +525,7 @@ export default function InternshipsPage() {
                       </TableHeader>
                       <TableBody>
                         {applications.map((app) => (
-                          <TableRow key={app.id} className="hover:bg-blue-50 transition-colors">
+                          <TableRow key={app.id} className="hover:bg-blue-100/50 transition-colors">
                             <TableCell className="font-medium text-blue-900">{app.company}</TableCell>
                             <TableCell className="text-blue-800">{app.position}</TableCell>
                             <TableCell>
@@ -655,7 +655,7 @@ export default function InternshipsPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                          className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                         >
                           <FileText className="h-4 w-4 mr-2" />
                           View Documents
@@ -663,7 +663,7 @@ export default function InternshipsPage() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                          className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                         >
                           <Eye className="h-4 w-4 mr-2" />
                           View Details
@@ -768,7 +768,7 @@ export default function InternshipsPage() {
                       </TableHeader>
                       <TableBody>
                         {interviews.map((interview) => (
-                          <TableRow key={interview.id} className="hover:bg-blue-50 transition-colors">
+                          <TableRow key={interview.id} className="hover:bg-blue-100/50 transition-colors">
                             <TableCell className="font-medium text-blue-900">{interview.company}</TableCell>
                             <TableCell className="text-blue-800">{interview.position}</TableCell>
                             <TableCell>

@@ -111,7 +111,7 @@ export function ActivityTracker() {
         </div>
 
         <div className="mt-6 pt-4 border-t border-gray-200">
-          <Button variant="outline" className="w-full border-gray-200 text-gray-600 hover:bg-gray-50">
+          <Button variant="outline" className="w-full border-gray-200 text-gray-600 hover:bg-gray-100 hover:border-gray-300">
             View All Activities
           </Button>
         </div>

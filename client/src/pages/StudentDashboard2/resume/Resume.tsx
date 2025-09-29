@@ -16,7 +16,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import {
   FileText,
@@ -111,6 +117,16 @@ export default function ResumePage() {
   const [selectedSections, setSelectedSections] = useState(["contact", "summary", "experience", "education", "skills"])
   const [activeTab, setActiveTab] = useState("builder")
 
+  // Data source toggles state
+  const [dataSources, setDataSources] = useState({
+    academicRecords: true,
+    projects: true,
+    internships: true,
+    competitions: true,
+    certifications: true,
+    volunteerWork: false,
+  })
+
   const handleSectionToggle = (sectionId: string) => {
     const section = availableSections.find((s) => s.id === sectionId)
     if (section?.required) return // Can't toggle required sections
@@ -118,6 +134,13 @@ export default function ResumePage() {
     setSelectedSections((prev) =>
       prev.includes(sectionId) ? prev.filter((id) => id !== sectionId) : [...prev, sectionId],
     )
+  }
+
+  const handleDataSourceToggle = (sourceId: keyof typeof dataSources) => {
+    setDataSources((prev) => ({
+      ...prev,
+      [sourceId]: !prev[sourceId],
+    }))
   }
 
   return (
@@ -325,12 +348,12 @@ export default function ResumePage() {
             <TabsContent value="builder" className="space-y-6">
               <div className="grid gap-6 lg:grid-cols-3">
                 <div className="lg:col-span-1 space-y-6">
-                  <Card className="bg-white/80 border-blue-200 shadow-lg">
-                    <CardHeader className="bg-blue-50 border-b border-blue-100">
-                      <CardTitle className="text-blue-900">Resume Customization</CardTitle>
-                      <CardDescription className="text-blue-700">Customize your resume content and appearance</CardDescription>
+                  <Card className=" border-blue-200 shadow-lg overflow-hidden">
+                    <CardHeader className="bg-blue-50 border-b border-blue-100 -mx-6 -mt-6 px-6 pt-4 pb-3 text-center">
+                      <CardTitle className="text-blue-900 text-xl font-bold tracking-wide">Resume Customization</CardTitle>
+                      <CardDescription className="text-blue-700 text-sm mt-1 leading-relaxed">Customize your resume content and appearance</CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4 p-6">
+                    <CardContent className="space-y-4 p-6 bg-white">
                       <div className="space-y-3">
                         <Label className="text-blue-900 font-medium">Template</Label>
                         <Select
@@ -379,60 +402,78 @@ export default function ResumePage() {
                         </Select>
                       </div>
 
-                      <Button className="w-full border-blue-300 text-blue-700 hover:bg-blue-50" variant="outline">
+                      <Button className="w-full border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400" variant="outline">
                         <Palette className="h-4 w-4 mr-2" />
                         Advanced Styling
                       </Button>
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white/80 border-blue-200 shadow-lg">
-                    <CardHeader className="bg-blue-50 border-b border-blue-100">
-                      <CardTitle className="text-blue-900">Data Sources</CardTitle>
-                      <CardDescription className="text-blue-700">Auto-populate from your student data</CardDescription>
+                  <Card className="  border-blue-200 shadow-lg overflow-hidden">
+                    <CardHeader className="bg-blue-50 border-b border-blue-100 -mx-6 -mt-6 px-6 pt-4 pb-3 text-center">
+                      <CardTitle className="text-blue-900 text-xl font-bold tracking-wide">Data Sources</CardTitle>
+                      <CardDescription className="text-blue-700 text-sm mt-1 leading-relaxed">Auto-populate from your student data</CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4 p-6">
+                    <CardContent className="space-y-4 p-6 bg-white">
                       <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
                         <span className="text-sm font-medium text-blue-900">Academic Records</span>
-                        <Switch defaultChecked />
+                        <Switch
+                          checked={dataSources.academicRecords}
+                          onCheckedChange={() => handleDataSourceToggle('academicRecords')}
+                        />
                       </div>
                       <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
                         <span className="text-sm font-medium text-blue-900">Projects</span>
-                        <Switch defaultChecked />
+                        <Switch
+                          checked={dataSources.projects}
+                          onCheckedChange={() => handleDataSourceToggle('projects')}
+                        />
                       </div>
                       <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
                         <span className="text-sm font-medium text-blue-900">Internships</span>
-                        <Switch defaultChecked />
+                        <Switch
+                          checked={dataSources.internships}
+                          onCheckedChange={() => handleDataSourceToggle('internships')}
+                        />
                       </div>
                       <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
                         <span className="text-sm font-medium text-blue-900">Competitions</span>
-                        <Switch defaultChecked />
+                        <Switch
+                          checked={dataSources.competitions}
+                          onCheckedChange={() => handleDataSourceToggle('competitions')}
+                        />
                       </div>
                       <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
                         <span className="text-sm font-medium text-blue-900">Certifications</span>
-                        <Switch defaultChecked />
+                        <Switch
+                          checked={dataSources.certifications}
+                          onCheckedChange={() => handleDataSourceToggle('certifications')}
+                        />
                       </div>
-                      <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
-                        <span className="text-sm font-medium text-gray-700">Volunteer Work</span>
-                        <Switch />
+                      <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <span className="text-sm font-medium text-blue-900">Volunteer Work</span>
+                        <Switch
+                          checked={dataSources.volunteerWork}
+                          onCheckedChange={() => handleDataSourceToggle('volunteerWork')}
+                        />
                       </div>
                     </CardContent>
                   </Card>
                 </div>
 
                 <div className="lg:col-span-2">
-                  <Card className="bg-white/80 border-blue-200 shadow-lg">
-                    <CardHeader className="bg-blue-50 border-b border-blue-100">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <CardTitle className="text-blue-900">Resume Preview</CardTitle>
-                          <CardDescription className="text-blue-700">Live preview of your resume</CardDescription>
+                  <Card className=" border-blue-200 shadow-lg overflow-hidden">
+                    <CardHeader className="bg-blue-50 border-b border-blue-100 -mx-6 -mt-6 px-6 pt-4 pb-3">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1 ml-10">
+                          <CardTitle className="text-blue-900 text-xl font-bold tracking-wide">Resume Preview</CardTitle>
+                          <CardDescription className="text-blue-700 text-sm mt-1 leading-relaxed">Live preview of your resume</CardDescription>
                         </div>
                         <div className="flex gap-3">
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                            className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                           >
                             <Eye className="h-4 w-4 mr-2" />
                             Preview
@@ -447,16 +488,18 @@ export default function ResumePage() {
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 bg-white">
                       <div className="border-2 border-blue-200 rounded-lg p-8 bg-white min-h-[600px] shadow-inner">
                         {/* Resume Preview Content */}
                         <div className="space-y-6">
+                          {/* Contact Information - Always visible */}
                           <div className="text-center border-b-2 border-blue-200 pb-6">
                             <h1 className="text-3xl font-bold text-blue-900">John Doe</h1>
                             <p className="text-blue-700 font-medium text-lg mt-2">Software Engineering Student</p>
                             <p className="text-blue-600 mt-2">john.doe@university.edu • +91 9876543210 • Mumbai, India</p>
                           </div>
 
+                          {/* Professional Summary - Always visible */}
                           <div>
                             <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Professional Summary</h2>
                             <p className="text-blue-700 leading-relaxed">
@@ -466,19 +509,30 @@ export default function ResumePage() {
                             </p>
                           </div>
 
-                          <div>
-                            <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Education</h2>
-                            <div className="space-y-3">
-                              <div>
-                                <div className="flex justify-between items-start">
-                                  <h3 className="font-semibold text-blue-900">Bachelor of Technology - Computer Science</h3>
-                                  <span className="text-sm text-blue-600 bg-blue-50 px-2 py-1 rounded">2022-2026</span>
+                          {/* Academic Records Section */}
+                          {dataSources.academicRecords && (
+                            <div>
+                              <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Education</h2>
+                              <div className="space-y-3">
+                                <div>
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">Bachelor of Technology - Computer Science</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-50 px-2 py-1 rounded">2022-2026</span>
+                                  </div>
+                                  <p className="text-blue-700 mt-1">University of Mumbai • CGPA: 8.7/10</p>
                                 </div>
-                                <p className="text-blue-700 mt-1">University of Mumbai • CGPA: 8.7/10</p>
+                                <div>
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">Higher Secondary Certificate</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-50 px-2 py-1 rounded">2020-2022</span>
+                                  </div>
+                                  <p className="text-blue-700 mt-1">Maharashtra State Board • Percentage: 92.5%</p>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          )}
 
+                          {/* Technical Skills - Always visible */}
                           <div>
                             <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Technical Skills</h2>
                             <div className="flex flex-wrap gap-2">
@@ -492,24 +546,128 @@ export default function ResumePage() {
                             </div>
                           </div>
 
-                          <div>
-                            <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Projects</h2>
-                            <div className="space-y-4">
-                              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                                <h3 className="font-semibold text-blue-900">E-Commerce Platform</h3>
-                                <p className="text-blue-700 mt-2">
-                                  Full-stack web application with React, Node.js, and MongoDB featuring user authentication,
-                                  payment integration, and admin dashboard.
-                                </p>
-                              </div>
-                              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                                <h3 className="font-semibold text-blue-900">Machine Learning Stock Predictor</h3>
-                                <p className="text-blue-700 mt-2">
-                                  ML model using TensorFlow and Python to predict stock prices with 85% accuracy.
-                                </p>
+                          {/* Projects Section */}
+                          {dataSources.projects && (
+                            <div>
+                              <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Projects</h2>
+                              <div className="space-y-4">
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <h3 className="font-semibold text-blue-900">E-Commerce Platform</h3>
+                                  <p className="text-blue-700 mt-2">
+                                    Full-stack web application with React, Node.js, and MongoDB featuring user authentication,
+                                    payment integration, and admin dashboard.
+                                  </p>
+                                </div>
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <h3 className="font-semibold text-blue-900">Machine Learning Stock Predictor</h3>
+                                  <p className="text-blue-700 mt-2">
+                                    ML model using TensorFlow and Python to predict stock prices with 85% accuracy.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          )}
+
+                          {/* Internships Section */}
+                          {dataSources.internships && (
+                            <div>
+                              <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Internships</h2>
+                              <div className="space-y-4">
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">Software Development Intern</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded">Jun 2024 - Aug 2024</span>
+                                  </div>
+                                  <p className="text-blue-700 font-medium mt-1">TechCorp Solutions, Mumbai</p>
+                                  <p className="text-blue-700 mt-2">
+                                    Developed REST APIs using Node.js and Express, collaborated with frontend team to integrate
+                                    payment systems, and optimized database queries resulting in 30% performance improvement.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Competitions Section */}
+                          {dataSources.competitions && (
+                            <div>
+                              <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Competitions & Achievements</h2>
+                              <div className="space-y-4">
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">Smart India Hackathon 2024</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded">1st Place</span>
+                                  </div>
+                                  <p className="text-blue-700 mt-2">
+                                    Led team of 6 to develop AI-powered traffic management system. Won first place among 500+ teams.
+                                  </p>
+                                </div>
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">CodeChef Monthly Challenge</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded">Top 50</span>
+                                  </div>
+                                  <p className="text-blue-700 mt-2">
+                                    Consistently ranked in top 50 participants in competitive programming contests.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Certifications Section */}
+                          {dataSources.certifications && (
+                            <div>
+                              <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Certifications</h2>
+                              <div className="space-y-4">
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">AWS Certified Developer - Associate</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded">Valid until 2026</span>
+                                  </div>
+                                  <p className="text-blue-700 mt-2">Amazon Web Services</p>
+                                </div>
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">Google Cloud Professional Developer</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded">Valid until 2025</span>
+                                  </div>
+                                  <p className="text-blue-700 mt-2">Google Cloud Platform</p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Volunteer Work Section */}
+                          {dataSources.volunteerWork && (
+                            <div>
+                              <h2 className="text-xl font-bold mb-3 text-blue-800 border-b border-blue-200 pb-2">Volunteer Experience</h2>
+                              <div className="space-y-4">
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">Technical Mentor</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded">Jan 2024 - Present</span>
+                                  </div>
+                                  <p className="text-blue-700 font-medium mt-1">Code for Good Initiative</p>
+                                  <p className="text-blue-700 mt-2">
+                                    Mentored 20+ students in web development and programming concepts. Organized coding workshops
+                                    for underprivileged communities, reaching 100+ participants.
+                                  </p>
+                                </div>
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                  <div className="flex justify-between items-start">
+                                    <h3 className="font-semibold text-blue-900">Environmental Campaign Coordinator</h3>
+                                    <span className="text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded">Mar 2023 - Dec 2023</span>
+                                  </div>
+                                  <p className="text-blue-700 font-medium mt-1">Green Earth Foundation</p>
+                                  <p className="text-blue-700 mt-2">
+                                    Led campus sustainability initiatives, organized tree plantation drives, and developed
+                                    awareness campaigns resulting in 40% reduction in plastic usage on campus.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </CardContent>
@@ -539,7 +697,7 @@ export default function ResumePage() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                          className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                         >
                           Use Template
                         </Button>
@@ -571,7 +729,7 @@ export default function ResumePage() {
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                            className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                           >
                             <Edit className="h-4 w-4 mr-2" />
                             Edit
@@ -579,7 +737,7 @@ export default function ResumePage() {
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                            className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                           >
                             <Eye className="h-4 w-4 mr-2" />
                             Preview

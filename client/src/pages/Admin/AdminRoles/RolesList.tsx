@@ -45,7 +45,7 @@ export function RolesList({ roles, onEditRole, onDeleteRole }: RolesListProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => onEditRole(role)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-blue-600 hover:bg-blue-50"
               >
                 <Edit className="w-4 h-4" />
               </Button>
@@ -53,7 +53,7 @@ export function RolesList({ roles, onEditRole, onDeleteRole }: RolesListProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => onDeleteRole(role.id)}
-                className="text-gray-500 hover:text-red-600"
+                className="text-gray-500 hover:text-red-600 hover:bg-red-50"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>

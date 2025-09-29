@@ -309,7 +309,7 @@ export default function SeminarsPage() {
                   </div>
                 </div>
                 <DialogFooter className="bg-gray-50 -m-6 mt-4 p-6 border-t border-gray-200">
-                  <Button variant="outline" onClick={() => setIsAddOpen(false)} className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                  <Button variant="outline" onClick={() => setIsAddOpen(false)} className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400">
                     Cancel
                   </Button>
                   <Button onClick={() => setIsAddOpen(false)} className="bg-blue-600 hover:bg-blue-700 text-white">
@@ -325,7 +325,7 @@ export default function SeminarsPage() {
             <div className="overflow-hidden">
               <Table className="w-full table-fixed">
                 <TableHeader className="bg-gray-50">
-                  <TableRow className="border-gray-200 hover:bg-gray-50">
+                  <TableRow className="border-gray-200 hover:bg-gray-100/50">
                     <TableHead className="text-gray-900 font-semibold w-[35%] px-3 py-3">Event Details</TableHead>
                     <TableHead className="text-gray-900 font-semibold w-[12%] px-3 py-3">Type</TableHead>
                     <TableHead className="text-gray-900 font-semibold w-[13%] px-3 py-3">Date</TableHead>

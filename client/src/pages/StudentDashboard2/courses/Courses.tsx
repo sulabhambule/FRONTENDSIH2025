@@ -532,7 +532,7 @@ export default function OnlineCoursesPage() {
                 </TableHeader>
                 <TableBody>
                   {filteredCourses.map((course) => (
-                    <TableRow key={course.id} className="hover:bg-blue-50">
+                    <TableRow key={course.id} className="hover:bg-blue-100/50">
                       <TableCell>
                         <div>
                           <div className="font-medium text-gray-800">{course.title}</div>
@@ -577,7 +577,7 @@ export default function OnlineCoursesPage() {
                           variant="ghost"
                           size="sm"
                           onClick={() => handleViewCourse(course)}
-                          className="text-blue-600 hover:text-blue-800 hover:bg-blue-50"
+                          className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
                         >
                           <Eye className="h-4 w-4" />
                         </Button>

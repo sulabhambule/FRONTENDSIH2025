@@ -88,7 +88,7 @@ export function PermissionsMatrix({ roles, permissions, onPermissionToggle }: Pe
                   </td>
                 </tr>
                 {categoryPermissions.map((permission) => (
-                  <tr key={permission.id} className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr key={permission.id} className="border-b border-gray-100 hover:bg-gray-100/50">
                     <td className="py-3 px-4">
                       <div>
                         <p className="font-medium text-gray-900 text-sm">{permission.name}</p>

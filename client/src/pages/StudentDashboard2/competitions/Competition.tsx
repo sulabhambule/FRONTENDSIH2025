@@ -515,7 +515,7 @@ export default function CompetitionsPage() {
                 </TableHeader>
                 <TableBody>
                   {filteredCompetitions.map((competition) => (
-                    <TableRow key={competition.id} className="hover:bg-blue-50">
+                    <TableRow key={competition.id} className="hover:bg-blue-100/50">
                       <TableCell>
                         <div>
                           <div className="font-medium text-gray-800">{competition.title}</div>
@@ -561,7 +561,7 @@ export default function CompetitionsPage() {
                           variant="ghost"
                           size="sm"
                           onClick={() => handleViewCompetition(competition)}
-                          className="text-blue-600 hover:text-blue-800 hover:bg-blue-50"
+                          className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
                         >
                           <Eye className="h-4 w-4" />
                         </Button>

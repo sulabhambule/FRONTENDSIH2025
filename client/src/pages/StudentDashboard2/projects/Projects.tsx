@@ -429,7 +429,7 @@ export default function ProjectsPage() {
                   <Button
                     variant="outline"
                     onClick={() => setIsAddOpen(false)}
-                    className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                    className="border-blue-300 text-blue-700 hover:bg-blue-100 hover:border-blue-400"
                   >
                     Cancel
                   </Button>
@@ -448,7 +448,7 @@ export default function ProjectsPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => (
               <Card key={project.id} className="bg-white/80 border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
-                <CardHeader className="bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-200">
+                <CardHeader className="bg-blue-50 border-b border-blue-100 -mt-6 px-6 pt-4 pb-3 rounded-tl-2xl rounded-tr-2xl">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <CardTitle className="text-lg line-clamp-1 text-blue-900">{project.title}</CardTitle>

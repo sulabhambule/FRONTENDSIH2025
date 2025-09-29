@@ -57,7 +57,7 @@ export default function Sidebar() {
                     "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer",
                     isActive
                       ? "bg-blue-50 text-blue-700 border-r-2 border-blue-600"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                      : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
                   )}
                 >
                   <item.icon className="mr-3 h-5 w-5" />

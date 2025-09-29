@@ -243,7 +243,7 @@ export function PerformanceLeaderboard() {
               {leaderboardData.map((entry) => (
                 <div
                   key={entry.studentId}
-                  className={`flex items-center justify-between p-4 rounded-lg border hover:bg-gray-50 ${entry.rank <= 3 ? "bg-blue-50/50 border-blue-200" : "border-gray-200"
+                  className={`flex items-center justify-between p-4 rounded-lg border hover:bg-gray-100/50 ${entry.rank <= 3 ? "bg-blue-50/50 border-blue-200" : "border-gray-200"
                     }`}
                 >
                   <div className="flex items-center space-x-4">
