@@ -80,7 +80,7 @@ export function Communication() {
     scheduledFor: "",
   })
 
-  const [activeTab, setActiveTab] = useState("announcements")
+  // const [activeTab, setActiveTab] = useState("announcements")
   const [filterStatus, setFilterStatus] = useState<string>("all")
   const [filterType, setFilterType] = useState<string>("all")
 

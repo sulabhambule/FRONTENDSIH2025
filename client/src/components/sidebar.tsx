@@ -1,23 +1,23 @@
-import { 
-  GraduationCap, 
-  LayoutDashboard, 
-  BookOpen, 
-  BarChart3, 
-  Users, 
-  Trophy, 
-  Bookmark, 
-  Briefcase, 
-  FolderOpen, 
-  FileText, 
-  Calendar, 
-  Heart 
+import {
+  GraduationCap,
+  LayoutDashboard,
+  BookOpen,
+  BarChart3,
+  Users,
+  Trophy,
+  Bookmark,
+  Briefcase,
+  FolderOpen,
+  FileText,
+  Calendar,
+  Heart
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar() {
   const location = useLocation();
-  
+
   const navigation = [
     { name: "Dashboard", href: "/student2", icon: LayoutDashboard },
     { name: "Academics", href: "/student2/academics", icon: BookOpen },

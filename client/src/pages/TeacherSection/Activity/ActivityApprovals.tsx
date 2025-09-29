@@ -15,7 +15,7 @@ export function ActivityApprovals() {
   const [filterType, setFilterType] = useState("all")
   const [filterPriority, setFilterPriority] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     // TODO: Replace with actual API call
@@ -60,10 +60,10 @@ export function ActivityApprovals() {
     setSelectedApproval(null)
   }
 
-  const handleBulkApproval = (approvalIds: string[]) => {
-    // TODO: Implement bulk approval logic
-    console.log("Bulk approving:", approvalIds)
-  }
+  // const handleBulkApproval = (approvalIds: string[]) => {
+  //   // TODO: Implement bulk approval logic
+  //   console.log("Bulk approving:", approvalIds)
+  // }
 
   const filteredApprovals = approvalData.pendingApprovals.filter((approval) => {
     const matchesType = filterType === "all" || approval.type === filterType

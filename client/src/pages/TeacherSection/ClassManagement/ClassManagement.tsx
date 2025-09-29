@@ -19,9 +19,9 @@ import classData from "./classManagement.json"
 
 export function ClassManagement() {
   const [selectedClass, setSelectedClass] = useState(classData.classes[0])
-  const [attendanceData, setAttendanceData] = useState<any>({})
-  const [marksData, setMarksData] = useState<any>({})
-  const [loading, setLoading] = useState(false)
+  // const [attendanceData, setAttendanceData] = useState<any>({})
+  // const [marksData, setMarksData] = useState<any>({})
+  // const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     // TODO: Replace with actual API call

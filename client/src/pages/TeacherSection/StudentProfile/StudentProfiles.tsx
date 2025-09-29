@@ -14,7 +14,6 @@ export function StudentProfiles() {
   const [selectedStudent, setSelectedStudent] = useState<any>(null)
   const [filterClass, setFilterClass] = useState("all")
   const [filterSemester, setFilterSemester] = useState("all")
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     // TODO: Replace with actual API call
@@ -44,7 +43,7 @@ export function StudentProfiles() {
   };
   */
 
-  const handleStudentSelect = (student: any) => {
+  const handleStudentSelect = () => {
     // TODO: Replace with actual API call
     // fetchStudentProfile(student.id);
     setSelectedStudent(studentData.selectedStudentProfile)

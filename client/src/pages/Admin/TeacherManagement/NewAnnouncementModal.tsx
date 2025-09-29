@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Switch } from "@/components/ui/switch"
-import { X, Megaphone, Calendar as CalendarIcon, Users, Bell, Target, Clock, AlertCircle, Info, CheckCircle } from "lucide-react"
+import { X, Megaphone, Calendar as CalendarIcon, Bell, Target, Clock, AlertCircle, Info } from "lucide-react"
 import { format } from "date-fns"
 
 interface Department {
@@ -256,8 +256,8 @@ export function NewAnnouncementModal({
     }
   }
 
-  const selectedPriority = PRIORITY_OPTIONS.find(p => p.value === formData.priority)
-  const PriorityIcon = selectedPriority?.icon || Bell
+  // const selectedPriority = PRIORITY_OPTIONS.find(p => p.value === formData.priority)
+  // const PriorityIcon = selectedPriority?.icon || Bell
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>

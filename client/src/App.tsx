@@ -14,12 +14,10 @@ import SchedulePage from "./pages/Studentpages/Schedule/schedule";
 import Profile from "./pages/Studentpages/Profile/student-profile";
 import AcademicsPage from "./pages/Studentpages/Academics/academics";
 import DashboardPage from "./pages/Studentpages/Dashboard/dashboard";
-import { FontSizeProvider } from "./components/Ribbon/FontSizeContext";
 import AttendancePage from "./pages/Studentpages/Attendance/attendace";
 import AnalyticsPage from "./pages/Studentpages/Analytics/analytics";
 import AchievementsPage from "./pages/Studentpages/Achievements/achievement";
 import RootLayout from "./Layouts/Layout/student";
-import Dashboard2 from "./pages/StudentDashboard2/Dasboard2";
 import Academics from "./pages/StudentDashboard2/Acad/Acadmeics";
 import AnalysisPage from "./pages/StudentDashboard2/analysis/Analysis";
 import ClubsPage from "./pages/StudentDashboard2/clubs/Club";
@@ -126,9 +124,7 @@ export const App = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <FontSizeProvider>
-        <RouterProvider router={router} />
-      </FontSizeProvider>
+      <RouterProvider router={router} />
     </div>
   );
 };

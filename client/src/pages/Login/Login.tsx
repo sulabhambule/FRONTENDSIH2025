@@ -3,16 +3,57 @@ import log from "../../../assets/icons/log.svg";
 import React, { useState } from "react";
 import register from "../../../assets/icons/register.svg";
 import { User, Lock, Mail, ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [signInRole, setSignInRole] = useState("");
+  const [signUpRole, setSignUpRole] = useState("");
+  const navigate = useNavigate();
+
+  // Function to navigate based on selected role
+  const navigateToRoleDashboard = (role: string) => {
+    switch (role) {
+      case "student":
+        navigate("/student2");
+        break;
+      case "admin":
+        navigate("/admin");
+        break;
+      case "faculty":
+        navigate("/teacher");
+        break;
+      default:
+        alert("Please select a role to continue");
+    }
+  };
+
+  // Handle Sign In form submission
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!signInRole) {
+      alert("Please select a role");
+      return;
+    }
+    navigateToRoleDashboard(signInRole);
+  };
+
+  // Handle Sign Up form submission
+  const handleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!signUpRole) {
+      alert("Please select a role");
+      return;
+    }
+    navigateToRoleDashboard(signUpRole);
+  };
 
   return (
     <div className={`login-container ${isSignUp ? "login-sign-up-mode" : ""}`}>
       <div className="login-forms-container">
         <div className="login-signin-signup">
           {/* Sign In Form */}
-          <form action="#" className="login-sign-in-form">
+          <form onSubmit={handleSignIn} className="login-sign-in-form">
             <h2 className="login-title">Sign in</h2>
             <div className="login-input-field">
               <div className="login-icon-wrapper">
@@ -30,7 +71,10 @@ const Login: React.FC = () => {
               <div className="login-icon-wrapper">
                 <ChevronDown size={20} />
               </div>
-              <select>
+              <select
+                value={signInRole}
+                onChange={(e) => setSignInRole(e.target.value)}
+              >
                 <option value="">Select Role</option>
                 <option value="student">Student</option>
                 <option value="admin">Admin</option>
@@ -41,7 +85,7 @@ const Login: React.FC = () => {
           </form>
 
           {/* Sign Up Form */}
-          <form action="#" className="login-sign-up-form">
+          <form onSubmit={handleSignUp} className="login-sign-up-form">
             <h2 className="login-title">Sign up</h2>
             <div className="login-input-field">
               <div className="login-icon-wrapper">
@@ -65,7 +109,10 @@ const Login: React.FC = () => {
               <div className="login-icon-wrapper">
                 <ChevronDown size={20} />
               </div>
-              <select>
+              <select
+                value={signUpRole}
+                onChange={(e) => setSignUpRole(e.target.value)}
+              >
                 <option value="">Select Role</option>
                 <option value="student">Student</option>
                 <option value="admin">Admin</option>

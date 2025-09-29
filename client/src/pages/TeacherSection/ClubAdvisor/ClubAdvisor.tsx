@@ -12,7 +12,7 @@ import clubData from "./clubAdvisor.json"
 
 export function ClubAdvisor() {
   const [selectedClub, setSelectedClub] = useState(clubData.clubs[0])
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     // TODO: Replace with actual API call

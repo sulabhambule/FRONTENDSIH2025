@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Bell, Settings, LogOut, User } from "lucide-react"
+import { Bell, LogOut, User } from "lucide-react"
 
 export function StudentNavbar() {
   const navigate = useNavigate()

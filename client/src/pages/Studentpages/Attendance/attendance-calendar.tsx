@@ -61,7 +61,7 @@ export function AttendanceCalendar() {
     return days
   }
 
-  const getAttendanceStatus = (day: number) => {
+  const getAttendanceStatus = (day: number | null) => {
     if (!day) return null
     const dateKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`
     return attendanceData[dateKey as keyof typeof attendanceData]

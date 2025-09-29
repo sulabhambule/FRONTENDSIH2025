@@ -210,7 +210,7 @@ export function GenerateReportModal({
     }
   }
 
-  const selectedReportType = REPORT_TYPES.find(t => t.id === formData.type)
+  // const selectedReportType = REPORT_TYPES.find(t => t.id === formData.type)
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
