@@ -1,0 +1,660 @@
+{
+  "students": [
+    {
+      "id": "STU001",
+      "name": "Arjun Sharma",
+      "email": "arjun.sharma@student.college.edu",
+      "rollNumber": "CS21001",
+      "department": "Computer Science",
+      "year": 3,
+      "semester": 6,
+      "cgpa": 9.4,
+      "totalPoints": 2450,
+      "status": "active",
+      "profileImage": "/student-avatar-1.png",
+      "phone": "+91 9876543210",
+      "address": "123 Tech Street, Bangalore",
+      "parentContact": "+91 9876543211",
+      "admissionDate": "2021-08-15",
+      "activities": [
+        {
+          "id": "ACT001",
+          "title": "National Coding Championship Winner",
+          "type": "competition",
+          "domain": "Technical",
+          "points": 500,
+          "date": "2024-01-10",
+          "status": "approved",
+          "verifiedBy": "Dr. Priya Patel"
+        },
+        {
+          "id": "ACT002",
+          "title": "AI/ML Workshop Organizer",
+          "type": "workshop",
+          "domain": "Technical",
+          "points": 300,
+          "date": "2023-12-15",
+          "status": "approved",
+          "verifiedBy": "Dr. Rajesh Kumar"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ001",
+          "title": "Smart Campus Management System",
+          "description": "Full-stack web application for campus management",
+          "technologies": ["React", "Node.js", "MongoDB", "Express"],
+          "duration": "6 months",
+          "teamSize": 4,
+          "status": "completed"
+        }
+      ],
+      "internships": [
+        {
+          "id": "INT001",
+          "company": "Google",
+          "role": "Software Engineering Intern",
+          "duration": "3 months",
+          "stipend": 50000,
+          "certificate": true,
+          "status": "completed"
+        }
+      ],
+      "aiInsights": {
+        "strengths": ["Problem Solving", "Leadership", "Technical Skills"],
+        "weaknesses": ["Public Speaking", "Time Management"],
+        "recommendations": [
+          "Consider participating in debate competitions to improve public speaking",
+          "Join project management workshops to enhance time management skills"
+        ],
+        "careerFit": ["Software Engineer", "Product Manager", "Tech Lead"],
+        "placementReadiness": 95
+      }
+    },
+    {
+      "id": "STU002",
+      "name": "Sakshi Gupta",
+      "email": "sakshi.gupta@student.college.edu",
+      "rollNumber": "CS21002",
+      "department": "Computer Science",
+      "year": 4,
+      "semester": 8,
+      "cgpa": 9.6,
+      "totalPoints": 2650,
+      "status": "active",
+      "profileImage": "/student-avatar-2.png",
+      "phone": "+91 9876543212",
+      "address": "456 Innovation Park, Delhi",
+      "parentContact": "+91 9876543213",
+      "admissionDate": "2020-08-15",
+      "activities": [
+        {
+          "id": "ACT003",
+          "title": "Microsoft Imagine Cup Winner",
+          "type": "competition",
+          "domain": "Technical",
+          "points": 600,
+          "date": "2024-02-20",
+          "status": "approved",
+          "verifiedBy": "Dr. Anita Singh"
+        },
+        {
+          "id": "ACT004",
+          "title": "Google Summer of Code Participant",
+          "type": "internship",
+          "domain": "Technical",
+          "points": 400,
+          "date": "2023-08-30",
+          "status": "approved",
+          "verifiedBy": "Dr. Rajesh Kumar"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ002",
+          "title": "AI-Powered Study Assistant",
+          "description": "Machine learning application for personalized learning",
+          "technologies": ["Python", "TensorFlow", "React", "Flask"],
+          "duration": "8 months",
+          "teamSize": 2,
+          "status": "completed"
+        }
+      ],
+      "internships": [
+        {
+          "id": "INT002",
+          "company": "Microsoft",
+          "role": "Software Development Intern",
+          "duration": "3 months",
+          "stipend": 60000,
+          "certificate": true,
+          "status": "completed"
+        }
+      ],
+      "aiInsights": {
+        "strengths": ["Machine Learning", "Research", "Innovation"],
+        "weaknesses": ["Team Management", "Public Relations"],
+        "recommendations": [
+          "Lead more team projects to develop management skills",
+          "Join communication workshops"
+        ],
+        "careerFit": ["ML Engineer", "Research Scientist", "Tech Architect"],
+        "placementReadiness": 98
+      }
+    },
+    {
+      "id": "STU003",
+      "name": "Rohit Verma",
+      "email": "rohit.verma@student.college.edu",
+      "rollNumber": "ME21001",
+      "department": "Mechanical",
+      "year": 3,
+      "semester": 6,
+      "cgpa": 9.1,
+      "totalPoints": 2200,
+      "status": "active",
+      "profileImage": "/student-avatar-3.png",
+      "phone": "+91 9876543214",
+      "address": "789 Engineering Hub, Mumbai",
+      "parentContact": "+91 9876543215",
+      "admissionDate": "2021-08-15",
+      "activities": [
+        {
+          "id": "ACT005",
+          "title": "SAE Baja Winner",
+          "type": "competition",
+          "domain": "Technical",
+          "points": 450,
+          "date": "2024-01-25",
+          "status": "approved",
+          "verifiedBy": "Dr. Vikram Mehta"
+        },
+        {
+          "id": "ACT006",
+          "title": "Formula Student Team Captain",
+          "type": "leadership",
+          "domain": "Technical",
+          "points": 350,
+          "date": "2023-09-15",
+          "status": "approved",
+          "verifiedBy": "Dr. Sanjay Sharma"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ003",
+          "title": "Solar-Powered Vehicle",
+          "description": "Eco-friendly transportation solution",
+          "technologies": ["CAD", "Solar Tech", "Embedded Systems"],
+          "duration": "10 months",
+          "teamSize": 6,
+          "status": "completed"
+        }
+      ],
+      "internships": [
+        {
+          "id": "INT003",
+          "company": "Tata Motors",
+          "role": "Design Engineering Intern",
+          "duration": "2 months",
+          "stipend": 35000,
+          "certificate": true,
+          "status": "completed"
+        }
+      ],
+      "aiInsights": {
+        "strengths": ["Design Thinking", "Leadership", "Automotive Engineering"],
+        "weaknesses": ["Software Skills", "Data Analytics"],
+        "recommendations": [
+          "Learn CAD software and simulation tools",
+          "Participate in data analysis workshops"
+        ],
+        "careerFit": ["Automotive Engineer", "Design Engineer", "Project Manager"],
+        "placementReadiness": 85
+      }
+    },
+    {
+      "id": "STU004",
+      "name": "Priya Reddy",
+      "email": "priya.reddy@student.college.edu",
+      "rollNumber": "EC21045",
+      "department": "Electronics",
+      "year": 2,
+      "semester": 4,
+      "cgpa": 8.7,
+      "totalPoints": 1850,
+      "status": "active",
+      "profileImage": "/student-avatar-4.png",
+      "phone": "+91 9876543216",
+      "address": "456 Circuit Lane, Hyderabad",
+      "parentContact": "+91 9876543217",
+      "admissionDate": "2022-08-15",
+      "activities": [
+        {
+          "id": "ACT007",
+          "title": "Robotics Club President",
+          "type": "club",
+          "domain": "Technical",
+          "points": 400,
+          "date": "2023-09-01",
+          "status": "approved",
+          "verifiedBy": "Dr. Suresh Nair"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ004",
+          "title": "IoT Home Automation",
+          "description": "Smart home system using Arduino and sensors",
+          "technologies": ["Arduino", "IoT", "Python", "Mobile App"],
+          "duration": "4 months",
+          "teamSize": 3,
+          "status": "ongoing"
+        }
+      ],
+      "internships": [],
+      "aiInsights": {
+        "strengths": ["Innovation", "Team Collaboration", "Hardware Skills"],
+        "weaknesses": ["Software Development", "Data Analysis"],
+        "recommendations": [
+          "Take additional programming courses to strengthen software skills",
+          "Participate in data science workshops"
+        ],
+        "careerFit": ["Hardware Engineer", "IoT Developer", "Research Scientist"],
+        "placementReadiness": 78
+      }
+    },
+    {
+      "id": "STU005",
+      "name": "Aditya Kumar",
+      "email": "aditya.kumar@student.college.edu",
+      "rollNumber": "CS21003",
+      "department": "Computer Science",
+      "year": 2,
+      "semester": 4,
+      "cgpa": 8.9,
+      "totalPoints": 1950,
+      "status": "active",
+      "profileImage": "/student-avatar-5.png",
+      "phone": "+91 9876543218",
+      "address": "321 Code Street, Chennai",
+      "parentContact": "+91 9876543219",
+      "admissionDate": "2022-08-15",
+      "activities": [
+        {
+          "id": "ACT008",
+          "title": "Hackathon Winner - Smart India",
+          "type": "competition",
+          "domain": "Technical",
+          "points": 400,
+          "date": "2024-03-10",
+          "status": "approved",
+          "verifiedBy": "Dr. Priya Patel"
+        },
+        {
+          "id": "ACT009",
+          "title": "Open Source Contributor",
+          "type": "project",
+          "domain": "Technical",
+          "points": 250,
+          "date": "2023-11-20",
+          "status": "approved",
+          "verifiedBy": "Dr. Rajesh Kumar"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ005",
+          "title": "E-commerce Platform",
+          "description": "Full-stack online marketplace",
+          "technologies": ["React", "Node.js", "PostgreSQL", "Redis"],
+          "duration": "5 months",
+          "teamSize": 3,
+          "status": "completed"
+        }
+      ],
+      "internships": [],
+      "aiInsights": {
+        "strengths": ["Full-stack Development", "Problem Solving", "Quick Learning"],
+        "weaknesses": ["Leadership", "Communication"],
+        "recommendations": [
+          "Take leadership roles in projects",
+          "Join presentation and communication workshops"
+        ],
+        "careerFit": ["Full-stack Developer", "Backend Engineer", "Software Architect"],
+        "placementReadiness": 82
+      }
+    },
+    {
+      "id": "STU006",
+      "name": "Nisha Patel",
+      "email": "nisha.patel@student.college.edu",
+      "rollNumber": "CE21001",
+      "department": "Civil",
+      "year": 4,
+      "semester": 8,
+      "cgpa": 8.8,
+      "totalPoints": 2100,
+      "status": "active",
+      "profileImage": "/student-avatar-6.png",
+      "phone": "+91 9876543220",
+      "address": "654 Construction Ave, Pune",
+      "parentContact": "+91 9876543221",
+      "admissionDate": "2020-08-15",
+      "activities": [
+        {
+          "id": "ACT010",
+          "title": "Sustainable Building Design Competition Winner",
+          "type": "competition",
+          "domain": "Technical",
+          "points": 350,
+          "date": "2024-02-15",
+          "status": "approved",
+          "verifiedBy": "Dr. Ravi Agarwal"
+        },
+        {
+          "id": "ACT011",
+          "title": "Environmental Club Secretary",
+          "type": "club",
+          "domain": "Social Service",
+          "points": 200,
+          "date": "2023-07-01",
+          "status": "approved",
+          "verifiedBy": "Dr. Meera Joshi"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ006",
+          "title": "Smart City Infrastructure",
+          "description": "IoT-based urban planning solution",
+          "technologies": ["AutoCAD", "GIS", "IoT Sensors", "Data Analytics"],
+          "duration": "7 months",
+          "teamSize": 4,
+          "status": "completed"
+        }
+      ],
+      "internships": [
+        {
+          "id": "INT004",
+          "company": "L&T Construction",
+          "role": "Site Engineering Intern",
+          "duration": "2 months",
+          "stipend": 25000,
+          "certificate": true,
+          "status": "completed"
+        }
+      ],
+      "aiInsights": {
+        "strengths": ["Sustainable Design", "Project Planning", "Environmental Awareness"],
+        "weaknesses": ["Technology Integration", "Digital Tools"],
+        "recommendations": [
+          "Learn BIM and advanced CAD software",
+          "Participate in smart city technology workshops"
+        ],
+        "careerFit": ["Civil Engineer", "Urban Planner", "Sustainability Consultant"],
+        "placementReadiness": 80
+      }
+    },
+    {
+      "id": "STU007",
+      "name": "Vikram Singh",
+      "email": "vikram.singh@student.college.edu",
+      "rollNumber": "CS21004",
+      "department": "Computer Science",
+      "year": 1,
+      "semester": 2,
+      "cgpa": 8.5,
+      "totalPoints": 1200,
+      "status": "active",
+      "profileImage": "/student-avatar-7.png",
+      "phone": "+91 9876543222",
+      "address": "987 Fresher Lane, Kolkata",
+      "parentContact": "+91 9876543223",
+      "admissionDate": "2023-08-15",
+      "activities": [
+        {
+          "id": "ACT012",
+          "title": "Inter-College Programming Contest",
+          "type": "competition",
+          "domain": "Technical",
+          "points": 200,
+          "date": "2024-01-30",
+          "status": "approved",
+          "verifiedBy": "Dr. Priya Patel"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ007",
+          "title": "Student Portal Website",
+          "description": "Simple college information website",
+          "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+          "duration": "2 months",
+          "teamSize": 2,
+          "status": "completed"
+        }
+      ],
+      "internships": [],
+      "aiInsights": {
+        "strengths": ["Eagerness to Learn", "Basic Programming", "Adaptability"],
+        "weaknesses": ["Limited Experience", "Advanced Concepts"],
+        "recommendations": [
+          "Focus on building strong programming fundamentals",
+          "Participate in more coding competitions and workshops"
+        ],
+        "careerFit": ["Junior Developer", "Software Trainee", "IT Support"],
+        "placementReadiness": 45
+      }
+    },
+    {
+      "id": "STU008",
+      "name": "Ananya Joshi",
+      "email": "ananya.joshi@student.college.edu",
+      "rollNumber": "EC21046",
+      "department": "Electronics",
+      "year": 3,
+      "semester": 6,
+      "cgpa": 9.0,
+      "totalPoints": 2300,
+      "status": "active",
+      "profileImage": "/student-avatar-8.png",
+      "phone": "+91 9876543224",
+      "address": "147 Signal Street, Jaipur",
+      "parentContact": "+91 9876543225",
+      "admissionDate": "2021-08-15",
+      "activities": [
+        {
+          "id": "ACT013",
+          "title": "IEEE Student Branch Chair",
+          "type": "leadership",
+          "domain": "Technical",
+          "points": 400,
+          "date": "2023-08-01",
+          "status": "approved",
+          "verifiedBy": "Dr. Suresh Nair"
+        },
+        {
+          "id": "ACT014",
+          "title": "Electronics Innovation Challenge Winner",
+          "type": "competition",
+          "domain": "Technical",
+          "points": 350,
+          "date": "2024-01-15",
+          "status": "approved",
+          "verifiedBy": "Dr. Kavita Sharma"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ008",
+          "title": "Wireless Sensor Network",
+          "description": "Real-time environmental monitoring system",
+          "technologies": ["Zigbee", "Arduino", "LabVIEW", "MATLAB"],
+          "duration": "6 months",
+          "teamSize": 4,
+          "status": "completed"
+        }
+      ],
+      "internships": [
+        {
+          "id": "INT005",
+          "company": "Intel",
+          "role": "Hardware Design Intern",
+          "duration": "3 months",
+          "stipend": 45000,
+          "certificate": true,
+          "status": "completed"
+        }
+      ],
+      "aiInsights": {
+        "strengths": ["Hardware Design", "Leadership", "Research Skills"],
+        "weaknesses": ["Software Integration", "Market Analysis"],
+        "recommendations": [
+          "Learn embedded software development",
+          "Study market trends and product development"
+        ],
+        "careerFit": ["Hardware Engineer", "R&D Engineer", "Product Manager"],
+        "placementReadiness": 88
+      }
+    },
+    {
+      "id": "STU009",
+      "name": "Kartik Agrawal",
+      "email": "kartik.agrawal@student.college.edu",
+      "rollNumber": "CH21001",
+      "department": "Chemical",
+      "year": 2,
+      "semester": 4,
+      "cgpa": 8.3,
+      "totalPoints": 1650,
+      "status": "active",
+      "profileImage": "/student-avatar-9.png",
+      "phone": "+91 9876543226",
+      "address": "258 Process Lane, Vadodara",
+      "parentContact": "+91 9876543227",
+      "admissionDate": "2022-08-15",
+      "activities": [
+        {
+          "id": "ACT015",
+          "title": "Chemical Engineering Symposium Organizer",
+          "type": "workshop",
+          "domain": "Academic",
+          "points": 250,
+          "date": "2023-11-10",
+          "status": "approved",
+          "verifiedBy": "Dr. Ramesh Gupta"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ009",
+          "title": "Waste Water Treatment Optimization",
+          "description": "Process optimization for industrial wastewater",
+          "technologies": ["MATLAB", "Aspen Plus", "Lab Equipment"],
+          "duration": "4 months",
+          "teamSize": 3,
+          "status": "ongoing"
+        }
+      ],
+      "internships": [],
+      "aiInsights": {
+        "strengths": ["Process Engineering", "Problem Analysis", "Laboratory Skills"],
+        "weaknesses": ["Digital Tools", "Project Management"],
+        "recommendations": [
+          "Learn process simulation software",
+          "Develop project management skills through leadership roles"
+        ],
+        "careerFit": ["Process Engineer", "Quality Control Engineer", "Research Analyst"],
+        "placementReadiness": 65
+      }
+    },
+    {
+      "id": "STU010",
+      "name": "Shreya Malhotra",
+      "email": "shreya.malhotra@student.college.edu",
+      "rollNumber": "CS21005",
+      "department": "Computer Science",
+      "year": 4,
+      "semester": 8,
+      "cgpa": 9.2,
+      "totalPoints": 2400,
+      "status": "active",
+      "profileImage": "/student-avatar-10.png",
+      "phone": "+91 9876543228",
+      "address": "369 Developer Street, Ahmedabad",
+      "parentContact": "+91 9876543229",
+      "admissionDate": "2020-08-15",
+      "activities": [
+        {
+          "id": "ACT016",
+          "title": "Women in Tech Conference Speaker",
+          "type": "conference",
+          "domain": "Technical",
+          "points": 300,
+          "date": "2024-03-08",
+          "status": "approved",
+          "verifiedBy": "Dr. Anita Singh"
+        },
+        {
+          "id": "ACT017",
+          "title": "Cybersecurity Workshop Facilitator",
+          "type": "workshop",
+          "domain": "Technical",
+          "points": 200,
+          "date": "2023-10-25",
+          "status": "approved",
+          "verifiedBy": "Dr. Rajesh Kumar"
+        }
+      ],
+      "projects": [
+        {
+          "id": "PRJ010",
+          "title": "Blockchain Voting System",
+          "description": "Secure digital voting platform using blockchain",
+          "technologies": ["Solidity", "Ethereum", "React", "Web3.js"],
+          "duration": "6 months",
+          "teamSize": 3,
+          "status": "completed"
+        }
+      ],
+      "internships": [
+        {
+          "id": "INT006",
+          "company": "Amazon",
+          "role": "Security Engineering Intern",
+          "duration": "3 months",
+          "stipend": 55000,
+          "certificate": true,
+          "status": "completed"
+        }
+      ],
+      "aiInsights": {
+        "strengths": ["Cybersecurity", "Blockchain Technology", "Public Speaking"],
+        "weaknesses": ["Mobile Development", "UI/UX Design"],
+        "recommendations": [
+          "Learn mobile app development frameworks",
+          "Take courses in user experience design"
+        ],
+        "careerFit": ["Security Engineer", "Blockchain Developer", "Technical Consultant"],
+        "placementReadiness": 92
+      }
+    }
+  ],
+  "departments": ["Computer Science", "Electronics", "Mechanical", "Civil", "Chemical"],
+  "domains": [
+    { "id": "technical", "name": "Technical", "color": "#3b82f6" },
+    { "id": "cultural", "name": "Cultural", "color": "#10b981" },
+    { "id": "sports", "name": "Sports", "color": "#f59e0b" },
+    { "id": "social", "name": "Social Service", "color": "#ef4444" },
+    { "id": "academic", "name": "Academic", "color": "#8b5cf6" }
+  ],
+  "stats": {
+    "totalStudents": 2847,
+    "activeStudents": 2720,
+    "graduatedStudents": 127,
+    "averageCGPA": 8.2,
+    "topPerformers": 45,
+    "placementReady": 234
+  }
+}

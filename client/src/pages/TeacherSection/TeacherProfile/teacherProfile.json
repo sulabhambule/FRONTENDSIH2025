@@ -1,0 +1,94 @@
+{
+  "teacherInfo": {
+    "id": "T001",
+    "name": "Dr. Sarah Johnson",
+    "employeeId": "EMP2021001",
+    "department": "Computer Science",
+    "designation": "Associate Professor",
+    "email": "sarah.johnson@college.edu",
+    "phone": "+1-555-0123",
+    "joinDate": "2018-08-15",
+    "qualification": "Ph.D. in Computer Science",
+    "specialization": ["Machine Learning", "Data Structures", "Web Development"],
+    "experience": "8 years",
+    "profileImage": "/teacher-avatar.png"
+  },
+  "academicProfile": {
+    "totalStudentsGuided": 156,
+    "currentMentees": 12,
+    "researchPapers": 15,
+    "conferences": 8,
+    "awards": ["Best Teacher Award 2023", "Research Excellence Award 2022"],
+    "certifications": ["AWS Certified", "Google Cloud Professional", "Microsoft Azure Fundamentals"]
+  },
+  "studentFeedback": {
+    "averageRating": 4.7,
+    "totalReviews": 89,
+    "recentReviews": [
+      {
+        "id": 1,
+        "studentName": "Anonymous",
+        "rating": 5,
+        "comment": "Excellent teaching methodology. Very supportive and encouraging.",
+        "subject": "Data Structures",
+        "date": "2024-01-15",
+        "semester": "Fall 2023"
+      },
+      {
+        "id": 2,
+        "studentName": "Anonymous",
+        "rating": 4,
+        "comment": "Great mentor, always available for guidance.",
+        "subject": "Machine Learning",
+        "date": "2024-01-10",
+        "semester": "Fall 2023"
+      },
+      {
+        "id": 3,
+        "studentName": "Anonymous",
+        "rating": 5,
+        "comment": "Makes complex topics easy to understand.",
+        "subject": "Web Development",
+        "date": "2024-01-08",
+        "semester": "Fall 2023"
+      }
+    ]
+  },
+  "mentoredStudents": [
+    {
+      "id": "S001",
+      "name": "John Smith",
+      "rollNumber": "CS2021001",
+      "year": "3rd Year",
+      "branch": "Computer Science",
+      "mentorshipStart": "2023-08-01",
+      "status": "Active",
+      "performance": "Excellent",
+      "lastMeeting": "2024-01-20"
+    },
+    {
+      "id": "S002",
+      "name": "Emily Davis",
+      "rollNumber": "CS2021002",
+      "year": "3rd Year",
+      "branch": "Computer Science",
+      "mentorshipStart": "2023-08-01",
+      "status": "Active",
+      "performance": "Good",
+      "lastMeeting": "2024-01-18"
+    }
+  ],
+  "appraisalData": {
+    "currentYear": "2023-24",
+    "teachingScore": 4.7,
+    "researchScore": 4.2,
+    "serviceScore": 4.5,
+    "overallScore": 4.5,
+    "goals": ["Publish 3 research papers", "Complete advanced ML certification", "Mentor 15 students successfully"],
+    "achievements": [
+      "Published 2 research papers in Q1 journals",
+      "Completed AWS certification",
+      "Successfully mentored 12 students"
+    ]
+  }
+}

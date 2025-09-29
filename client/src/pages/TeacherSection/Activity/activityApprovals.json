@@ -1,0 +1,110 @@
+{
+  "pendingApprovals": [
+    {
+      "id": "1",
+      "studentName": "John Doe",
+      "rollNumber": "CS2021001",
+      "type": "competition",
+      "category": "National",
+      "title": "National Programming Contest 2024",
+      "description": "Participated in the National Programming Contest and secured 3rd position among 500+ participants",
+      "proofDocuments": [
+        { "name": "certificate.pdf", "url": "/docs/certificate.pdf", "type": "certificate" },
+        { "name": "participation_photo.jpg", "url": "/docs/photo.jpg", "type": "photo" }
+      ],
+      "submittedAt": "2024-01-15T10:30:00Z",
+      "priority": "high",
+      "aiVerification": {
+        "status": "verified",
+        "confidence": 95,
+        "findings": "Certificate appears authentic, event details verified online"
+      }
+    },
+    {
+      "id": "2",
+      "studentName": "Jane Smith",
+      "rollNumber": "CS2021002",
+      "type": "workshop",
+      "category": "Technical",
+      "title": "AWS Cloud Practitioner Workshop",
+      "description": "Completed 3-day intensive workshop on AWS Cloud services and obtained certification",
+      "proofDocuments": [{ "name": "aws_certificate.pdf", "url": "/docs/aws_cert.pdf", "type": "certificate" }],
+      "submittedAt": "2024-01-14T14:20:00Z",
+      "priority": "medium",
+      "aiVerification": {
+        "status": "verified",
+        "confidence": 92,
+        "findings": "AWS certificate verified through official channels"
+      }
+    },
+    {
+      "id": "3",
+      "studentName": "Mike Johnson",
+      "rollNumber": "CS2021003",
+      "type": "volunteer",
+      "category": "Community Service",
+      "title": "Teaching Underprivileged Children",
+      "description": "Volunteered for 40 hours teaching basic computer skills to underprivileged children at local NGO",
+      "proofDocuments": [
+        { "name": "volunteer_certificate.pdf", "url": "/docs/volunteer_cert.pdf", "type": "certificate" },
+        { "name": "activity_photos.zip", "url": "/docs/photos.zip", "type": "photos" }
+      ],
+      "submittedAt": "2024-01-13T09:15:00Z",
+      "priority": "medium",
+      "aiVerification": {
+        "status": "pending",
+        "confidence": 0,
+        "findings": "Manual verification required for volunteer activities"
+      }
+    },
+    {
+      "id": "4",
+      "studentName": "Alice Brown",
+      "rollNumber": "CS2021004",
+      "type": "course",
+      "category": "Online Learning",
+      "title": "Machine Learning Specialization - Coursera",
+      "description": "Completed comprehensive Machine Learning course by Stanford University on Coursera platform",
+      "proofDocuments": [
+        { "name": "coursera_certificate.pdf", "url": "/docs/coursera_cert.pdf", "type": "certificate" }
+      ],
+      "submittedAt": "2024-01-12T16:45:00Z",
+      "priority": "low",
+      "aiVerification": {
+        "status": "verified",
+        "confidence": 98,
+        "findings": "Coursera certificate verified through API integration"
+      }
+    }
+  ],
+  "approvedActivities": [
+    {
+      "id": "5",
+      "studentName": "Bob Wilson",
+      "rollNumber": "CS2021005",
+      "type": "competition",
+      "title": "Inter-College Hackathon Winner",
+      "approvedAt": "2024-01-10T11:30:00Z",
+      "approvedBy": "Dr. Sarah Johnson",
+      "points": 50
+    }
+  ],
+  "rejectedActivities": [
+    {
+      "id": "6",
+      "studentName": "Carol Davis",
+      "rollNumber": "CS2021006",
+      "type": "workshop",
+      "title": "Basic Excel Training",
+      "rejectedAt": "2024-01-08T14:20:00Z",
+      "rejectedBy": "Dr. Sarah Johnson",
+      "reason": "Does not meet technical skill requirements for computer science students"
+    }
+  ],
+  "stats": {
+    "totalPending": 4,
+    "totalApproved": 15,
+    "totalRejected": 3,
+    "avgProcessingTime": "2.5 days"
+  }
+}

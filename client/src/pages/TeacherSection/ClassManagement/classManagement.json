@@ -1,0 +1,67 @@
+{
+  "classes": [
+    {
+      "id": "1",
+      "name": "Data Structures",
+      "subject": "Computer Science",
+      "semester": "Fall 2024",
+      "studentCount": 45,
+      "schedule": "Mon, Wed, Fri 10:00 AM",
+      "averageAttendance": 88,
+      "averageMarks": 78
+    },
+    {
+      "id": "2",
+      "name": "Database Systems",
+      "subject": "Computer Science",
+      "semester": "Fall 2024",
+      "studentCount": 38,
+      "schedule": "Tue, Thu 2:00 PM",
+      "averageAttendance": 92,
+      "averageMarks": 82
+    },
+    {
+      "id": "3",
+      "name": "Web Development",
+      "subject": "Computer Science",
+      "semester": "Fall 2024",
+      "studentCount": 42,
+      "schedule": "Mon, Wed 3:00 PM",
+      "averageAttendance": 85,
+      "averageMarks": 75
+    }
+  ],
+  "students": [
+    { "id": "1", "name": "John Doe", "rollNumber": "CS2021001", "attendance": 90, "marks": 85 },
+    { "id": "2", "name": "Jane Smith", "rollNumber": "CS2021002", "attendance": 95, "marks": 92 },
+    { "id": "3", "name": "Mike Johnson", "rollNumber": "CS2021003", "attendance": 78, "marks": 70 }
+  ],
+  "assignments": [
+    {
+      "id": "1",
+      "title": "Binary Search Tree Implementation",
+      "classId": "1",
+      "dueDate": "2024-02-15",
+      "submissions": 35,
+      "totalStudents": 45,
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "title": "Database Design Project",
+      "classId": "2",
+      "dueDate": "2024-02-20",
+      "submissions": 28,
+      "totalStudents": 38,
+      "status": "active"
+    }
+  ],
+  "gradeDistribution": [
+    { "grade": "A+", "count": 8, "percentage": 18 },
+    { "grade": "A", "count": 12, "percentage": 27 },
+    { "grade": "B+", "count": 10, "percentage": 22 },
+    { "grade": "B", "count": 8, "percentage": 18 },
+    { "grade": "C+", "count": 5, "percentage": 11 },
+    { "grade": "C", "count": 2, "percentage": 4 }
+  ]
+}

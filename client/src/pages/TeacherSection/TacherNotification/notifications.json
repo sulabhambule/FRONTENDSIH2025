@@ -1,0 +1,174 @@
+{
+  "pendingTasks": [
+    {
+      "id": "PT001",
+      "type": "certificate_verification",
+      "title": "Certificate Verification Required",
+      "description": "Student John Smith submitted internship certificate for verification",
+      "studentName": "John Smith",
+      "studentId": "CS2021001",
+      "priority": "high",
+      "dueDate": "2024-01-25",
+      "submittedDate": "2024-01-20",
+      "status": "pending",
+      "documentUrl": "/certificates/internship_cert_001.pdf"
+    },
+    {
+      "id": "PT002",
+      "type": "assignment_check",
+      "title": "Assignment Grading Pending",
+      "description": "Data Structures Assignment 3 - 25 submissions pending review",
+      "subject": "Data Structures",
+      "class": "CS-3A",
+      "submissionCount": 25,
+      "priority": "medium",
+      "dueDate": "2024-01-28",
+      "submittedDate": "2024-01-22",
+      "status": "pending"
+    },
+    {
+      "id": "PT003",
+      "type": "attendance_upload",
+      "title": "Attendance Not Uploaded",
+      "description": "Weekly attendance for Machine Learning class not uploaded",
+      "subject": "Machine Learning",
+      "class": "CS-4B",
+      "week": "Week 3, January 2024",
+      "priority": "high",
+      "dueDate": "2024-01-26",
+      "status": "overdue"
+    },
+    {
+      "id": "PT004",
+      "type": "certificate_verification",
+      "title": "Workshop Certificate Review",
+      "description": "Emily Davis submitted AI workshop certificate",
+      "studentName": "Emily Davis",
+      "studentId": "CS2021002",
+      "priority": "low",
+      "dueDate": "2024-01-30",
+      "submittedDate": "2024-01-23",
+      "status": "pending",
+      "documentUrl": "/certificates/workshop_cert_002.pdf"
+    }
+  ],
+  "reminders": [
+    {
+      "id": "R001",
+      "type": "club_report",
+      "title": "Monthly Club Report Due",
+      "description": "Submit January monthly report for Programming Club",
+      "clubName": "Programming Club",
+      "dueDate": "2024-01-31",
+      "priority": "high",
+      "status": "upcoming",
+      "daysLeft": 5
+    },
+    {
+      "id": "R002",
+      "type": "grade_submission",
+      "title": "Grade Submission Deadline",
+      "description": "Final grades for Fall 2023 semester due",
+      "subject": "Data Structures",
+      "class": "CS-3A",
+      "dueDate": "2024-02-05",
+      "priority": "high",
+      "status": "upcoming",
+      "daysLeft": 10
+    },
+    {
+      "id": "R003",
+      "type": "meeting",
+      "title": "Faculty Meeting Scheduled",
+      "description": "Monthly faculty meeting - Department updates",
+      "location": "Conference Room A",
+      "dueDate": "2024-01-29",
+      "priority": "medium",
+      "status": "upcoming",
+      "daysLeft": 3
+    },
+    {
+      "id": "R004",
+      "type": "appraisal",
+      "title": "Self Appraisal Due",
+      "description": "Annual self-appraisal form submission deadline",
+      "dueDate": "2024-02-15",
+      "priority": "medium",
+      "status": "upcoming",
+      "daysLeft": 20
+    }
+  ],
+  "messages": [
+    {
+      "id": "M001",
+      "type": "student_query",
+      "from": "John Smith",
+      "fromId": "CS2021001",
+      "subject": "Doubt regarding Assignment 3",
+      "message": "Hello Professor, I have a doubt regarding the implementation of binary search tree in Assignment 3. Could you please clarify the deletion operation?",
+      "timestamp": "2024-01-24T10:30:00Z",
+      "status": "unread",
+      "priority": "medium",
+      "course": "Data Structures"
+    },
+    {
+      "id": "M002",
+      "type": "parent_communication",
+      "from": "Mrs. Emily Davis",
+      "fromId": "parent_002",
+      "subject": "Student Progress Inquiry",
+      "message": "Dear Professor Johnson, I would like to discuss my daughter Emily's progress in your Machine Learning course. Could we schedule a meeting?",
+      "timestamp": "2024-01-24T14:15:00Z",
+      "status": "unread",
+      "priority": "high",
+      "studentName": "Emily Davis",
+      "course": "Machine Learning"
+    },
+    {
+      "id": "M003",
+      "type": "announcement_feedback",
+      "from": "Michael Brown",
+      "fromId": "CS2022001",
+      "subject": "Thank you for the guidance",
+      "message": "Thank you for the career guidance session yesterday. It was very helpful in understanding the industry requirements.",
+      "timestamp": "2024-01-23T16:45:00Z",
+      "status": "read",
+      "priority": "low",
+      "course": "Mentorship"
+    },
+    {
+      "id": "M004",
+      "type": "club_communication",
+      "from": "Programming Club Members",
+      "fromId": "club_programming",
+      "subject": "Upcoming Hackathon Participation",
+      "message": "Professor, we would like to participate in the upcoming inter-college hackathon. Please approve our participation and guide us with the preparation.",
+      "timestamp": "2024-01-23T11:20:00Z",
+      "status": "read",
+      "priority": "medium",
+      "course": "Club Activity"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "A001",
+      "title": "Mid-term Exam Schedule Released",
+      "content": "The mid-term examination schedule for all courses has been released. Please check the academic portal for detailed timings.",
+      "targetAudience": "all_students",
+      "priority": "high",
+      "createdDate": "2024-01-20T09:00:00Z",
+      "expiryDate": "2024-02-15T23:59:59Z",
+      "status": "active"
+    },
+    {
+      "id": "A002",
+      "title": "Programming Contest Registration Open",
+      "content": "Registration is now open for the annual programming contest. Interested students can register through the club portal.",
+      "targetAudience": "programming_club",
+      "priority": "medium",
+      "createdDate": "2024-01-22T14:30:00Z",
+      "expiryDate": "2024-02-01T23:59:59Z",
+      "status": "active"
+    }
+  ]
+}

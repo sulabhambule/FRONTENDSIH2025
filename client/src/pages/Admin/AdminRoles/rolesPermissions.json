@@ -1,0 +1,150 @@
+{
+  "roles": [
+    {
+      "id": "admin",
+      "name": "System Administrator",
+      "description": "Full system access and control",
+      "color": "#ef4444",
+      "userCount": 2,
+      "permissions": [
+        "system.manage",
+        "users.create",
+        "users.edit",
+        "users.delete",
+        "roles.manage",
+        "reports.generate",
+        "data.export",
+        "settings.modify"
+      ]
+    },
+    {
+      "id": "dean",
+      "name": "Dean",
+      "description": "College-wide academic oversight",
+      "color": "#8b5cf6",
+      "userCount": 1,
+      "permissions": ["academics.manage", "teachers.approve", "students.manage", "reports.view", "approvals.final"]
+    },
+    {
+      "id": "hod",
+      "name": "Head of Department",
+      "description": "Department-level management",
+      "color": "#3b82f6",
+      "userCount": 8,
+      "permissions": [
+        "department.manage",
+        "teachers.assign",
+        "students.view",
+        "reports.department",
+        "approvals.department"
+      ]
+    },
+    {
+      "id": "faculty_advisor",
+      "name": "Faculty Advisor",
+      "description": "Student guidance and club advisory",
+      "color": "#10b981",
+      "userCount": 45,
+      "permissions": ["students.guide", "clubs.advise", "activities.approve", "reports.student"]
+    },
+    {
+      "id": "teacher",
+      "name": "Teacher",
+      "description": "Teaching and basic student interaction",
+      "color": "#f59e0b",
+      "userCount": 102,
+      "permissions": ["classes.manage", "attendance.mark", "grades.enter", "students.view"]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "system.manage",
+      "name": "System Management",
+      "description": "Full system administration access",
+      "category": "System"
+    },
+    {
+      "id": "users.create",
+      "name": "Create Users",
+      "description": "Add new users to the system",
+      "category": "User Management"
+    },
+    {
+      "id": "users.edit",
+      "name": "Edit Users",
+      "description": "Modify user information",
+      "category": "User Management"
+    },
+    {
+      "id": "users.delete",
+      "name": "Delete Users",
+      "description": "Remove users from system",
+      "category": "User Management"
+    },
+    {
+      "id": "roles.manage",
+      "name": "Manage Roles",
+      "description": "Create and modify user roles",
+      "category": "Role Management"
+    },
+    {
+      "id": "academics.manage",
+      "name": "Academic Management",
+      "description": "Oversee academic operations",
+      "category": "Academics"
+    },
+    {
+      "id": "teachers.approve",
+      "name": "Approve Teachers",
+      "description": "Approve teacher registrations",
+      "category": "Teacher Management"
+    },
+    {
+      "id": "students.manage",
+      "name": "Manage Students",
+      "description": "Full student record management",
+      "category": "Student Management"
+    },
+    {
+      "id": "reports.generate",
+      "name": "Generate Reports",
+      "description": "Create system reports",
+      "category": "Reports"
+    },
+    {
+      "id": "data.export",
+      "name": "Export Data",
+      "description": "Export system data",
+      "category": "Data Management"
+    }
+  ],
+  "userRoleAssignments": [
+    {
+      "userId": "USR001",
+      "userName": "Dr. Sarah Wilson",
+      "email": "sarah.wilson@college.edu",
+      "currentRole": "admin",
+      "department": "Administration",
+      "assignedBy": "System",
+      "assignedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "userId": "USR002",
+      "userName": "Dr. Rajesh Kumar",
+      "email": "rajesh.kumar@college.edu",
+      "currentRole": "dean",
+      "department": "Academic Affairs",
+      "assignedBy": "USR001",
+      "assignedAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "userId": "USR003",
+      "userName": "Dr. Priya Patel",
+      "email": "priya.patel@college.edu",
+      "currentRole": "hod",
+      "department": "Computer Science",
+      "assignedBy": "USR002",
+      "assignedAt": "2024-02-01T09:15:00Z"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "rollNumber": "CS2021001",
+      "email": "john.doe@college.edu",
+      "class": "Computer Science",
+      "semester": "6th Semester",
+      "avatar": "/placeholder.svg?height=40&width=40",
+      "cgpa": 8.5,
+      "attendance": 92,
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "rollNumber": "CS2021002",
+      "email": "jane.smith@college.edu",
+      "class": "Computer Science",
+      "semester": "6th Semester",
+      "avatar": "/placeholder.svg?height=40&width=40",
+      "cgpa": 9.2,
+      "attendance": 95,
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "name": "Mike Johnson",
+      "rollNumber": "CS2021003",
+      "email": "mike.johnson@college.edu",
+      "class": "Computer Science",
+      "semester": "6th Semester",
+      "avatar": "/placeholder.svg?height=40&width=40",
+      "cgpa": 7.8,
+      "attendance": 88,
+      "status": "active"
+    }
+  ],
+  "selectedStudentProfile": {
+    "id": "1",
+    "name": "John Doe",
+    "rollNumber": "CS2021001",
+    "email": "john.doe@college.edu",
+    "phone": "+91 9876543210",
+    "class": "Computer Science",
+    "semester": "6th Semester",
+    "batch": "2021-2025",
+    "avatar": "/placeholder.svg?height=100&width=100",
+    "cgpa": 8.5,
+    "attendance": 92,
+    "status": "active",
+    "academicRecords": [
+      { "semester": "1st", "cgpa": 8.2, "attendance": 90 },
+      { "semester": "2nd", "cgpa": 8.4, "attendance": 88 },
+      { "semester": "3rd", "cgpa": 8.1, "attendance": 92 },
+      { "semester": "4th", "cgpa": 8.7, "attendance": 94 },
+      { "semester": "5th", "cgpa": 8.6, "attendance": 91 },
+      { "semester": "6th", "cgpa": 8.5, "attendance": 92 }
+    ],
+    "subjectMarks": [
+      { "subject": "Data Structures", "marks": 85, "grade": "A", "credits": 4 },
+      { "subject": "Database Systems", "marks": 88, "grade": "A+", "credits": 4 },
+      { "subject": "Web Development", "marks": 82, "grade": "A", "credits": 3 },
+      { "subject": "Software Engineering", "marks": 90, "grade": "A+", "credits": 4 },
+      { "subject": "Computer Networks", "marks": 78, "grade": "B+", "credits": 3 }
+    ],
+    "clubActivities": [
+      {
+        "id": "1",
+        "clubName": "Programming Club",
+        "role": "President",
+        "joinDate": "2023-09-01",
+        "contributions": 8,
+        "achievements": ["Led 3 coding competitions", "Organized tech talks"]
+      },
+      {
+        "id": "2",
+        "clubName": "Tech Innovation Society",
+        "role": "Member",
+        "joinDate": "2023-10-15",
+        "contributions": 3,
+        "achievements": ["Participated in hackathons"]
+      }
+    ],
+    "competitions": [
+      {
+        "id": "1",
+        "name": "National Programming Contest 2024",
+        "type": "Competition",
+        "level": "National",
+        "position": "3rd Place",
+        "date": "2024-01-15",
+        "points": 50
+      },
+      {
+        "id": "2",
+        "name": "Inter-College Hackathon",
+        "type": "Competition",
+        "level": "Inter-College",
+        "position": "1st Place",
+        "date": "2024-01-10",
+        "points": 40
+      }
+    ],
+    "certifications": [
+      {
+        "id": "1",
+        "name": "AWS Cloud Practitioner",
+        "issuer": "Amazon Web Services",
+        "issueDate": "2024-01-12",
+        "expiryDate": "2027-01-12",
+        "verified": true
+      },
+      {
+        "id": "2",
+        "name": "Machine Learning Specialization",
+        "issuer": "Coursera - Stanford University",
+        "issueDate": "2023-12-20",
+        "expiryDate": null,
+        "verified": true
+      }
+    ],
+    "internships": [
+      {
+        "id": "1",
+        "company": "Tech Solutions Inc.",
+        "role": "Software Development Intern",
+        "duration": "3 months",
+        "startDate": "2023-06-01",
+        "endDate": "2023-08-31",
+        "description": "Worked on full-stack web development using React and Node.js",
+        "skills": ["React", "Node.js", "MongoDB", "Express.js"]
+      }
+    ],
+    "projects": [
+      {
+        "id": "1",
+        "title": "E-commerce Web Application",
+        "description": "Full-stack e-commerce platform with payment integration",
+        "technologies": ["React", "Node.js", "MongoDB", "Stripe API"],
+        "status": "Completed",
+        "githubUrl": "https://github.com/johndoe/ecommerce-app"
+      },
+      {
+        "id": "2",
+        "title": "Machine Learning Price Predictor",
+        "description": "ML model to predict house prices using regression algorithms",
+        "technologies": ["Python", "Scikit-learn", "Pandas", "Flask"],
+        "status": "In Progress",
+        "githubUrl": "https://github.com/johndoe/price-predictor"
+      }
+    ],
+    "aiAnalysis": {
+      "strengths": [
+        "Strong programming skills in multiple languages",
+        "Excellent leadership qualities demonstrated through club activities",
+        "Consistent academic performance with upward trend",
+        "Active participation in competitive programming"
+      ],
+      "areasForImprovement": [
+        "Could benefit from more industry exposure through internships",
+        "Consider exploring emerging technologies like AI/ML more deeply",
+        "Networking skills could be enhanced through more professional events"
+      ],
+      "careerRecommendations": [
+        "Software Development Engineer at top tech companies",
+        "Full-stack Developer roles in startups",
+        "Technical Lead positions after gaining experience",
+        "Consider pursuing higher studies in Computer Science"
+      ],
+      "skillGaps": [
+        "Cloud computing platforms (AWS, Azure)",
+        "DevOps and CI/CD practices",
+        "System design and architecture",
+        "Advanced data structures and algorithms"
+      ]
+    },
+    "teacherFeedback": [
+      {
+        "id": "1",
+        "teacherName": "Dr. Sarah Johnson",
+        "subject": "Data Structures",
+        "date": "2024-01-10",
+        "feedback": "John shows excellent problem-solving skills and is always eager to learn. His leadership in group projects is commendable.",
+        "rating": 4.5
+      },
+      {
+        "id": "2",
+        "teacherName": "Prof. Michael Brown",
+        "subject": "Database Systems",
+        "date": "2024-01-08",
+        "feedback": "Strong understanding of database concepts. Could improve on query optimization techniques.",
+        "rating": 4.0
+      }
+    ]
+  }
+}

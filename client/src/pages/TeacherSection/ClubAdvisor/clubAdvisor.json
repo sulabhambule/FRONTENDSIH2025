@@ -1,0 +1,120 @@
+{
+  "clubs": [
+    {
+      "id": "1",
+      "name": "Programming Club",
+      "description": "A club for coding enthusiasts and competitive programmers",
+      "memberCount": 25,
+      "activeMembers": 22,
+      "establishedDate": "2020-09-01",
+      "category": "Technical",
+      "status": "active"
+    },
+    {
+      "id": "2",
+      "name": "Tech Innovation Society",
+      "description": "Fostering innovation and entrepreneurship in technology",
+      "memberCount": 18,
+      "activeMembers": 16,
+      "establishedDate": "2021-01-15",
+      "category": "Innovation",
+      "status": "active"
+    }
+  ],
+  "members": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "rollNumber": "CS2021001",
+      "role": "President",
+      "joinDate": "2023-09-01",
+      "attendance": 95,
+      "contributions": 8,
+      "clubId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "rollNumber": "CS2021002",
+      "role": "Vice President",
+      "joinDate": "2023-09-01",
+      "attendance": 92,
+      "contributions": 6,
+      "clubId": "1"
+    },
+    {
+      "id": "3",
+      "name": "Mike Johnson",
+      "rollNumber": "CS2021003",
+      "role": "Secretary",
+      "joinDate": "2023-09-15",
+      "attendance": 88,
+      "contributions": 4,
+      "clubId": "1"
+    }
+  ],
+  "pendingApprovals": [
+    {
+      "id": "1",
+      "studentName": "Alice Brown",
+      "rollNumber": "CS2021004",
+      "activityType": "Certificate",
+      "title": "Hackathon Winner Certificate",
+      "description": "Won first place in Inter-College Hackathon 2024",
+      "proofUrl": "/certificates/hackathon-winner.pdf",
+      "submittedAt": "2024-01-15",
+      "clubId": "1",
+      "status": "pending"
+    },
+    {
+      "id": "2",
+      "studentName": "Bob Wilson",
+      "rollNumber": "CS2021005",
+      "activityType": "Event Participation",
+      "title": "Tech Talk Speaker",
+      "description": "Delivered a tech talk on Machine Learning basics",
+      "proofUrl": "/photos/tech-talk-speaker.jpg",
+      "submittedAt": "2024-01-14",
+      "clubId": "1",
+      "status": "pending"
+    }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "title": "Annual Coding Competition",
+      "date": "2024-02-20",
+      "type": "Competition",
+      "participants": 45,
+      "status": "upcoming",
+      "clubId": "1"
+    },
+    {
+      "id": "2",
+      "title": "AI/ML Workshop",
+      "date": "2024-02-15",
+      "type": "Workshop",
+      "participants": 30,
+      "status": "completed",
+      "clubId": "1"
+    }
+  ],
+  "monthlyReports": [
+    {
+      "id": "1",
+      "month": "January 2024",
+      "activitiesCount": 5,
+      "participantsCount": 78,
+      "status": "submitted",
+      "submittedAt": "2024-02-01"
+    },
+    {
+      "id": "2",
+      "month": "December 2023",
+      "activitiesCount": 3,
+      "participantsCount": 52,
+      "status": "submitted",
+      "submittedAt": "2024-01-01"
+    }
+  ]
+}

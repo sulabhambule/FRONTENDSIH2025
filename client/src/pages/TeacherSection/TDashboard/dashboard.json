@@ -1,0 +1,67 @@
+{
+  "stats": {
+    "totalClasses": 6,
+    "totalStudents": 180,
+    "clubsAsAdvisor": 2,
+    "pendingApprovals": 12,
+    "averageAttendance": 85
+  },
+  "assignedClasses": [
+    {
+      "id": "1",
+      "name": "Data Structures",
+      "subject": "Computer Science",
+      "semester": "Fall 2024",
+      "studentCount": 45,
+      "schedule": "Mon, Wed, Fri 10:00 AM"
+    },
+    {
+      "id": "2",
+      "name": "Database Systems",
+      "subject": "Computer Science",
+      "semester": "Fall 2024",
+      "studentCount": 38,
+      "schedule": "Tue, Thu 2:00 PM"
+    },
+    {
+      "id": "3",
+      "name": "Web Development",
+      "subject": "Computer Science",
+      "semester": "Fall 2024",
+      "studentCount": 42,
+      "schedule": "Mon, Wed 3:00 PM"
+    }
+  ],
+  "clubs": [
+    { "id": "1", "name": "Programming Club", "memberCount": 25 },
+    { "id": "2", "name": "Tech Innovation Society", "memberCount": 18 }
+  ],
+  "pendingApprovals": [
+    {
+      "id": "1",
+      "type": "Certificate",
+      "student": "John Doe",
+      "activity": "AWS Cloud Certification",
+      "submittedAt": "2024-01-15"
+    },
+    {
+      "id": "2",
+      "type": "Competition",
+      "student": "Jane Smith",
+      "activity": "National Coding Contest",
+      "submittedAt": "2024-01-14"
+    },
+    {
+      "id": "3",
+      "type": "Workshop",
+      "student": "Mike Johnson",
+      "activity": "AI/ML Workshop",
+      "submittedAt": "2024-01-13"
+    }
+  ],
+  "recentActivities": [
+    { "id": "1", "action": "Uploaded attendance for Data Structures", "time": "2 hours ago" },
+    { "id": "2", "action": "Approved certificate for John Doe", "time": "4 hours ago" },
+    { "id": "3", "action": "Generated class performance report", "time": "1 day ago" }
+  ]
+}

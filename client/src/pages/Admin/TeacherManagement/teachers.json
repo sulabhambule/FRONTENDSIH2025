@@ -1,0 +1,141 @@
+  {
+  "teachers": [
+    {
+      "id": "TCH001",
+      "name": "Dr. Priya Patel",
+      "email": "priya.patel@college.edu",
+      "employeeId": "EMP001",
+      "department": "Computer Science",
+      "designation": "Professor",
+      "experience": 12,
+      "qualification": "Ph.D. in Computer Science",
+      "specialization": ["Machine Learning", "Data Science", "AI"],
+      "subjects": ["Data Structures", "Machine Learning", "Database Systems"],
+      "clubsAdvised": ["AI/ML Club", "Coding Club"],
+      "studentsGuided": 45,
+      "approvalsPending": 8,
+      "approvalsCompleted": 156,
+      "rating": 4.9,
+      "status": "active",
+      "profileImage": "/teacher-avatar-1.png",
+      "phone": "+91 9876543210",
+      "address": "123 Faculty Street, Bangalore",
+      "joinDate": "2012-07-15",
+      "publications": [
+        {
+          "title": "Advanced Machine Learning Techniques in Education",
+          "journal": "IEEE Transactions on Education",
+          "year": 2023,
+          "citations": 45
+        },
+        {
+          "title": "Data-Driven Student Performance Analysis",
+          "journal": "Journal of Educational Technology",
+          "year": 2022,
+          "citations": 32
+        }
+      ],
+      "achievements": [
+        {
+          "title": "Best Faculty Award",
+          "year": 2023,
+          "organization": "College"
+        },
+        {
+          "title": "Research Excellence Award",
+          "year": 2022,
+          "organization": "University"
+        }
+      ],
+      "contributionMetrics": {
+        "teachingHours": 240,
+        "researchProjects": 5,
+        "studentsPlaced": 38,
+        "clubActivities": 12,
+        "workshopsConducted": 8,
+        "papersPublished": 3
+      }
+    },
+    {
+      "id": "TCH002",
+      "name": "Dr. Rajesh Kumar",
+      "email": "rajesh.kumar@college.edu",
+      "employeeId": "EMP002",
+      "department": "Electronics",
+      "designation": "Associate Professor",
+      "experience": 8,
+      "qualification": "Ph.D. in Electronics Engineering",
+      "specialization": ["VLSI Design", "Embedded Systems", "IoT"],
+      "subjects": ["Digital Electronics", "VLSI Design", "Microprocessors"],
+      "clubsAdvised": ["Robotics Club"],
+      "studentsGuided": 32,
+      "approvalsPending": 5,
+      "approvalsCompleted": 89,
+      "rating": 4.7,
+      "status": "active",
+      "profileImage": "/teacher-avatar-2.png",
+      "phone": "+91 9876543211",
+      "address": "456 Academic Lane, Hyderabad",
+      "joinDate": "2016-08-20",
+      "publications": [
+        {
+          "title": "IoT-based Smart Campus Solutions",
+          "journal": "International Journal of IoT",
+          "year": 2023,
+          "citations": 28
+        }
+      ],
+      "achievements": [
+        {
+          "title": "Innovation in Teaching Award",
+          "year": 2023,
+          "organization": "College"
+        }
+      ],
+      "contributionMetrics": {
+        "teachingHours": 200,
+        "researchProjects": 3,
+        "studentsPlaced": 28,
+        "clubActivities": 8,
+        "workshopsConducted": 5,
+        "papersPublished": 2
+      }
+    }
+  ],
+  "departments": ["Computer Science", "Electronics", "Mechanical", "Civil", "Chemical"],
+  "designations": ["Professor", "Associate Professor", "Assistant Professor", "Lecturer"],
+  "stats": {
+    "totalTeachers": 156,
+    "activeTeachers": 148,
+    "onLeave": 8,
+    "averageRating": 4.6,
+    "totalApprovalsPending": 47,
+    "totalStudentsGuided": 1245,
+    "totalClubsAdvised": 24,
+    "averageExperience": 9.2
+  },
+  "approvalSummary": [
+    {
+      "teacherId": "TCH001",
+      "teacherName": "Dr. Priya Patel",
+      "pendingApprovals": [
+        {
+          "id": "APP001",
+          "type": "activity",
+          "title": "National Hackathon Participation",
+          "studentName": "Arjun Sharma",
+          "submittedDate": "2024-01-10",
+          "priority": "high"
+        },
+        {
+          "id": "APP002",
+          "type": "project",
+          "title": "AI-based Chatbot Development",
+          "studentName": "Priya Reddy",
+          "submittedDate": "2024-01-08",
+          "priority": "medium"
+        }
+      ]
+    }
+  ]
+}

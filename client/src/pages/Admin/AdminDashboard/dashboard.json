@@ -1,0 +1,124 @@
+{
+  "systemStats": {
+    "totalStudents": 2847,
+    "totalTeachers": 156,
+    "totalClubs": 24,
+    "pendingApprovals": 47,
+    "totalActivities": 1523,
+    "averageCGPA": 8.2,
+    "placementRate": 87.5,
+    "activeProjects": 234
+  },
+  "bestPerformers": {
+    "student": {
+      "id": "STU001",
+      "name": "Arjun Sharma",
+      "department": "Computer Science",
+      "year": 3,
+      "totalPoints": 2450,
+      "activities": 28,
+      "cgpa": 9.4,
+      "profileImage": "/student-avatar.png"
+    },
+    "teacher": {
+      "id": "TCH001",
+      "name": "Dr. Priya Patel",
+      "department": "Electronics",
+      "studentsGuided": 45,
+      "clubsAdvised": 3,
+      "rating": 4.9,
+      "profileImage": "/teacher-avatar.png"
+    },
+    "department": {
+      "name": "Computer Science",
+      "totalPoints": 15420,
+      "students": 456,
+      "averageCGPA": 8.7,
+      "placementRate": 94.2
+    }
+  },
+  "recentActivities": [
+    {
+      "id": "ACT001",
+      "type": "approval",
+      "title": "New club registration approved",
+      "description": "AI & ML Club registration approved by Dean",
+      "timestamp": "2025-09-26T10:30:00Z",
+      "user": "Dr. Sarah Wilson"
+    },
+    {
+      "id": "ACT002",
+      "type": "achievement",
+      "title": "Student won national competition",
+      "description": "Rahul Kumar won 1st place in National Coding Championship",
+      "timestamp": "2025-09-26T09:15:00Z",
+      "user": "Rahul Kumar"
+    },
+    {
+      "id": "ACT003",
+      "type": "report",
+      "title": "NAAC report generated",
+      "description": "Annual NAAC compliance report generated successfully",
+      "timestamp": "2025-09-26T08:45:00Z",
+      "user": "System"
+    },
+    {
+      "id": "ACT004",
+      "type": "alert",
+      "title": "System maintenance scheduled",
+      "description": "Scheduled maintenance for database optimization",
+      "timestamp": "2025-09-25T18:00:00Z",
+      "user": "System Admin"
+    },
+    {
+      "id": "ACT005",
+      "type": "achievement",
+      "title": "Department excellence award",
+      "description": "Computer Science department received excellence award for innovation",
+      "timestamp": "2025-09-25T14:20:00Z",
+      "user": "Dr. Kumar Singh"
+    }
+  ],
+  "quickStats": [
+    {
+      "label": "Today's Approvals",
+      "value": 12,
+      "change": "+3",
+      "trend": "up"
+    },
+    {
+      "label": "New Registrations",
+      "value": 8,
+      "change": "+2",
+      "trend": "up"
+    },
+    {
+      "label": "Reports Generated",
+      "value": 5,
+      "change": "0",
+      "trend": "neutral"
+    },
+    {
+      "label": "System Alerts",
+      "value": 2,
+      "change": "-1",
+      "trend": "down"
+    }
+  ],
+  "chartData": {
+    "studentGrowth": [
+      { "month": "Aug", "students": 2650 },
+      { "month": "Sep", "students": 2720 },
+      { "month": "Oct", "students": 2780 },
+      { "month": "Nov", "students": 2820 },
+      { "month": "Dec", "students": 2847 }
+    ],
+    "activityDistribution": [
+      { "domain": "Technical", "count": 456, "color": "#3b82f6" },
+      { "domain": "Cultural", "count": 324, "color": "#10b981" },
+      { "domain": "Sports", "count": 287, "color": "#f59e0b" },
+      { "domain": "Social", "count": 234, "color": "#ef4444" },
+      { "domain": "Academic", "count": 222, "color": "#8b5cf6" }
+    ]
+  }
+}
