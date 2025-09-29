@@ -156,19 +156,19 @@ export function CreateRoleModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col bg-white/95 backdrop-blur-xl border-0 shadow-2xl">
-        <DialogHeader className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 -m-6 mb-6">
+      <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] overflow-hidden flex flex-col bg-white/95 backdrop-blur-xl border-0 shadow-2xl">
+        <DialogHeader className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 lg:p-6 -m-4 lg:-m-6 mb-4 lg:mb-6">
           <button
             onClick={handleClose}
-            className="absolute right-4 top-4 text-white/80 hover:text-white transition-colors"
+            className="absolute right-3 lg:right-4 top-3 lg:top-4 text-white/80 hover:text-white transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 lg:w-5 lg:h-5" />
           </button>
-          <DialogTitle className="text-xl font-semibold flex items-center space-x-2">
-            <Plus className="w-5 h-5" />
+          <DialogTitle className="text-lg lg:text-xl font-semibold flex items-center space-x-2 pr-8">
+            <Plus className="w-4 h-4 lg:w-5 lg:h-5" />
             <span>Create New Role</span>
           </DialogTitle>
-          <p className="text-blue-100 text-sm mt-2">
+          <p className="text-blue-100 text-xs lg:text-sm mt-2 pr-8">
             Define a new role with specific permissions for your organization
           </p>
         </DialogHeader>
@@ -176,13 +176,13 @@ export function CreateRoleModal({
         <div className="flex-1 overflow-y-auto">
           <div className="space-y-6">
             {/* Basic Information */}
-            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <h3 className="text-lg font-medium text-gray-900 mb-4 flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-blue-600" />
+            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-3 lg:p-4 border border-white/20">
+              <h3 className="text-base lg:text-lg font-medium text-gray-900 mb-3 lg:mb-4 flex items-center space-x-2">
+                <Shield className="w-4 h-4 lg:w-5 lg:h-5 text-blue-600" />
                 <span>Basic Information</span>
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
                 <div>
                   <Label htmlFor="roleName" className="text-sm font-medium text-gray-700">
                     Role Name *
@@ -200,18 +200,18 @@ export function CreateRoleModal({
                 </div>
 
                 <div>
-                  <Label className="text-sm font-medium text-gray-700">
+                  <Label className="text-xs lg:text-sm font-medium text-gray-700">
                     Role Color *
                   </Label>
-                  <div className="mt-1 flex flex-wrap gap-2">
+                  <div className="mt-1 flex flex-wrap gap-1 lg:gap-2">
                     {ROLE_COLORS.map((color) => (
                       <button
                         key={color}
                         type="button"
                         onClick={() => handleColorSelect(color)}
-                        className={`w-8 h-8 rounded-lg border-2 transition-all ${formData.color === color
-                            ? 'border-gray-800 scale-110'
-                            : 'border-gray-300 hover:border-gray-400'
+                        className={`w-6 h-6 lg:w-8 lg:h-8 rounded-md lg:rounded-lg border-2 transition-all ${formData.color === color
+                          ? 'border-gray-800 scale-110'
+                          : 'border-gray-300 hover:border-gray-400'
                           }`}
                         style={{ backgroundColor: color }}
                       />
@@ -238,13 +238,13 @@ export function CreateRoleModal({
             </div>
 
             {/* Permissions Selection */}
-            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-medium text-gray-900 flex items-center space-x-2">
-                  <Settings className="w-5 h-5 text-blue-600" />
+            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-3 lg:p-4 border border-white/20">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 mb-3 lg:mb-4">
+                <h3 className="text-base lg:text-lg font-medium text-gray-900 flex items-center space-x-2">
+                  <Settings className="w-4 h-4 lg:w-5 lg:h-5 text-blue-600" />
                   <span>Permissions</span>
                 </h3>
-                <Badge variant="secondary" className="bg-blue-100 text-blue-700">
+                <Badge variant="secondary" className="bg-blue-100 text-blue-700 text-xs lg:text-sm self-start sm:self-center">
                   {formData.permissions.length} selected
                 </Badge>
               </div>
@@ -275,11 +275,11 @@ export function CreateRoleModal({
                         </Badge>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-3">
                         {categoryPermissions.map((permission) => (
                           <div
                             key={permission.id}
-                            className="flex items-start space-x-3 p-2 rounded border border-gray-100 hover:bg-gray-50"
+                            className="flex items-start space-x-2 lg:space-x-3 p-2 rounded border border-gray-100 hover:bg-gray-50"
                           >
                             <Checkbox
                               id={permission.id}
@@ -289,14 +289,14 @@ export function CreateRoleModal({
                               }
                               className="mt-1"
                             />
-                            <div className="flex-1">
+                            <div className="flex-1 min-w-0">
                               <Label
                                 htmlFor={permission.id}
-                                className="text-sm font-medium text-gray-900 cursor-pointer"
+                                className="text-xs lg:text-sm font-medium text-gray-900 cursor-pointer block"
                               >
                                 {permission.name}
                               </Label>
-                              <p className="text-xs text-gray-600 mt-1">
+                              <p className="text-xs text-gray-600 mt-1 hidden sm:block">
                                 {permission.description}
                               </p>
                             </div>

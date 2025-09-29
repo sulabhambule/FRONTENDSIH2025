@@ -212,38 +212,38 @@ export function EnrollStudentModal({ isOpen, onClose, onSubmit, departments }: E
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-lg border border-blue-200/60 shadow-2xl">
-        <DialogHeader className="pb-6 border-b border-gray-200/60">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl">
-                <GraduationCap className="w-6 h-6 text-white" />
+      <DialogContent className="w-[95vw] max-w-3xl max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-lg border border-blue-200/60 shadow-2xl">
+        <DialogHeader className="pb-4 lg:pb-6 border-b border-gray-200/60">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+            <div className="flex items-center space-x-2 lg:space-x-3">
+              <div className="p-1.5 lg:p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg lg:rounded-xl">
+                <GraduationCap className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </div>
               <div>
-                <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                <DialogTitle className="text-lg lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Enroll New Student
                 </DialogTitle>
-                <p className="text-gray-600 mt-1">Add a new student to the college management system</p>
+                <p className="text-gray-600 mt-1 text-sm lg:text-base">Add a new student to the college management system</p>
               </div>
             </div>
-            <Badge className="bg-green-100 text-green-700 border border-green-200">
+            <Badge className="bg-green-100 text-green-700 border border-green-200 self-start sm:self-center text-xs lg:text-sm">
               Academic Year 2024-25
             </Badge>
           </div>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-8 py-6">
+        <form onSubmit={handleSubmit} className="space-y-6 lg:space-y-8 py-4 lg:py-6">
           {/* Personal Information */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2 pb-3 border-b border-gray-200/60">
-              <User className="w-5 h-5 text-blue-600" />
-              <h3 className="text-lg font-semibold text-gray-800">Personal Information</h3>
+          <div className="space-y-4 lg:space-y-6">
+            <div className="flex items-center space-x-2 pb-2 lg:pb-3 border-b border-gray-200/60">
+              <User className="w-4 h-4 lg:w-5 lg:h-5 text-blue-600" />
+              <h3 className="text-base lg:text-lg font-semibold text-gray-800">Personal Information</h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium text-gray-700 flex items-center space-x-1">
-                  <User className="w-4 h-4" />
+                <Label htmlFor="name" className="text-xs lg:text-sm font-medium text-gray-700 flex items-center space-x-1">
+                  <User className="w-3 h-3 lg:w-4 lg:h-4" />
                   <span>Full Name *</span>
                 </Label>
                 <Input
@@ -329,18 +329,18 @@ export function EnrollStudentModal({ isOpen, onClose, onSubmit, departments }: E
           </div>
 
           {/* Academic Information */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2 pb-3 border-b border-gray-200/60">
-              <BookOpen className="w-5 h-5 text-indigo-600" />
-              <h3 className="text-lg font-semibold text-gray-800">Academic Information</h3>
+          <div className="space-y-4 lg:space-y-6">
+            <div className="flex items-center space-x-2 pb-2 lg:pb-3 border-b border-gray-200/60">
+              <BookOpen className="w-4 h-4 lg:w-5 lg:h-5 text-indigo-600" />
+              <h3 className="text-base lg:text-lg font-semibold text-gray-800">Academic Information</h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 lg:space-y-6">
               {/* First row - Department (full width) */}
               <div className="grid grid-cols-1">
                 <div className="space-y-2">
-                  <Label htmlFor="department" className="text-sm font-medium text-gray-700 flex items-center space-x-1">
-                    <GraduationCap className="w-4 h-4" />
+                  <Label htmlFor="department" className="text-xs lg:text-sm font-medium text-gray-700 flex items-center space-x-1">
+                    <GraduationCap className="w-3 h-3 lg:w-4 lg:h-4" />
                     <span>Department *</span>
                   </Label>
                   <Select value={formData.department} onValueChange={(value) => handleInputChange("department", value)} disabled={isSubmitting}>
@@ -433,13 +433,13 @@ export function EnrollStudentModal({ isOpen, onClose, onSubmit, departments }: E
           </div>
         </form>
 
-        <DialogFooter className="pt-6 border-t border-gray-200/60 space-x-3">
+        <DialogFooter className="pt-4 lg:pt-6 border-t border-gray-200/60 flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
           <Button
             type="button"
             variant="outline"
             onClick={handleClose}
             disabled={isSubmitting}
-            className="bg-gray-50 hover:bg-gray-100 text-gray-700 border-gray-200"
+            className="bg-gray-50 hover:bg-gray-100 text-gray-700 border-gray-200 w-full sm:w-auto"
           >
             Cancel
           </Button>
@@ -447,7 +447,7 @@ export function EnrollStudentModal({ isOpen, onClose, onSubmit, departments }: E
             type="submit"
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg"
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg w-full sm:w-auto"
           >
             {isSubmitting ? (
               <div className="flex items-center space-x-2">

@@ -84,13 +84,13 @@ export function TeachersOverview({ stats }: TeachersOverviewProps) {
   ]
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {overviewCards.map((card, index) => (
         <Card key={index} className="bg-white border border-gray-200 rounded-lg p-4">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">{card.title}</p>
-              <p className="text-2xl font-semibold text-gray-900 mt-1">{card.value}</p>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-gray-600 truncate">{card.title}</p>
+              <p className="text-xl sm:text-2xl font-semibold text-gray-900 mt-1">{card.value}</p>
               <div className="mt-2">
                 <Badge
                   variant="secondary"
@@ -105,8 +105,8 @@ export function TeachersOverview({ stats }: TeachersOverviewProps) {
                 </Badge>
               </div>
             </div>
-            <div className={`w-12 h-12 ${card.color} rounded-lg flex items-center justify-center`}>
-              <card.icon className="w-6 h-6 text-white" />
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 ${card.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+              <card.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
           </div>
         </Card>

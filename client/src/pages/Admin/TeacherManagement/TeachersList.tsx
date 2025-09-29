@@ -52,19 +52,19 @@ export function TeachersList({ teachers, departments, designations, onViewTeache
 
 
   return (
-    <Card className="bg-white border border-gray-200 rounded-lg p-6">
-      <div className="flex items-center justify-between mb-4">
+    <Card className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 space-y-2 sm:space-y-0">
         <div>
           <h3 className="text-lg font-semibold text-gray-900">Faculty Directory</h3>
           <p className="text-sm text-gray-600">Manage and view all faculty records</p>
         </div>
-        <Badge variant="outline" className="border-gray-300 text-gray-600">
+        <Badge variant="outline" className="border-gray-300 text-gray-600 w-fit">
           {filteredTeachers.length} faculty
         </Badge>
       </div>
 
-      {/* Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+      {/* Filters - Responsive grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
           <Input
@@ -121,28 +121,28 @@ export function TeachersList({ teachers, departments, designations, onViewTeache
         </Button>
       </div>
 
-      {/* Teachers Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+      {/* Teachers Grid - Responsive grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {filteredTeachers.map((teacher) => (
           <Card key={teacher.id} className="bg-white border border-gray-200 rounded-lg p-4">
             <div className="flex items-start justify-between mb-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+              <div className="flex items-center space-x-3 flex-1 min-w-0">
+                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-semibold text-sm">
                     {teacher.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
                   </span>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">{teacher.name}</h4>
-                  <p className="text-sm text-gray-600">{teacher.employeeId}</p>
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-semibold text-gray-900 truncate">{teacher.name}</h4>
+                  <p className="text-sm text-gray-600 truncate">{teacher.employeeId}</p>
                 </div>
               </div>
-              <div className="flex space-x-1">
+              <div className="flex space-x-1 flex-shrink-0">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => onViewTeacher(teacher.id)}
-                  className="text-gray-500 hover:text-gray-700"
+                  className="text-gray-500 hover:text-gray-700 p-2"
                 >
                   <Eye className="w-4 h-4" />
                 </Button>
@@ -150,11 +150,11 @@ export function TeachersList({ teachers, departments, designations, onViewTeache
                   variant="ghost"
                   size="sm"
                   onClick={() => onEditTeacher(teacher.id)}
-                  className="text-gray-500 hover:text-gray-700"
+                  className="text-gray-500 hover:text-gray-700 p-2"
                 >
                   <Edit className="w-4 h-4" />
                 </Button>
-                <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700">
+                <Button variant="ghost" size="sm" className="text-gray-500 hover:text-gray-700 p-2">
                   <MoreHorizontal className="w-4 h-4" />
                 </Button>
               </div>

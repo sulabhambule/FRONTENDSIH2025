@@ -9,10 +9,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Bell, Settings, LogOut, User, Search } from "lucide-react"
+import { Bell, Settings, LogOut, User, Search, Menu } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
-export function AdminHeader() {
+interface AdminHeaderProps {
+  onToggleSidebar: () => void
+}
+
+export function AdminHeader({ onToggleSidebar }: AdminHeaderProps) {
   const navigate = useNavigate()
 
   // TODO: Replace with actual admin data from API
@@ -36,12 +40,20 @@ export function AdminHeader() {
     <header className="fixed top-0 z-50 w-full border-b border-blue-200 bg-gradient-to-r from-white via-blue-50 to-indigo-50 backdrop-blur-sm shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4">
         <div className="flex items-center space-x-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden hover:bg-blue-100 hover:text-blue-700"
+            onClick={onToggleSidebar}
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
           <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-sm">SH</span>
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+              <span className="text-white font-bold text-xs sm:text-sm">SH</span>
             </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
+            <div className="hidden sm:block">
+              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
                 Smart Student Hub
               </h1>
               <p className="text-xs text-blue-600/70">Admin Portal</p>
@@ -49,11 +61,14 @@ export function AdminHeader() {
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
-          <div className="relative hidden md:block">
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="relative hidden lg:block">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <Input placeholder="Search users, reports..." className="pl-10 w-64 border-blue-200 focus:border-blue-400" />
+            <Input placeholder="Search users, reports..." className="pl-10 w-48 xl:w-64 border-blue-200 focus:border-blue-400" />
           </div>
+          <Button variant="ghost" size="icon" className="lg:hidden hover:bg-blue-100 hover:text-blue-700">
+            <Search className="h-5 w-5" />
+          </Button>
 
           <Button variant="ghost" size="icon" className="relative hover:bg-blue-100 hover:text-blue-700">
             <Bell className="h-5 w-5" />

@@ -120,48 +120,50 @@ export function TeachersManagement() {
 
   if (view === "profile" && selectedTeacher) {
     return (
-      <div className="space-y-6">
-        <div className="flex items-center space-x-4 admin-fade-in">
-          <Button
-            variant="ghost"
-            onClick={handleBackToOverview}
-            className="text-admin-muted-foreground hover:text-admin-foreground"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Faculty
-          </Button>
+      <div className="min-h-screen bg-gray-50">
+        <div className="max-w-7xl mx-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
+          <div className="flex items-center space-x-4 admin-fade-in">
+            <Button
+              variant="ghost"
+              onClick={handleBackToOverview}
+              className="text-admin-muted-foreground hover:text-admin-foreground"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Faculty
+            </Button>
+          </div>
+          <TeacherProfile teacher={selectedTeacher} />
         </div>
-        <TeacherProfile teacher={selectedTeacher} />
       </div>
     )
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto p-6 space-y-6">
-        {/* Page Header */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
+        {/* Page Header - Responsive layout */}
+        <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
             <div>
-              <h1 className="text-2xl font-semibold text-gray-900">
+              <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">
                 Faculty Management
               </h1>
-              <p className="text-gray-600 mt-1">
+              <p className="text-sm sm:text-base text-gray-600 mt-1">
                 Manage faculty records and approvals
               </p>
             </div>
-            <div className="flex space-x-3">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
               <Button
                 onClick={handleNewAnnouncement}
                 variant="outline"
-                className="border-pink-200 text-pink-700 hover:bg-pink-50 px-4 py-2 rounded-md"
+                className="border-pink-200 text-pink-700 hover:bg-pink-50 px-4 py-2 rounded-md w-full sm:w-auto"
               >
                 <Megaphone className="w-4 h-4 mr-2" />
                 New Announcement
               </Button>
               <Button
                 onClick={handleAddFaculty}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md w-full sm:w-auto"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Faculty
@@ -173,18 +175,18 @@ export function TeachersManagement() {
         {/* Overview Stats */}
         <TeachersOverview stats={teachersData.stats} />
 
-        {/* Main Content Tabs */}
+        {/* Main Content Tabs - Responsive tabs */}
         <Tabs defaultValue="faculty">
-          <TabsList className="bg-white border border-gray-200 rounded-md">
+          <TabsList className="bg-white border border-gray-200 rounded-md w-full grid grid-cols-2">
             <TabsTrigger
               value="faculty"
-              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-4 py-2 rounded-sm"
+              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-2 sm:px-4 py-2 rounded-sm text-sm sm:text-base"
             >
               Faculty Directory
             </TabsTrigger>
             <TabsTrigger
               value="approvals"
-              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-4 py-2 rounded-sm"
+              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-2 sm:px-4 py-2 rounded-sm text-sm sm:text-base"
             >
               Approval Queue
             </TabsTrigger>

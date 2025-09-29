@@ -316,20 +316,20 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
               <p className="text-sm text-gray-600">Let's start with the essential details of your activity</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2">
-                <Label htmlFor="title" className="text-sm font-medium text-gray-700">Activity Title *</Label>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
+              <div className="lg:col-span-2">
+                <Label htmlFor="title" className="text-xs lg:text-sm font-medium text-gray-700">Activity Title *</Label>
                 <Input
                   id="title"
                   placeholder="e.g., Machine Learning Workshop at Google"
                   value={formData.title}
                   onChange={(e) => handleInputChange('title', e.target.value)}
-                  className="mt-1"
+                  className="mt-1 text-sm lg:text-base"
                 />
               </div>
 
               <div>
-                <Label htmlFor="category" className="text-sm font-medium text-gray-700">Category *</Label>
+                <Label htmlFor="category" className="text-xs lg:text-sm font-medium text-gray-700">Category *</Label>
                 <Select value={selectedCategory} onValueChange={setSelectedCategory}>
                   <SelectTrigger className="mt-1">
                     <SelectValue placeholder="Select category" />
@@ -416,20 +416,20 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
               <p className="text-sm text-gray-600">When did this activity take place?</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
               <div>
-                <Label htmlFor="startDate" className="text-sm font-medium text-gray-700">Start Date *</Label>
+                <Label htmlFor="startDate" className="text-xs lg:text-sm font-medium text-gray-700">Start Date *</Label>
                 <Input
                   id="startDate"
                   type="date"
                   value={formData.startDate}
                   onChange={(e) => handleInputChange('startDate', e.target.value)}
-                  className="mt-1"
+                  className="mt-1 text-sm lg:text-base"
                 />
               </div>
 
               <div>
-                <Label htmlFor="endDate" className="text-sm font-medium text-gray-700">End Date</Label>
+                <Label htmlFor="endDate" className="text-xs lg:text-sm font-medium text-gray-700">End Date</Label>
                 <Input
                   id="endDate"
                   type="date"
@@ -525,8 +525,8 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                           key={skill}
                           variant={selectedSkills.includes(skill) ? "default" : "outline"}
                           className={`cursor-pointer transition-colors ${selectedSkills.includes(skill)
-                              ? "bg-blue-600 text-white hover:bg-blue-700"
-                              : "border-gray-200 text-gray-600 hover:bg-gray-100"
+                            ? "bg-blue-600 text-white hover:bg-blue-700"
+                            : "border-gray-200 text-gray-600 hover:bg-gray-100"
                             }`}
                           onClick={() => handleSkillToggle(skill)}
                         >
@@ -711,32 +711,32 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-xl border border-white/20 shadow-xl">
-        <DialogHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 -m-6 mb-6 rounded-t-lg">
-          <DialogTitle className="text-xl font-semibold flex items-center gap-2">
-            <Plus className="w-5 h-5" />
+      <DialogContent className="w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-xl border border-white/20 shadow-xl">
+        <DialogHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 lg:p-6 -m-4 lg:-m-6 mb-4 lg:mb-6 rounded-t-lg">
+          <DialogTitle className="text-lg lg:text-xl font-semibold flex items-center gap-2">
+            <Plus className="w-4 h-4 lg:w-5 lg:h-5" />
             Add New Activity
           </DialogTitle>
-          <DialogDescription className="text-blue-100 mt-2">
+          <DialogDescription className="text-blue-100 mt-2 text-sm lg:text-base">
             Step {currentStep} of 4: Document your academic and extracurricular activities
           </DialogDescription>
         </DialogHeader>
 
         {/* Progress Indicator */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4 lg:mb-6">
           {[1, 2, 3, 4].map((step) => (
             <div key={step} className="flex items-center">
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${step <= currentStep
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-500"
+                className={`w-6 h-6 lg:w-8 lg:h-8 rounded-full flex items-center justify-center text-xs lg:text-sm font-medium ${step <= currentStep
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-500"
                   }`}
               >
                 {step}
               </div>
               {step < 4 && (
                 <div
-                  className={`w-16 h-1 ml-2 ${step < currentStep ? "bg-blue-600" : "bg-gray-200"
+                  className={`w-8 lg:w-16 h-1 ml-1 lg:ml-2 ${step < currentStep ? "bg-blue-600" : "bg-gray-200"
                     }`}
                 />
               )}
@@ -748,26 +748,36 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
         {renderStepContent()}
 
         {/* Navigation Buttons */}
-        <div className="flex justify-between pt-6 mt-6 border-t border-gray-200">
+        <div className="flex flex-col sm:flex-row justify-between pt-4 lg:pt-6 mt-4 lg:mt-6 border-t border-gray-200 gap-3 sm:gap-0">
           <div>
             {currentStep > 1 && (
-              <Button variant="outline" onClick={prevStep}>
+              <Button variant="outline" onClick={prevStep} className="w-full sm:w-auto text-sm lg:text-base">
                 Previous
               </Button>
             )}
           </div>
 
-          <div className="flex gap-2">
-            <Button variant="outline" onClick={() => setIsOpen(false)}>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Button
+              variant="outline"
+              onClick={() => setIsOpen(false)}
+              className="w-full sm:w-auto text-sm lg:text-base order-2 sm:order-1"
+            >
               Cancel
             </Button>
 
             {currentStep < 4 ? (
-              <Button onClick={nextStep} className="bg-blue-600 hover:bg-blue-700">
+              <Button
+                onClick={nextStep}
+                className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto text-sm lg:text-base order-1 sm:order-2"
+              >
                 Next
               </Button>
             ) : (
-              <Button onClick={handleSubmit} className="bg-green-600 hover:bg-green-700">
+              <Button
+                onClick={handleSubmit}
+                className="bg-green-600 hover:bg-green-700 w-full sm:w-auto text-sm lg:text-base order-1 sm:order-2"
+              >
                 Add Activity
               </Button>
             )}

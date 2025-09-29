@@ -177,12 +177,12 @@ export function Communication() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 lg:space-y-8">
       {/* Page Header */}
-      <div className="admin-fade-in flex justify-between items-start">
+      <div className="admin-fade-in flex flex-col sm:flex-row justify-between items-start gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-admin-foreground">Communication Center</h1>
-          <p className="text-admin-muted-foreground mt-2">
+          <h1 className="text-2xl lg:text-3xl font-bold text-admin-foreground">Communication Center</h1>
+          <p className="text-admin-muted-foreground mt-2 text-sm lg:text-base">
             Manage announcements and communicate with students and faculty
           </p>
         </div>
@@ -193,43 +193,45 @@ export function Communication() {
               New Announcement
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>Create New Announcement</DialogTitle>
-              <DialogDescription>Compose and schedule announcements for students and faculty</DialogDescription>
+              <DialogTitle className="text-base lg:text-xl">Create New Announcement</DialogTitle>
+              <DialogDescription className="text-xs lg:text-base">Compose and schedule announcements for students and faculty</DialogDescription>
             </DialogHeader>
-            <div className="space-y-6">
+            <div className="space-y-3 lg:space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="title">Title</Label>
+                <Label htmlFor="title" className="text-xs lg:text-sm">Title</Label>
                 <Input
                   id="title"
                   value={newAnnouncement.title}
                   onChange={(e) => setNewAnnouncement((prev) => ({ ...prev, title: e.target.value }))}
                   placeholder="Enter announcement title..."
+                  className="text-sm lg:text-base"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="content">Content</Label>
+                <Label htmlFor="content" className="text-xs lg:text-sm">Content</Label>
                 <Textarea
                   id="content"
                   value={newAnnouncement.content}
                   onChange={(e) => setNewAnnouncement((prev) => ({ ...prev, content: e.target.value }))}
                   placeholder="Write your announcement content..."
-                  rows={4}
+                  rows={3}
+                  className="text-sm lg:text-base min-h-[80px] lg:min-h-[100px]"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
                 <div className="space-y-2">
-                  <Label>Type</Label>
+                  <Label className="text-xs lg:text-sm">Type</Label>
                   <Select
                     value={newAnnouncement.type}
                     onValueChange={(value: Announcement["type"]) =>
                       setNewAnnouncement((prev) => ({ ...prev, type: value }))
                     }
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="text-sm lg:text-base">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -263,9 +265,9 @@ export function Communication() {
               </div>
 
               {newAnnouncement.targetAudience === "department" && (
-                <div className="space-y-3">
-                  <Label>Select Departments</Label>
-                  <div className="grid grid-cols-2 gap-2">
+                <div className="space-y-2 lg:space-y-3">
+                  <Label className="text-xs lg:text-sm">Select Departments</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 lg:gap-2">
                     {departments.map((dept) => (
                       <div key={dept} className="flex items-center space-x-2">
                         <Checkbox
@@ -293,21 +295,29 @@ export function Communication() {
               )}
 
               <div className="space-y-2">
-                <Label htmlFor="scheduled">Schedule For Later (Optional)</Label>
+                <Label htmlFor="scheduled" className="text-xs lg:text-sm">Schedule For Later (Optional)</Label>
                 <Input
                   id="scheduled"
                   type="datetime-local"
                   value={newAnnouncement.scheduledFor}
                   onChange={(e) => setNewAnnouncement((prev) => ({ ...prev, scheduledFor: e.target.value }))}
+                  className="text-sm lg:text-base"
                 />
               </div>
 
-              <div className="flex justify-end space-x-2">
-                <Button variant="outline" onClick={() => setNewAnnouncementDialog(false)}>
+              <div className="flex flex-col sm:flex-row justify-end gap-2 sm:gap-2 sm:space-x-0">
+                <Button
+                  variant="outline"
+                  onClick={() => setNewAnnouncementDialog(false)}
+                  className="w-full sm:w-auto text-sm lg:text-base"
+                >
                   Cancel
                 </Button>
-                <Button onClick={handleCreateAnnouncement}>
-                  <Send className="h-4 w-4 mr-2" />
+                <Button
+                  onClick={handleCreateAnnouncement}
+                  className="w-full sm:w-auto text-sm lg:text-base"
+                >
+                  <Send className="h-3 w-3 lg:h-4 lg:w-4 mr-2" />
                   {newAnnouncement.scheduledFor ? "Schedule" : "Send Now"}
                 </Button>
               </div>
@@ -317,25 +327,25 @@ export function Communication() {
       </div>
 
       {/* Communication Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 admin-fade-in">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 admin-fade-in">
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4 lg:p-6">
             <div className="flex items-center space-x-2">
-              <MessageSquare className="h-5 w-5 text-blue-500" />
+              <MessageSquare className="h-4 w-4 lg:h-5 lg:w-5 text-blue-500" />
               <div>
-                <p className="text-sm font-medium text-admin-muted-foreground">Total Announcements</p>
-                <p className="text-2xl font-bold text-admin-foreground">{announcements.length}</p>
+                <p className="text-xs lg:text-sm font-medium text-admin-muted-foreground">Total Announcements</p>
+                <p className="text-lg lg:text-2xl font-bold text-admin-foreground">{announcements.length}</p>
               </div>
             </div>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4 lg:p-6">
             <div className="flex items-center space-x-2">
-              <Send className="h-5 w-5 text-green-500" />
+              <Send className="h-4 w-4 lg:h-5 lg:w-5 text-green-500" />
               <div>
-                <p className="text-sm font-medium text-admin-muted-foreground">Sent This Month</p>
-                <p className="text-2xl font-bold text-admin-foreground">
+                <p className="text-xs lg:text-sm font-medium text-admin-muted-foreground">Sent This Month</p>
+                <p className="text-lg lg:text-2xl font-bold text-admin-foreground">
                   {announcements.filter((a) => a.status === "sent").length}
                 </p>
               </div>
@@ -343,12 +353,12 @@ export function Communication() {
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4 lg:p-6">
             <div className="flex items-center space-x-2">
-              <Clock className="h-5 w-5 text-yellow-500" />
+              <Clock className="h-4 w-4 lg:h-5 lg:w-5 text-yellow-500" />
               <div>
-                <p className="text-sm font-medium text-admin-muted-foreground">Scheduled</p>
-                <p className="text-2xl font-bold text-admin-foreground">
+                <p className="text-xs lg:text-sm font-medium text-admin-muted-foreground">Scheduled</p>
+                <p className="text-lg lg:text-2xl font-bold text-admin-foreground">
                   {announcements.filter((a) => a.status === "scheduled").length}
                 </p>
               </div>
@@ -356,12 +366,12 @@ export function Communication() {
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4 lg:p-6">
             <div className="flex items-center space-x-2">
-              <Users className="h-5 w-5 text-purple-500" />
+              <Users className="h-4 w-4 lg:h-5 lg:w-5 text-purple-500" />
               <div>
-                <p className="text-sm font-medium text-admin-muted-foreground">Total Reach</p>
-                <p className="text-2xl font-bold text-admin-foreground">{studentsData.students.length + 45}</p>
+                <p className="text-xs lg:text-sm font-medium text-admin-muted-foreground">Total Reach</p>
+                <p className="text-lg lg:text-2xl font-bold text-admin-foreground">{studentsData.students.length + 45}</p>
               </div>
             </div>
           </CardContent>
@@ -370,18 +380,18 @@ export function Communication() {
 
       {/* Announcements Management */}
       <Card className="admin-fade-in">
-        <CardHeader>
-          <div className="flex justify-between items-center">
+        <CardHeader className="p-4 lg:p-6">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
             <div>
-              <CardTitle className="flex items-center">
-                <Megaphone className="h-5 w-5 mr-2" />
+              <CardTitle className="flex items-center text-lg lg:text-xl">
+                <Megaphone className="h-4 w-4 lg:h-5 lg:w-5 mr-2" />
                 Announcements
               </CardTitle>
-              <CardDescription>Manage and track all announcements</CardDescription>
+              <CardDescription className="text-sm lg:text-base">Manage and track all announcements</CardDescription>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
               <Select value={filterStatus} onValueChange={setFilterStatus}>
-                <SelectTrigger className="w-[130px]">
+                <SelectTrigger className="w-full sm:w-[130px]">
                   <SelectValue placeholder="Status" />
                 </SelectTrigger>
                 <SelectContent>
@@ -392,7 +402,7 @@ export function Communication() {
                 </SelectContent>
               </Select>
               <Select value={filterType} onValueChange={setFilterType}>
-                <SelectTrigger className="w-[130px]">
+                <SelectTrigger className="w-full sm:w-[130px]">
                   <SelectValue placeholder="Type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -409,24 +419,28 @@ export function Communication() {
         <CardContent>
           <div className="space-y-4">
             {filteredAnnouncements.map((announcement) => (
-              <div key={announcement.id} className="p-4 border rounded-lg hover:bg-admin-accent/20 transition-colors">
-                <div className="flex justify-between items-start mb-3">
-                  <div className="flex items-center space-x-2">
-                    <h3 className="font-semibold text-admin-foreground">{announcement.title}</h3>
-                    <Badge className={getTypeColor(announcement.type)}>
-                      {getTypeIcon(announcement.type)}
-                      <span className="ml-1">{announcement.type}</span>
-                    </Badge>
-                    <Badge className={getStatusColor(announcement.status)}>{announcement.status}</Badge>
+              <div key={announcement.id} className="p-3 lg:p-4 border rounded-lg hover:bg-admin-accent/20 transition-colors">
+                <div className="flex flex-col lg:flex-row justify-between items-start mb-3 gap-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                    <h3 className="font-semibold text-admin-foreground text-sm lg:text-base">{announcement.title}</h3>
+                    <div className="flex gap-1">
+                      <Badge className={getTypeColor(announcement.type)}>
+                        {getTypeIcon(announcement.type)}
+                        <span className="ml-1 text-xs">{announcement.type}</span>
+                      </Badge>
+                      <Badge className={getStatusColor(announcement.status)}>
+                        <span className="text-xs">{announcement.status}</span>
+                      </Badge>
+                    </div>
                   </div>
-                  <div className="text-right text-sm text-admin-muted-foreground">
+                  <div className="text-left lg:text-right text-xs lg:text-sm text-admin-muted-foreground">
                     <p>{new Date(announcement.createdAt).toLocaleDateString()}</p>
                     <p>{getAudienceCount(announcement)} recipients</p>
                   </div>
                 </div>
-                <p className="text-admin-muted-foreground mb-3">{announcement.content}</p>
-                <div className="flex justify-between items-center text-sm">
-                  <div className="flex items-center space-x-4">
+                <p className="text-admin-muted-foreground mb-3 text-sm lg:text-base">{announcement.content}</p>
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 text-xs lg:text-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                     <span className="text-admin-muted-foreground">
                       Target: {announcement.targetAudience}
                       {announcement.targetDepartments && ` (${announcement.targetDepartments.join(", ")})`}

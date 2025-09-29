@@ -51,13 +51,13 @@ export function ApprovalsSummary({ approvals, onApprove, onReject }: ApprovalsSu
   const totalPendingApprovals = approvals.reduce((total, teacher) => total + teacher.pendingApprovals.length, 0)
 
   return (
-    <Card className="admin-metric-card p-6 admin-fade-in">
-      <div className="flex items-center justify-between mb-6">
+    <Card className="admin-metric-card p-4 sm:p-6 admin-fade-in">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 space-y-2 sm:space-y-0">
         <div>
           <h3 className="text-lg font-semibold text-admin-foreground">Pending Approvals</h3>
           <p className="text-sm text-admin-muted-foreground">Faculty approval queue management</p>
         </div>
-        <Badge variant="outline" className="border-admin-border text-admin-muted-foreground">
+        <Badge variant="outline" className="border-admin-border text-admin-muted-foreground w-fit">
           {totalPendingApprovals} pending
         </Badge>
       </div>
@@ -66,30 +66,30 @@ export function ApprovalsSummary({ approvals, onApprove, onReject }: ApprovalsSu
         {approvals.map((teacherApproval) => (
           <div key={teacherApproval.teacherId}>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-admin-primary rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-admin-primary rounded-full flex items-center justify-center flex-shrink-0">
                 <User className="w-4 h-4 text-white" />
               </div>
-              <div>
-                <h4 className="font-medium text-admin-foreground">{teacherApproval.teacherName}</h4>
+              <div className="min-w-0 flex-1">
+                <h4 className="font-medium text-admin-foreground truncate">{teacherApproval.teacherName}</h4>
                 <p className="text-sm text-admin-muted-foreground">
                   {teacherApproval.pendingApprovals.length} pending approvals
                 </p>
               </div>
             </div>
 
-            <div className="space-y-3 ml-11">
+            <div className="space-y-3 sm:ml-11">
               {teacherApproval.pendingApprovals.map((approval) => (
                 <div
                   key={approval.id}
-                  className="flex items-center justify-between p-4 rounded-lg border border-admin-border hover:bg-admin-secondary/30 transition-colors"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-lg border border-admin-border hover:bg-admin-secondary/30 transition-colors space-y-3 sm:space-y-0"
                 >
-                  <div className="flex items-start space-x-3">
+                  <div className="flex items-start space-x-3 flex-1 min-w-0">
                     {getTypeIcon(approval.type)}
-                    <div>
-                      <h5 className="font-medium text-admin-foreground">{approval.title}</h5>
-                      <p className="text-sm text-admin-muted-foreground">by {approval.studentName}</p>
+                    <div className="min-w-0 flex-1">
+                      <h5 className="font-medium text-admin-foreground truncate">{approval.title}</h5>
+                      <p className="text-sm text-admin-muted-foreground truncate">by {approval.studentName}</p>
                       <div className="flex items-center space-x-2 mt-1">
-                        <Calendar className="w-3 h-3 text-admin-muted-foreground" />
+                        <Calendar className="w-3 h-3 text-admin-muted-foreground flex-shrink-0" />
                         <span className="text-xs text-admin-muted-foreground">
                           Submitted {formatDate(approval.submittedDate)}
                         </span>
@@ -97,13 +97,13 @@ export function ApprovalsSummary({ approvals, onApprove, onReject }: ApprovalsSu
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-3">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
                     {getPriorityBadge(approval.priority)}
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-2 w-full sm:w-auto">
                       <Button
                         size="sm"
                         onClick={() => onApprove(approval.id)}
-                        className="bg-admin-success hover:bg-admin-success/90 text-white"
+                        className="bg-admin-success hover:bg-admin-success/90 text-white flex-1 sm:flex-none"
                       >
                         Approve
                       </Button>
@@ -111,7 +111,7 @@ export function ApprovalsSummary({ approvals, onApprove, onReject }: ApprovalsSu
                         size="sm"
                         variant="outline"
                         onClick={() => onReject(approval.id)}
-                        className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+                        className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white flex-1 sm:flex-none"
                       >
                         Reject
                       </Button>

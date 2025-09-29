@@ -53,13 +53,13 @@ export function UserRoleAssignments({ assignments, roles, onRoleChange }: UserRo
   }
 
   return (
-    <Card className="bg-white border border-gray-200 rounded-lg p-6">
-      <div className="flex items-center justify-between mb-4">
+    <Card className="bg-white border border-gray-200 rounded-lg p-4 lg:p-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 mb-4">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">User Role Assignments</h3>
-          <p className="text-sm text-gray-600">Manage user roles and permissions</p>
+          <h3 className="text-base lg:text-lg font-semibold text-gray-900">User Role Assignments</h3>
+          <p className="text-xs lg:text-sm text-gray-600">Manage user roles and permissions</p>
         </div>
-        <Badge variant="outline" className="border-gray-300 text-gray-600">
+        <Badge variant="outline" className="border-gray-300 text-gray-600 self-start sm:self-center">
           {filteredAssignments.length} users
         </Badge>
       </div>
@@ -97,18 +97,18 @@ export function UserRoleAssignments({ assignments, roles, onRoleChange }: UserRo
           return (
             <div
               key={assignment.userId}
-              className="flex items-center justify-between p-4 rounded-lg border border-gray-200 hover:bg-gray-50"
+              className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 p-3 lg:p-4 rounded-lg border border-gray-200 hover:bg-gray-50"
             >
-              <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">
+              <div className="flex items-center space-x-3 lg:space-x-4 min-w-0 flex-1">
+                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-semibold text-xs lg:text-sm">
                     {assignment.userName.split(' ').map(n => n[0]).join('').substring(0, 2)}
                   </span>
                 </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">{assignment.userName}</h4>
-                  <p className="text-sm text-gray-600">{assignment.email}</p>
-                  <div className="flex items-center space-x-4 mt-1">
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-medium text-gray-900 text-sm lg:text-base truncate">{assignment.userName}</h4>
+                  <p className="text-xs lg:text-sm text-gray-600 truncate">{assignment.email}</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mt-1 gap-1 sm:gap-0">
                     <span className="text-xs text-gray-500">{assignment.department}</span>
                     <span className="text-xs text-gray-500">
                       Assigned {formatDate(assignment.assignedAt)}
@@ -117,15 +117,15 @@ export function UserRoleAssignments({ assignments, roles, onRoleChange }: UserRo
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4">
-                <Badge className="text-white" style={{ backgroundColor: roleInfo?.color || "#6b7280" }}>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 lg:flex-shrink-0">
+                <Badge className="text-white text-xs lg:text-sm self-start sm:self-center" style={{ backgroundColor: roleInfo?.color || "#6b7280" }}>
                   {roleInfo?.name || assignment.currentRole}
                 </Badge>
                 <Select
                   value={assignment.currentRole}
                   onValueChange={(newRole) => onRoleChange(assignment.userId, newRole)}
                 >
-                  <SelectTrigger className="w-40 bg-white border-gray-300 text-gray-900">
+                  <SelectTrigger className="w-full sm:w-40 bg-white border-gray-300 text-gray-900">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-gray-200">

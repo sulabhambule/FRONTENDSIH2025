@@ -160,12 +160,12 @@ export function ReportsAnalytics() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 lg:space-y-8">
       {/* Page Header */}
-      <div className="admin-fade-in flex justify-between items-start">
+      <div className="admin-fade-in flex flex-col sm:flex-row justify-between items-start gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-admin-foreground">Reports & Analytics</h1>
-          <p className="text-admin-muted-foreground mt-2">
+          <h1 className="text-2xl lg:text-3xl font-bold text-admin-foreground">Reports & Analytics</h1>
+          <p className="text-admin-muted-foreground mt-2 text-sm lg:text-base">
             Generate comprehensive reports and analyze performance data
           </p>
         </div>
@@ -176,12 +176,12 @@ export function ReportsAnalytics() {
               Generate Report
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-2xl">
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto mx-4">
             <DialogHeader>
-              <DialogTitle>Generate New Report</DialogTitle>
-              <DialogDescription>Configure filters and settings for your custom report</DialogDescription>
+              <DialogTitle className="text-lg lg:text-xl">Generate New Report</DialogTitle>
+              <DialogDescription className="text-sm lg:text-base">Configure filters and settings for your custom report</DialogDescription>
             </DialogHeader>
-            <div className="space-y-6">
+            <div className="space-y-4 lg:space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="title">Report Title</Label>
                 <Input
@@ -211,7 +211,7 @@ export function ReportsAnalytics() {
                 </Select>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Start Date</Label>
                   <Input
@@ -304,28 +304,28 @@ export function ReportsAnalytics() {
       </div>
 
       {/* Analytics Overview */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 admin-fade-in">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 admin-fade-in">
         <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <BarChart3 className="h-5 w-5 mr-2" />
+          <CardHeader className="p-4 lg:p-6">
+            <CardTitle className="flex items-center text-lg lg:text-xl">
+              <BarChart3 className="h-4 w-4 lg:h-5 lg:w-5 mr-2" />
               Department-wise Analysis
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+          <CardContent className="p-4 lg:p-6 pt-0">
+            <div className="space-y-3 lg:space-y-4">
               {analyticsData.departmentWise.map((dept) => (
                 <div
                   key={dept.department}
-                  className="flex justify-between items-center p-3 bg-admin-accent/20 rounded-lg"
+                  className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-3 bg-admin-accent/20 rounded-lg gap-2"
                 >
                   <div>
-                    <p className="font-medium text-admin-foreground">{dept.department}</p>
-                    <p className="text-sm text-admin-muted-foreground">{dept.students} students</p>
+                    <p className="font-medium text-admin-foreground text-sm lg:text-base">{dept.department}</p>
+                    <p className="text-xs lg:text-sm text-admin-muted-foreground">{dept.students} students</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm font-medium">{dept.avgPoints} avg points</p>
-                    <p className="text-sm text-admin-muted-foreground">{dept.avgCGPA} CGPA</p>
+                  <div className="text-left sm:text-right">
+                    <p className="text-xs lg:text-sm font-medium">{dept.avgPoints} avg points</p>
+                    <p className="text-xs lg:text-sm text-admin-muted-foreground">{dept.avgCGPA} CGPA</p>
                   </div>
                 </div>
               ))}
@@ -334,21 +334,21 @@ export function ReportsAnalytics() {
         </Card>
 
         <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <PieChart className="h-5 w-5 mr-2" />
+          <CardHeader className="p-4 lg:p-6">
+            <CardTitle className="flex items-center text-lg lg:text-xl">
+              <PieChart className="h-4 w-4 lg:h-5 lg:w-5 mr-2" />
               Activity Distribution
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+          <CardContent className="p-4 lg:p-6 pt-0">
+            <div className="space-y-3 lg:space-y-4">
               {analyticsData.domainWise.map((domain) => (
                 <div
                   key={domain.domain}
                   className="flex justify-between items-center p-3 bg-admin-accent/20 rounded-lg"
                 >
-                  <p className="font-medium text-admin-foreground">{domain.domain}</p>
-                  <Badge variant="secondary">{domain.activities} activities</Badge>
+                  <p className="font-medium text-admin-foreground text-sm lg:text-base">{domain.domain}</p>
+                  <Badge variant="secondary" className="text-xs lg:text-sm">{domain.activities} activities</Badge>
                 </div>
               ))}
             </div>
@@ -358,26 +358,26 @@ export function ReportsAnalytics() {
 
       {/* Generated Reports */}
       <Card className="admin-fade-in">
-        <CardHeader>
-          <CardTitle className="flex items-center">
-            <FileText className="h-5 w-5 mr-2" />
+        <CardHeader className="p-4 lg:p-6">
+          <CardTitle className="flex items-center text-lg lg:text-xl">
+            <FileText className="h-4 w-4 lg:h-5 lg:w-5 mr-2" />
             Generated Reports
           </CardTitle>
-          <CardDescription>View and download previously generated reports</CardDescription>
+          <CardDescription className="text-sm lg:text-base">View and download previously generated reports</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             {reports.map((report) => (
               <div
                 key={report.id}
-                className="flex items-center justify-between p-4 border rounded-lg hover:bg-admin-accent/20 transition-colors"
+                className="flex flex-col lg:flex-row items-start lg:items-center justify-between p-3 lg:p-4 border rounded-lg hover:bg-admin-accent/20 transition-colors gap-3 lg:gap-0"
               >
-                <div className="flex items-center space-x-4">
-                  <FileText className="h-8 w-8 text-admin-primary" />
-                  <div>
-                    <h3 className="font-semibold text-admin-foreground">{report.title}</h3>
-                    <div className="flex items-center space-x-2 mt-1">
-                      <Badge variant="outline">{report.type}</Badge>
+                <div className="flex items-center space-x-3 lg:space-x-4 w-full lg:w-auto">
+                  <FileText className="h-6 w-6 lg:h-8 lg:w-8 text-admin-primary flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-semibold text-admin-foreground text-sm lg:text-base truncate">{report.title}</h3>
+                    <div className="flex flex-wrap items-center gap-1 lg:gap-2 mt-1">
+                      <Badge variant="outline" className="text-xs">{report.type}</Badge>
                       <Badge className={getStatusColor(report.status)}>{report.status}</Badge>
                     </div>
                     <p className="text-sm text-admin-muted-foreground mt-1">

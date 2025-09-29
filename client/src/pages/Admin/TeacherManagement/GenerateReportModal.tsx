@@ -214,19 +214,19 @@ export function GenerateReportModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-5xl max-h-[90vh] overflow-hidden flex flex-col bg-white/95 backdrop-blur-xl border-0 shadow-2xl">
-        <DialogHeader className="relative bg-gradient-to-r from-green-600 to-blue-600 text-white p-6 -m-6 mb-6">
+      <DialogContent className="w-[95vw] max-w-5xl max-h-[90vh] overflow-hidden flex flex-col bg-white/95 backdrop-blur-xl border-0 shadow-2xl">
+        <DialogHeader className="relative bg-gradient-to-r from-green-600 to-blue-600 text-white p-4 lg:p-6 -m-4 lg:-m-6 mb-4 lg:mb-6">
           <button
             onClick={handleClose}
-            className="absolute right-4 top-4 text-white/80 hover:text-white transition-colors"
+            className="absolute right-3 lg:right-4 top-3 lg:top-4 text-white/80 hover:text-white transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 lg:w-5 lg:h-5" />
           </button>
-          <DialogTitle className="text-xl font-semibold flex items-center space-x-2">
-            <FileText className="w-5 h-5" />
+          <DialogTitle className="text-lg lg:text-xl font-semibold flex items-center space-x-2 pr-8">
+            <FileText className="w-4 h-4 lg:w-5 lg:h-5" />
             <span>Generate Report</span>
           </DialogTitle>
-          <p className="text-green-100 text-sm mt-2">
+          <p className="text-green-100 text-xs lg:text-sm mt-2 pr-8">
             Create comprehensive reports with customized parameters and data filters
           </p>
         </DialogHeader>
@@ -244,24 +244,24 @@ export function GenerateReportModal({
                 <p className="text-red-500 text-sm mb-4">{errors.type}</p>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-3">
                 {REPORT_TYPES.map((reportType) => {
                   const IconComponent = reportType.icon
                   return (
                     <div
                       key={reportType.id}
                       onClick={() => handleReportTypeChange(reportType.id)}
-                      className={`p-4 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md ${formData.type === reportType.id
+                      className={`p-3 lg:p-4 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md ${formData.type === reportType.id
                         ? 'border-green-500 bg-green-50'
                         : 'border-gray-200 hover:border-gray-300'
                         }`}
                     >
-                      <div className="flex items-start space-x-3">
-                        <IconComponent className={`w-5 h-5 mt-1 ${formData.type === reportType.id ? 'text-green-600' : 'text-gray-600'
+                      <div className="flex items-start space-x-2 lg:space-x-3">
+                        <IconComponent className={`w-4 h-4 lg:w-5 lg:h-5 mt-1 flex-shrink-0 ${formData.type === reportType.id ? 'text-green-600' : 'text-gray-600'
                           }`} />
-                        <div>
-                          <h4 className="font-medium text-gray-900 text-sm">{reportType.name}</h4>
-                          <p className="text-xs text-gray-600 mt-1">{reportType.description}</p>
+                        <div className="min-w-0">
+                          <h4 className="font-medium text-gray-900 text-xs lg:text-sm">{reportType.name}</h4>
+                          <p className="text-xs text-gray-600 mt-1 hidden sm:block">{reportType.description}</p>
                         </div>
                       </div>
                     </div>
@@ -271,13 +271,13 @@ export function GenerateReportModal({
             </div>
 
             {/* Report Configuration */}
-            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <h3 className="text-lg font-medium text-gray-900 mb-4 flex items-center space-x-2">
-                <Filter className="w-5 h-5 text-green-600" />
+            <div className="bg-white/60 backdrop-blur-sm rounded-lg p-3 lg:p-4 border border-white/20">
+              <h3 className="text-base lg:text-lg font-medium text-gray-900 mb-3 lg:mb-4 flex items-center space-x-2">
+                <Filter className="w-4 h-4 lg:w-5 lg:h-5 text-green-600" />
                 <span>Report Configuration</span>
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
                 <div>
                   <Label htmlFor="reportTitle" className="text-sm font-medium text-gray-700">
                     Report Title *
@@ -417,7 +417,7 @@ export function GenerateReportModal({
                 <p className="text-red-500 text-sm mb-4">{errors.departments}</p>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-3">
                 {departments.map((dept) => (
                   <div key={dept.id} className="flex items-center space-x-2 p-2 rounded border border-gray-200">
                     <Checkbox
@@ -445,7 +445,7 @@ export function GenerateReportModal({
                 <p className="text-red-500 text-sm mb-4">{errors.includes}</p>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Checkbox

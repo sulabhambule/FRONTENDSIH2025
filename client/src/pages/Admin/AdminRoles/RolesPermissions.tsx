@@ -126,17 +126,17 @@ export function RolesPermissions() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto p-6 space-y-6">
+      <div className="max-w-7xl mx-auto p-3 sm:p-4 lg:p-6 space-y-4 lg:space-y-6">
         {/* Page Header */}
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <div className="flex items-center justify-between">
+        <div className="bg-white rounded-lg border border-gray-200 p-4 lg:p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-semibold text-gray-900">Roles & Permissions</h1>
-              <p className="text-gray-600 mt-1">Manage user roles and system permissions</p>
+              <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">Roles & Permissions</h1>
+              <p className="text-gray-600 mt-1 text-sm sm:text-base">Manage user roles and system permissions</p>
             </div>
             <Button
               onClick={handleCreateRole}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-md text-sm sm:text-base w-full sm:w-auto"
             >
               <Plus className="w-4 h-4 mr-2" />
               Create Role
@@ -146,24 +146,26 @@ export function RolesPermissions() {
 
         {/* Tabs */}
         <Tabs defaultValue="roles">
-          <TabsList className="bg-white border border-gray-200 rounded-md">
+          <TabsList className="bg-white border border-gray-200 rounded-md grid grid-cols-3 gap-1 p-1">
             <TabsTrigger
               value="roles"
-              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-4 py-2 rounded-sm"
+              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-2 sm:px-4 py-2 rounded-sm text-xs sm:text-sm"
             >
               Roles
             </TabsTrigger>
             <TabsTrigger
               value="permissions"
-              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-4 py-2 rounded-sm"
+              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-2 sm:px-4 py-2 rounded-sm text-xs sm:text-sm"
             >
-              Permissions Matrix
+              <span className="hidden sm:inline">Permissions Matrix</span>
+              <span className="sm:hidden">Permissions</span>
             </TabsTrigger>
             <TabsTrigger
               value="assignments"
-              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-4 py-2 rounded-sm"
+              className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-2 sm:px-4 py-2 rounded-sm text-xs sm:text-sm"
             >
-              User Assignments
+              <span className="hidden sm:inline">User Assignments</span>
+              <span className="sm:hidden">Users</span>
             </TabsTrigger>
           </TabsList>
 
