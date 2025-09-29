@@ -269,10 +269,10 @@ export default function VolunteerPage() {
                   Add Volunteer Work
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white border border-gray-200">
-                <DialogHeader className="bg-gray-50 -m-6 p-6 mb-4 border-b border-gray-200">
-                  <DialogTitle className="text-gray-900 text-xl font-bold">Add Volunteer Work</DialogTitle>
-                  <DialogDescription className="text-gray-600">
+              <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-white border border-gray-200 mx-2 sm:mx-auto">
+                <DialogHeader className="bg-gray-50 -m-4 sm:-m-6 p-4 sm:p-6 mb-4 border-b border-gray-200">
+                  <DialogTitle className="text-gray-900 text-lg sm:text-xl font-bold">Add Volunteer Work</DialogTitle>
+                  <DialogDescription className="text-gray-600 text-sm">
                     Record your volunteer activities and community service contributions for academic credit.
                   </DialogDescription>
                 </DialogHeader>
@@ -456,18 +456,18 @@ export default function VolunteerPage() {
                   </div>
                 </div>
 
-                <DialogFooter className="bg-gray-50 -mx-6 -mb-6 mt-6 p-6 border-t border-gray-200">
-                  <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <DialogFooter className="bg-gray-50 -mx-4 sm:-mx-6 -mb-4 sm:-mb-6 mt-6 p-4 sm:p-6 border-t border-gray-200">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
                     <Button
                       variant="outline"
                       onClick={() => setIsAddOpen(false)}
-                      className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
+                      className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 w-full sm:w-auto"
                     >
                       Cancel
                     </Button>
                     <Button
                       onClick={() => setIsAddOpen(false)}
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
                     >
                       Submit for Approval
                     </Button>

@@ -44,7 +44,7 @@ export function AcademicDetails() {
         <CardDescription>Your academic information and current enrollment</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="studentId">Student ID</Label>
             <Input id="studentId" value={formData.studentId} disabled />
@@ -65,7 +65,7 @@ export function AcademicDetails() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="major">Major</Label>
             <Select value={formData.major} disabled={!isEditing}>
@@ -106,7 +106,7 @@ export function AcademicDetails() {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="expectedGraduation">Expected Graduation</Label>
             <Input
@@ -132,27 +132,27 @@ export function AcademicDetails() {
           <Label>Current Courses</Label>
           <div className="space-y-2">
             {currentCourses.map((course) => (
-              <div key={course.code} className="flex items-center justify-between p-2 rounded-lg bg-muted/50">
-                <div>
+              <div key={course.code} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg bg-muted/50 space-y-2 sm:space-y-0">
+                <div className="min-w-0 flex-1">
                   <span className="font-medium text-sm">{course.code}</span>
-                  <span className="text-sm text-muted-foreground ml-2">{course.name}</span>
+                  <span className="text-sm text-muted-foreground ml-2 block sm:inline truncate">{course.name}</span>
                 </div>
-                <Badge variant="outline">{course.credits} credits</Badge>
+                <Badge variant="outline" className="w-fit">{course.credits} credits</Badge>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="flex justify-end space-x-2">
+        <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-2">
           {isEditing ? (
             <>
-              <Button variant="outline" onClick={handleCancel}>
+              <Button variant="outline" onClick={handleCancel} className="w-full sm:w-auto">
                 Cancel
               </Button>
-              <Button onClick={handleSave}>Save Changes</Button>
+              <Button onClick={handleSave} className="w-full sm:w-auto">Save Changes</Button>
             </>
           ) : (
-            <Button onClick={() => setIsEditing(true)}>Edit Details</Button>
+            <Button onClick={() => setIsEditing(true)} className="w-full sm:w-auto">Edit Details</Button>
           )}
         </div>
       </CardContent>

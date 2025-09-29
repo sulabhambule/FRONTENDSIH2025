@@ -43,16 +43,16 @@ export function QuickActions() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {quickActions.map((action) => (
             <Button
               key={action.action}
-              className={`h-auto p-4 flex flex-col items-center space-y-2 text-white ${action.color} border-0 rounded-lg`}
+              className={`h-auto p-3 sm:p-4 flex flex-col items-center space-y-2 text-white ${action.color} border-0 rounded-lg`}
             >
-              <action.icon className="h-5 w-5" />
+              <action.icon className="h-4 w-4 sm:h-5 sm:w-5" />
               <div className="text-center">
                 <div className="text-sm font-medium">{action.title}</div>
-                <div className="text-xs opacity-90">{action.description}</div>
+                <div className="text-xs opacity-90 truncate">{action.description}</div>
               </div>
             </Button>
           ))}

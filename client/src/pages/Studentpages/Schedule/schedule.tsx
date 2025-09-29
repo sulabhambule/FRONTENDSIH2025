@@ -85,9 +85,9 @@ const getClassForTimeAndDay = (time: string, day: string) => {
 
 export default function SchedulePage() {
   return (
-    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-      <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Class Schedule</h2>
+    <div className="flex-1 space-y-4 p-4 sm:p-6 lg:p-8 pt-4 sm:pt-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-2 sm:space-y-0">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Class Schedule</h2>
         <div className="flex items-center space-x-2">
           <Badge variant="outline">Week 8</Badge>
           <Badge>Spring 2025</Badge>
@@ -106,21 +106,21 @@ export default function SchedulePage() {
         <CardContent>
           <div className="grid gap-3">
             {upcomingClasses.map((class_item, index) => (
-              <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+              <div key={index} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 border rounded-lg space-y-2 sm:space-y-0">
                 <div className="flex items-center space-x-3">
-                  <div className={`w-3 h-3 rounded-full ${class_item.status === 'upcoming' ? 'bg-green-500' : 'bg-blue-500'
+                  <div className={`w-3 h-3 rounded-full flex-shrink-0 ${class_item.status === 'upcoming' ? 'bg-green-500' : 'bg-blue-500'
                     }`} />
-                  <div>
-                    <div className="font-medium">{class_item.title}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-medium truncate">{class_item.title}</div>
                     <div className="text-sm text-muted-foreground flex items-center gap-1">
-                      <MapPin className="h-3 w-3" />
-                      {class_item.room}
+                      <MapPin className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">{class_item.room}</span>
                     </div>
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right flex-shrink-0">
                   <div className="text-sm font-medium">{class_item.time}</div>
-                  <Badge variant={class_item.status === 'upcoming' ? 'default' : 'secondary'}>
+                  <Badge variant={class_item.status === 'upcoming' ? 'default' : 'secondary'} className="mt-1">
                     {class_item.status}
                   </Badge>
                 </div>
@@ -190,29 +190,29 @@ export default function SchedulePage() {
           <CardDescription>Complete information about your enrolled courses</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
             {schedule.map(course => (
               <div key={course.id} className="border rounded-lg p-4 space-y-2">
                 <div className="flex items-start justify-between">
-                  <div>
-                    <div className="font-medium">{course.title}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-medium truncate">{course.title}</div>
                     <div className="text-sm text-muted-foreground">{course.code}</div>
                   </div>
-                  <div className={`w-4 h-4 rounded ${course.color.split(' ')[0]}`} />
+                  <div className={`w-4 h-4 rounded flex-shrink-0 ml-2 ${course.color.split(' ')[0]}`} />
                 </div>
                 <div className="space-y-1 text-sm">
                   <div className="flex items-center gap-1">
-                    <MapPin className="h-3 w-3" />
-                    {course.room}
+                    <MapPin className="h-3 w-3 flex-shrink-0" />
+                    <span className="truncate">{course.room}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Clock className="h-3 w-3" />
-                    {course.time}
+                    <Clock className="h-3 w-3 flex-shrink-0" />
+                    <span className="truncate">{course.time}</span>
                   </div>
-                  <div className="text-muted-foreground">
+                  <div className="text-muted-foreground truncate">
                     {course.days.join(', ')}
                   </div>
-                  <div className="text-muted-foreground">
+                  <div className="text-muted-foreground truncate">
                     Instructor: {course.instructor}
                   </div>
                 </div>

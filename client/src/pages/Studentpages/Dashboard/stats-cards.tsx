@@ -39,26 +39,26 @@ const statsData = [
 
 export function StatsCards() {
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
       {statsData.map((stat, index) => (
         <Card key={stat.title} className="border border-gray-200 bg-white hover:shadow-md transition-shadow duration-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-gray-700">{stat.title}</CardTitle>
-            <div className={`p-2 rounded-lg ${index === 0 ? 'bg-blue-50 text-blue-600' :
-                index === 1 ? 'bg-green-50 text-green-600' :
-                  index === 2 ? 'bg-yellow-50 text-yellow-600' :
-                    'bg-purple-50 text-purple-600'
+            <CardTitle className="text-sm font-medium text-gray-700 truncate">{stat.title}</CardTitle>
+            <div className={`p-2 rounded-lg flex-shrink-0 ${index === 0 ? 'bg-blue-50 text-blue-600' :
+              index === 1 ? 'bg-green-50 text-green-600' :
+                index === 2 ? 'bg-yellow-50 text-yellow-600' :
+                  'bg-purple-50 text-purple-600'
               }`}>
               <stat.icon className="h-4 w-4" />
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
-            <div className="flex items-center text-xs">
+            <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+            <div className="flex flex-col sm:flex-row sm:items-center text-xs">
               <span className={`font-medium ${stat.changeType === "positive" ? "text-green-600" : "text-red-600"} mr-1`}>
                 {stat.change}
               </span>
-              <span className="text-gray-500">{stat.description}</span>
+              <span className="text-gray-500 truncate">{stat.description}</span>
             </div>
           </CardContent>
         </Card>

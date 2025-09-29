@@ -80,14 +80,14 @@ export function PendingApprovals() {
   return (
     <Card className="border border-gray-200 bg-white">
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-2 sm:space-y-0">
           <div>
             <CardTitle className="text-lg font-semibold text-gray-800">Pending Approvals</CardTitle>
             <CardDescription className="text-gray-600">
               Activities awaiting review
             </CardDescription>
           </div>
-          <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
+          <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200 w-fit">
             {pendingApprovals.length} Pending
           </Badge>
         </div>
@@ -96,7 +96,7 @@ export function PendingApprovals() {
         <div className="space-y-4">
           {pendingApprovals.slice(0, 3).map((approval) => (
             <div key={approval.id} className="border border-gray-200 rounded-lg p-3 bg-gray-50">
-              <div className="flex items-start justify-between mb-3 gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-3 space-y-2 sm:space-y-0 gap-3">
                 <div className="flex items-start gap-3 flex-1 min-w-0">
                   <div className="text-lg flex-shrink-0">{getTypeIcon(approval.type)}</div>
                   <div className="min-w-0 flex-1">
@@ -108,17 +108,17 @@ export function PendingApprovals() {
                     </div>
                   </div>
                 </div>
-                <Badge variant="outline" className={`${getPriorityColor(approval.priority)} text-xs flex-shrink-0 ml-2`}>
+                <Badge variant="outline" className={`${getPriorityColor(approval.priority)} text-xs flex-shrink-0 w-fit`}>
                   {approval.priority}
                 </Badge>
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-gray-200 gap-3">
-                <div className="text-sm text-gray-600 truncate flex-1 min-w-0 pr-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 border-t border-gray-200 space-y-2 sm:space-y-0 gap-3">
+                <div className="text-sm text-gray-600 truncate flex-1 min-w-0">
                   <span>{approval.approver} • {approval.department}</span>
                 </div>
-                <div className="flex gap-2 flex-shrink-0">
-                  <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-gray-100 px-3">
+                <div className="flex gap-2 w-full sm:w-auto">
+                  <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-gray-100 flex-1 sm:flex-none px-3">
                     Details
                   </Button>
                 </div>

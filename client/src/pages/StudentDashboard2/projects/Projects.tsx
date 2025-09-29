@@ -294,7 +294,7 @@ export default function ProjectsPage() {
                   Add Project
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white border border-gray-200">
+              <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-white border border-gray-200 mx-2 sm:mx-auto">
                 <DialogHeader className="bg-gray-50 -m-6 p-6 mb-4 border-b border-gray-200">
                   <DialogTitle className="text-gray-900">Add Project</DialogTitle>
                   <DialogDescription className="text-gray-600">
@@ -529,7 +529,7 @@ export default function ProjectsPage() {
 
         {/* View Project Dialog */}
         <Dialog open={isViewOpen} onOpenChange={setIsViewOpen}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white border border-blue-200">
+          <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-white border border-blue-200 mx-2 sm:mx-auto">
             {selectedProject && (
               <>
                 <DialogHeader className="bg-blue-50 -m-6 p-6 mb-4 border-b border-blue-200">

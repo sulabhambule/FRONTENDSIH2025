@@ -164,28 +164,29 @@ export default function Academics() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Header Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                <GraduationCap className="h-6 w-6 text-blue-600" />
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-2 sm:p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-semibold text-gray-800">Academic Records</h1>
-                <p className="text-gray-600">Comprehensive view of your academic performance and records</p>
+                <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">Academic Records</h1>
+                <p className="text-sm sm:text-base text-gray-600">Comprehensive view of your academic performance and records</p>
               </div>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto">
               <Download className="h-4 w-4 mr-2" />
-              Download Transcript
+              <span className="hidden sm:inline">Download Transcript</span>
+              <span className="sm:hidden">Download</span>
             </Button>
           </div>
 
           {/* Student Information Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-4 sm:mt-6">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
@@ -217,47 +218,50 @@ export default function Academics() {
           </div>
         </div>
 
-        <Tabs defaultValue="performance" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 bg-white border border-gray-200 rounded-lg p-1">
+        <Tabs defaultValue="performance" className="space-y-4 sm:space-y-6">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 bg-white border border-gray-200 rounded-lg p-1 gap-1">
             <TabsTrigger
               value="performance"
-              className="flex items-center gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent"
+              className="flex items-center gap-1 sm:gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent text-xs sm:text-sm px-2 sm:px-3"
             >
-              <TrendingUp className="h-4 w-4" />
-              Performance
+              <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden sm:inline">Performance</span>
+              <span className="sm:hidden">Perf</span>
             </TabsTrigger>
             <TabsTrigger
               value="subjects"
-              className="flex items-center gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent"
+              className="flex items-center gap-1 sm:gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent text-xs sm:text-sm px-2 sm:px-3"
             >
-              <BookOpen className="h-4 w-4" />
+              <BookOpen className="h-3 w-3 sm:h-4 sm:w-4" />
               Subjects
             </TabsTrigger>
             <TabsTrigger
               value="assignments"
-              className="flex items-center gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent"
+              className="flex items-center gap-1 sm:gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent text-xs sm:text-sm px-2 sm:px-3 lg:col-span-1"
             >
-              <FileText className="h-4 w-4" />
-              Assignments
+              <FileText className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden sm:inline">Assignments</span>
+              <span className="sm:hidden">Tasks</span>
             </TabsTrigger>
             <TabsTrigger
               value="seminars"
-              className="flex items-center gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent"
+              className="flex items-center gap-1 sm:gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent text-xs sm:text-sm px-2 sm:px-3 lg:col-span-1"
             >
-              <Calendar className="h-4 w-4" />
+              <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
               Seminars
             </TabsTrigger>
             <TabsTrigger
               value="achievements"
-              className="flex items-center gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent"
+              className="flex items-center gap-1 sm:gap-2 border data-[state=active]:border-blue-300 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 border-transparent text-xs sm:text-sm px-2 sm:px-3 lg:col-span-1"
             >
-              <Trophy className="h-4 w-4" />
-              Achievements
+              <Trophy className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden sm:inline">Achievements</span>
+              <span className="sm:hidden">Awards</span>
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="performance" className="space-y-6">
-            <div className="grid gap-6 md:grid-cols-3">
+          <TabsContent value="performance" className="space-y-4 sm:space-y-6">
+            <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
               {/* Semester Overview */}
               <Card className="border border-gray-200 shadow-sm">
                 <CardHeader className="pb-4">
@@ -391,62 +395,66 @@ export default function Academics() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="overflow-x-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="bg-gray-50">
-                        <TableHead className="font-semibold">Subject Code</TableHead>
-                        <TableHead className="font-semibold">Subject Name</TableHead>
-                        <TableHead className="font-semibold">Professor</TableHead>
-                        <TableHead className="font-semibold">Credits</TableHead>
-                        <TableHead className="font-semibold">Internal</TableHead>
-                        <TableHead className="font-semibold">External</TableHead>
-                        <TableHead className="font-semibold">Total</TableHead>
-                        <TableHead className="font-semibold">Grade</TableHead>
-                        <TableHead className="font-semibold">Attendance</TableHead>
-                        <TableHead className="font-semibold">Status</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {selectedSemester.subjects.map((subject, index) => (
-                        <TableRow key={index} className="hover:bg-gray-50">
-                          <TableCell className="font-medium text-blue-600">{subject.code}</TableCell>
-                          <TableCell className="font-medium">{subject.name}</TableCell>
-                          <TableCell className="text-gray-600">{subject.professor}</TableCell>
-                          <TableCell className="text-center">{subject.credits}</TableCell>
-                          <TableCell className="text-center">{subject.internalMarks}/50</TableCell>
-                          <TableCell className="text-center">{subject.externalMarks}/100</TableCell>
-                          <TableCell className="text-center font-semibold">{subject.total}/150</TableCell>
-                          <TableCell>
-                            <Badge
-                              variant={subject.grade.startsWith("A") ? "default" : "secondary"}
-                              className={subject.grade.startsWith("A") ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"}
-                            >
-                              {subject.grade}
-                            </Badge>
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <Progress value={subject.attendance} className="h-2 w-20" />
-                              <span className="text-sm font-medium">{subject.attendance}%</span>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <Badge
-                              variant={subject.attendance >= 85 ? "default" : "destructive"}
-                              className={subject.attendance >= 85 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}
-                            >
-                              {subject.attendance >= 85 ? "Good" : "Low"}
-                            </Badge>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
+                <div className="overflow-x-auto -mx-4 sm:-mx-6">
+                  <div className="inline-block min-w-full align-middle">
+                    <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                      <Table className="min-w-full">
+                        <TableHeader>
+                          <TableRow className="bg-gray-50">
+                            <TableHead className="font-semibold">Subject Code</TableHead>
+                            <TableHead className="font-semibold">Subject Name</TableHead>
+                            <TableHead className="font-semibold">Professor</TableHead>
+                            <TableHead className="font-semibold">Credits</TableHead>
+                            <TableHead className="font-semibold">Internal</TableHead>
+                            <TableHead className="font-semibold">External</TableHead>
+                            <TableHead className="font-semibold">Total</TableHead>
+                            <TableHead className="font-semibold">Grade</TableHead>
+                            <TableHead className="font-semibold">Attendance</TableHead>
+                            <TableHead className="font-semibold">Status</TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {selectedSemester.subjects.map((subject, index) => (
+                            <TableRow key={index} className="hover:bg-gray-50">
+                              <TableCell className="font-medium text-blue-600">{subject.code}</TableCell>
+                              <TableCell className="font-medium">{subject.name}</TableCell>
+                              <TableCell className="text-gray-600">{subject.professor}</TableCell>
+                              <TableCell className="text-center">{subject.credits}</TableCell>
+                              <TableCell className="text-center">{subject.internalMarks}/50</TableCell>
+                              <TableCell className="text-center">{subject.externalMarks}/100</TableCell>
+                              <TableCell className="text-center font-semibold">{subject.total}/150</TableCell>
+                              <TableCell>
+                                <Badge
+                                  variant={subject.grade.startsWith("A") ? "default" : "secondary"}
+                                  className={subject.grade.startsWith("A") ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"}
+                                >
+                                  {subject.grade}
+                                </Badge>
+                              </TableCell>
+                              <TableCell>
+                                <div className="flex items-center gap-2">
+                                  <Progress value={subject.attendance} className="h-2 w-20" />
+                                  <span className="text-sm font-medium">{subject.attendance}%</span>
+                                </div>
+                              </TableCell>
+                              <TableCell>
+                                <Badge
+                                  variant={subject.attendance >= 85 ? "default" : "destructive"}
+                                  className={subject.attendance >= 85 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}
+                                >
+                                  {subject.attendance >= 85 ? "Good" : "Low"}
+                                </Badge>
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Summary Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6 pt-6 border-t border-gray-100">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-100">
                   <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                     <div className="text-sm font-medium text-blue-800 mb-1">Semester GPA</div>
                     <div className="text-2xl font-bold text-blue-600">{selectedSemester.gpa}</div>
@@ -471,35 +479,36 @@ export default function Academics() {
           </TabsContent>
 
           <TabsContent value="assignments" className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold">Assignments</h2>
-                <p className="text-muted-foreground">Upload and track your assignment submissions</p>
+                <h2 className="text-xl sm:text-2xl font-bold">Assignments</h2>
+                <p className="text-sm sm:text-base text-muted-foreground">Upload and track your assignment submissions</p>
               </div>
               <Dialog open={isUploadOpen} onOpenChange={setIsUploadOpen}>
                 <DialogTrigger asChild>
-                  <Button>
+                  <Button className="w-full sm:w-auto">
                     <Plus className="h-4 w-4 mr-2" />
-                    Upload Assignment
+                    <span className="hidden sm:inline">Upload Assignment</span>
+                    <span className="sm:hidden">Upload</span>
                   </Button>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className="max-w-[95vw] sm:max-w-lg mx-2 sm:mx-auto">
                   <DialogHeader>
-                    <DialogTitle>Upload Assignment</DialogTitle>
-                    <DialogDescription>Submit your assignment for faculty review and approval.</DialogDescription>
+                    <DialogTitle className="text-lg sm:text-xl">Upload Assignment</DialogTitle>
+                    <DialogDescription className="text-sm">Submit your assignment for faculty review and approval.</DialogDescription>
                   </DialogHeader>
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4 px-1">
                     <div className="space-y-2">
-                      <Label htmlFor="title">Assignment Title</Label>
-                      <Input id="title" placeholder="Enter assignment title" />
+                      <Label htmlFor="title" className="text-sm">Assignment Title</Label>
+                      <Input id="title" placeholder="Enter assignment title" className="text-sm" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
-                      <Input id="subject" placeholder="Select subject" />
+                      <Label htmlFor="subject" className="text-sm">Subject</Label>
+                      <Input id="subject" placeholder="Select subject" className="text-sm" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="description">Description</Label>
-                      <Textarea id="description" placeholder="Brief description of the assignment" />
+                      <Label htmlFor="description" className="text-sm">Description</Label>
+                      <Textarea id="description" placeholder="Brief description of the assignment" className="text-sm min-h-[80px]" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="file">Upload File</Label>
@@ -510,19 +519,19 @@ export default function Academics() {
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                           accept=".pdf,.doc,.docx,.txt,.zip,.rar"
                         />
-                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
-                          <Upload className="h-8 w-8 mx-auto mb-2 text-gray-400" />
-                          <p className="text-sm text-gray-600">Click to upload or drag and drop</p>
+                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
+                          <Upload className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-gray-400" />
+                          <p className="text-xs sm:text-sm text-gray-600">Click to upload or drag and drop</p>
                           <p className="text-xs text-gray-500 mt-1">PDF, DOC, DOCX, TXT, ZIP up to 10MB</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <DialogFooter>
-                    <Button variant="outline" onClick={() => setIsUploadOpen(false)}>
+                  <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                    <Button variant="outline" onClick={() => setIsUploadOpen(false)} className="w-full sm:w-auto">
                       Cancel
                     </Button>
-                    <Button onClick={() => setIsUploadOpen(false)}>Submit Assignment</Button>
+                    <Button onClick={() => setIsUploadOpen(false)} className="w-full sm:w-auto">Submit Assignment</Button>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
@@ -570,35 +579,36 @@ export default function Academics() {
           </TabsContent>
 
           <TabsContent value="seminars" className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold">College Seminars & Workshops</h2>
-                <p className="text-muted-foreground">Track your participation in academic events</p>
+                <h2 className="text-xl sm:text-2xl font-bold">College Seminars & Workshops</h2>
+                <p className="text-sm sm:text-base text-muted-foreground">Track your participation in academic events</p>
               </div>
               <Dialog open={isSeminarOpen} onOpenChange={setIsSeminarOpen}>
                 <DialogTrigger asChild>
-                  <Button>
+                  <Button className="w-full sm:w-auto">
                     <Plus className="h-4 w-4 mr-2" />
-                    Add Seminar
+                    <span className="hidden sm:inline">Add Seminar</span>
+                    <span className="sm:hidden">Add</span>
                   </Button>
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className="max-w-[95vw] sm:max-w-lg mx-2 sm:mx-auto">
                   <DialogHeader>
-                    <DialogTitle>Add Seminar Participation</DialogTitle>
-                    <DialogDescription>Record your attendance at college seminars and workshops.</DialogDescription>
+                    <DialogTitle className="text-lg sm:text-xl">Add Seminar Participation</DialogTitle>
+                    <DialogDescription className="text-sm">Record your attendance at college seminars and workshops.</DialogDescription>
                   </DialogHeader>
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4 px-1">
                     <div className="space-y-2">
-                      <Label htmlFor="seminar-title">Seminar Title</Label>
-                      <Input id="seminar-title" placeholder="Enter seminar title" />
+                      <Label htmlFor="seminar-title" className="text-sm">Seminar Title</Label>
+                      <Input id="seminar-title" placeholder="Enter seminar title" className="text-sm" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="organizer">Organizer</Label>
-                      <Input id="organizer" placeholder="Department or organization" />
+                      <Label htmlFor="organizer" className="text-sm">Organizer</Label>
+                      <Input id="organizer" placeholder="Department or organization" className="text-sm" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="date">Date</Label>
-                      <Input id="date" type="date" />
+                      <Label htmlFor="date" className="text-sm">Date</Label>
+                      <Input id="date" type="date" className="text-sm" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="proof">Upload Proof</Label>
@@ -609,19 +619,19 @@ export default function Academics() {
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                           accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
                         />
-                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
-                          <FileText className="h-8 w-8 mx-auto mb-2 text-gray-400" />
-                          <p className="text-sm text-gray-600">Upload certificate or attendance proof</p>
+                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
+                          <FileText className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-gray-400" />
+                          <p className="text-xs sm:text-sm text-gray-600">Upload certificate or attendance proof</p>
                           <p className="text-xs text-gray-500 mt-1">PDF, JPG, PNG, DOC up to 5MB</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <DialogFooter>
-                    <Button variant="outline" onClick={() => setIsSeminarOpen(false)}>
+                  <DialogFooter className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                    <Button variant="outline" onClick={() => setIsSeminarOpen(false)} className="w-full sm:w-auto">
                       Cancel
                     </Button>
-                    <Button onClick={() => setIsSeminarOpen(false)}>Submit for Approval</Button>
+                    <Button onClick={() => setIsSeminarOpen(false)} className="w-full sm:w-auto">Submit for Approval</Button>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
@@ -685,7 +695,7 @@ export default function Academics() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid gap-4 lg:grid-cols-2">
                   {/* Achievements List */}
                   <div className="space-y-4">
                     <h3 className="font-semibold text-gray-800 flex items-center gap-2">

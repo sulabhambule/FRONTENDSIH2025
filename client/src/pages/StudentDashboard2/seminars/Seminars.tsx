@@ -243,19 +243,19 @@ export default function SeminarsPage() {
                   Add Event
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white border border-gray-200">
-                <DialogHeader className="bg-gray-50 -m-6 p-6 mb-4 border-b border-gray-200">
-                  <DialogTitle className="text-gray-900">Add Seminar/Workshop/Conference</DialogTitle>
-                  <DialogDescription className="text-gray-600">Record your participation in academic and professional events.</DialogDescription>
+              <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-white border border-gray-200 mx-2 sm:mx-auto">
+                <DialogHeader className="bg-gray-50 -m-4 sm:-m-6 p-4 sm:p-6 mb-4 border-b border-gray-200">
+                  <DialogTitle className="text-gray-900 text-lg sm:text-xl">Add Seminar/Workshop/Conference</DialogTitle>
+                  <DialogDescription className="text-gray-600 text-sm">Record your participation in academic and professional events.</DialogDescription>
                 </DialogHeader>
-                <div className="grid gap-6 py-4 px-2">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-3">
-                      <Label htmlFor="title" className="text-gray-900 font-medium">Event Title</Label>
+                <div className="grid gap-4 sm:gap-6 py-4 px-1 sm:px-2">
+                  <div className="grid grid-cols-1 gap-4">
+                    <div className="space-y-2 sm:space-y-3">
+                      <Label htmlFor="title" className="text-gray-900 font-medium text-sm">Event Title</Label>
                       <Input id="title" placeholder="Enter event title" className="border-gray-200 focus:border-blue-400" />
                     </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="type" className="text-gray-900 font-medium">Event Type</Label>
+                    <div className="space-y-2 sm:space-y-3">
+                      <Label htmlFor="type" className="text-gray-900 font-medium text-sm">Event Type</Label>
                       <Select>
                         <SelectTrigger className="border-gray-200 focus:border-blue-400">
                           <SelectValue placeholder="Select type" />
@@ -270,49 +270,49 @@ export default function SeminarsPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="description">Description</Label>
-                    <Textarea id="description" placeholder="Brief description of the event" />
+                    <Label htmlFor="description" className="text-sm">Description</Label>
+                    <Textarea id="description" placeholder="Brief description of the event" className="text-sm" />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="date">Date</Label>
+                      <Label htmlFor="date" className="text-sm">Date</Label>
                       <Input id="date" type="date" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="organizer">Organizer</Label>
+                      <Label htmlFor="organizer" className="text-sm">Organizer</Label>
                       <Input id="organizer" placeholder="Department/Organization" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="location">Location</Label>
+                    <Label htmlFor="location" className="text-sm">Location</Label>
                     <Input id="location" placeholder="Event location" />
                   </div>
 
-                  <div className="space-y-3">
-                    <Label htmlFor="learning" className="text-gray-900 font-medium">Key Learnings</Label>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="learning" className="text-gray-900 font-medium text-sm">Key Learnings</Label>
                     <Textarea
                       id="learning"
                       placeholder="What did you learn from this event?"
-                      className="border-gray-200 focus:border-blue-400 min-h-[100px]"
+                      className="border-gray-200 focus:border-blue-400 min-h-[80px] sm:min-h-[100px] text-sm"
                     />
                   </div>
 
-                  <div className="space-y-3">
-                    <Label htmlFor="certificates" className="text-gray-900 font-medium">Upload Certificates/Proof</Label>
-                    <div className="border-2 border-dashed border-gray-300 hover:border-gray-400 rounded-lg p-6 text-center transition-colors cursor-pointer">
-                      <Upload className="h-8 w-8 mx-auto mb-2 text-gray-400" />
-                      <p className="text-sm text-gray-600">Upload certificates, attendance proof, or photos</p>
+                  <div className="space-y-2 sm:space-y-3">
+                    <Label htmlFor="certificates" className="text-gray-900 font-medium text-sm">Upload Certificates/Proof</Label>
+                    <div className="border-2 border-dashed border-gray-300 hover:border-gray-400 rounded-lg p-4 sm:p-6 text-center transition-colors cursor-pointer">
+                      <Upload className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-gray-400" />
+                      <p className="text-xs sm:text-sm text-gray-600">Upload certificates, attendance proof, or photos</p>
                       <p className="text-xs text-gray-500 mt-1">Multiple files supported (PDF, JPG, PNG)</p>
                     </div>
                   </div>
                 </div>
-                <DialogFooter className="bg-gray-50 -m-6 mt-4 p-6 border-t border-gray-200">
-                  <Button variant="outline" onClick={() => setIsAddOpen(false)} className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400">
+                <DialogFooter className="bg-gray-50 -m-4 sm:-m-6 mt-4 p-4 sm:p-6 border-t border-gray-200 flex flex-col sm:flex-row gap-2 sm:gap-0">
+                  <Button variant="outline" onClick={() => setIsAddOpen(false)} className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 w-full sm:w-auto">
                     Cancel
                   </Button>
-                  <Button onClick={() => setIsAddOpen(false)} className="bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button onClick={() => setIsAddOpen(false)} className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto">
                     Submit for Approval
                   </Button>
                 </DialogFooter>

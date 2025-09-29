@@ -9,9 +9,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Bell, LogOut, User } from "lucide-react"
+import { Bell, LogOut, User, Menu } from "lucide-react"
 
-export function StudentNavbar() {
+interface StudentNavbarProps {
+  onToggleSidebar?: () => void
+}
+
+export function StudentNavbar({ onToggleSidebar }: StudentNavbarProps = {}) {
   const navigate = useNavigate()
 
   // Placeholder data - will be replaced with API data in future
@@ -35,12 +39,22 @@ export function StudentNavbar() {
     <header className="fixed top-0 z-50 w-full border-b border-blue-200 bg-gradient-to-r from-white via-blue-50 to-indigo-50 backdrop-blur-sm shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4">
         <div className="flex items-center space-x-4">
+          {/* Mobile hamburger menu */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden hover:bg-blue-100 hover:text-blue-700"
+            onClick={onToggleSidebar}
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+
           <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-sm">SH</span>
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+              <span className="text-white font-bold text-xs sm:text-sm">SH</span>
             </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
+            <div className="hidden sm:block">
+              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
                 Smart Student Hub
               </h1>
               <p className="text-xs text-blue-600/70">Academic Excellence Portal</p>
@@ -48,7 +62,7 @@ export function StudentNavbar() {
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 sm:space-x-4">
           <Button variant="ghost" size="icon" className="relative hover:bg-blue-100 hover:text-blue-700">
             <Bell className="h-5 w-5" />
             <span className="absolute -top-1 -right-1 h-3 w-3 bg-gradient-to-r from-red-500 to-pink-500 rounded-full text-xs flex items-center justify-center text-white shadow-sm">

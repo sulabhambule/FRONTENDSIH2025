@@ -10,13 +10,24 @@ import {
   FolderOpen,
   FileText,
   Calendar,
-  Heart
+  Heart,
+  X
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function Sidebar({ isOpen = false, onClose }: SidebarProps = {}) {
   const location = useLocation();
+
+  const handleNavigation = () => {
+    // Close sidebar on mobile after navigation
+    if (onClose) onClose();
+  };
 
   const navigation = [
     { name: "Dashboard", href: "/student2", icon: LayoutDashboard },
@@ -33,15 +44,28 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="fixed left-0 top-16 w-64 h-[calc(100vh-4rem)] bg-white shadow-lg border-r border-blue-100 z-40 overflow-y-auto">
-      <div className="p-6">
-        <div className="flex items-center space-x-3">
-          <div className="p-2 bg-blue-600 rounded-lg">
-            <GraduationCap className="h-6 w-6 text-white" />
+    <div className={cn(
+      "fixed left-0 top-16 w-64 h-[calc(100vh-4rem)] bg-white shadow-lg border-r border-blue-100 z-40 overflow-y-auto transition-transform duration-200",
+      "lg:translate-x-0", // Always visible on large screens
+      isOpen ? "translate-x-0" : "-translate-x-full" // Mobile toggle behavior
+    )}>
+      <div className="p-4 sm:p-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="p-2 bg-blue-600 rounded-lg">
+              <GraduationCap className="h-6 w-6 text-white" />
+            </div>
+            <div>
+              <p className="text-sm text-gray-800">Student Dashboard</p>
+            </div>
           </div>
-          <div>
-            <p className="text-sm text-gray-800">Student Dashboard</p>
-          </div>
+          {/* Mobile close button */}
+          <button
+            className="lg:hidden p-1 hover:bg-gray-100 rounded"
+            onClick={onClose}
+          >
+            <X className="w-5 h-5 text-gray-500" />
+          </button>
         </div>
       </div>
 
@@ -53,6 +77,7 @@ export default function Sidebar() {
               <li key={item.name}>
                 <Link
                   to={item.href}
+                  onClick={handleNavigation}
                   className={cn(
                     "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer",
                     isActive
@@ -60,8 +85,8 @@ export default function Sidebar() {
                       : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
                   )}
                 >
-                  <item.icon className="mr-3 h-5 w-5" />
-                  {item.name}
+                  <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
+                  <span className="truncate">{item.name}</span>
                 </Link>
               </li>
             )

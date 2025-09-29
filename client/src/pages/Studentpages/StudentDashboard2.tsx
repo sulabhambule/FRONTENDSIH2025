@@ -38,19 +38,21 @@ function Card({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-200 border border-gray-100">
-      <div className="flex items-center justify-between mb-4">
-        <div className={`p-2.5 rounded-lg border ${colorClasses[color]}`}>{icon}</div>
+    <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 hover:shadow-md transition-shadow duration-200 border border-gray-100">
+      <div className="flex items-center justify-between mb-3 sm:mb-4">
+        <div className={`p-2 sm:p-2.5 rounded-lg border ${colorClasses[color]}`}>
+          <div className="w-4 h-4 sm:w-5 sm:h-5">{icon}</div>
+        </div>
         {trend && (
-          <div className="flex items-center text-green-600 text-sm font-medium">
-            <TrendingUp className="w-4 h-4 mr-1" />
+          <div className="flex items-center text-green-600 text-xs sm:text-sm font-medium">
+            <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
             {trend}
           </div>
         )}
       </div>
       <div>
-        <h3 className="text-sm font-medium text-gray-600 mb-1">{title}</h3>
-        <p className="text-2xl font-semibold text-gray-800">{value}</p>
+        <h3 className="text-xs sm:text-sm font-medium text-gray-600 mb-1">{title}</h3>
+        <p className="text-xl sm:text-2xl font-semibold text-gray-800">{value}</p>
       </div>
     </div>
   )
@@ -71,14 +73,16 @@ function QuickActionCard({ title, description, icon, color = "blue" }: {
 
   return (
     <div
-      className={`${colorClasses[color]} text-white p-5 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-lg border-2`}
+      className={`${colorClasses[color]} text-white p-4 sm:p-5 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-lg border-2`}
     >
-      <div className="flex items-center gap-3 mb-3">
-        {icon}
-        <h3 className="font-medium">{title}</h3>
+      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+        <div className="w-4 h-4 sm:w-5 sm:h-5">{icon}</div>
+        <h3 className="text-sm sm:text-base font-medium">{title}</h3>
       </div>
-      <p className="text-sm opacity-90 leading-relaxed">{description}</p>
-      <ChevronRight className="w-4 h-4 mt-3 ml-auto opacity-75" />
+      <p className="text-xs sm:text-sm opacity-90 leading-relaxed">{description}</p>
+      <div className="flex justify-end">
+        <ChevronRight className="w-4 h-4 mt-2 sm:mt-3 opacity-75" />
+      </div>
     </div>
   )
 }
@@ -102,18 +106,18 @@ function ActivityItem({
   }
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200">
-      <div className="flex items-start gap-3">
-        <span className="text-xl">{emoji}</span>
-        <div className="flex-1">
-          <p className="text-gray-800 font-medium leading-snug">{text}</p>
-          <div className="flex items-center gap-3 mt-2">
+    <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200">
+      <div className="flex items-start gap-2 sm:gap-3">
+        <span className="text-lg sm:text-xl">{emoji}</span>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm sm:text-base text-gray-800 font-medium leading-snug">{text}</p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mt-2">
             <span
-              className={`px-2.5 py-1 rounded-md text-xs font-medium ${typeColors[type]}`}
+              className={`px-2 sm:px-2.5 py-1 rounded-md text-xs font-medium ${typeColors[type]} inline-block w-fit`}
             >
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </span>
-            <span className="text-gray-500 text-sm flex items-center gap-1">
+            <span className="text-gray-500 text-xs sm:text-sm flex items-center gap-1">
               <Clock className="w-3 h-3" />
               {time}
             </span>
@@ -129,58 +133,65 @@ export default function Dashboard2() {
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
       <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-          <h1 className="text-xl font-semibold text-blue-700 flex items-center gap-2">
-            <LayoutDashboard className="w-5 h-5" />
-            Student Dashboard
+        <div className="px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between max-w-7xl mx-auto">
+          <h1 className="text-lg sm:text-xl font-semibold text-blue-700 flex items-center gap-2">
+            <LayoutDashboard className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="hidden sm:block">Student Dashboard</span>
+            <span className="block sm:hidden">Dashboard</span>
           </h1>
 
-          <div className="flex items-center gap-4">
-            {/* Search */}
-            <div className="relative hidden md:block">
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Search - Hidden on mobile, visible on tablet+ */}
+            <div className="relative hidden lg:block">
               <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search courses, activities..."
-                className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                className="pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 w-48 xl:w-64"
               />
             </div>
 
+            {/* Mobile Search Button */}
+            <button className="lg:hidden p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+              <Search className="w-5 h-5" />
+            </button>
+
             {/* Notifications */}
             <button className="relative p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-              <Bell className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+              <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></span>
             </button>
 
             {/* Profile */}
-            <button className="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 rounded-lg transition-colors">
-              <User className="w-5 h-5 text-gray-600" />
+            <button className="flex items-center gap-2 px-2 sm:px-3 py-2 hover:bg-gray-50 rounded-lg transition-colors">
+              <User className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
               <span className="hidden md:block text-sm font-medium text-gray-700">
                 Alex Johnson
               </span>
             </button>
 
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
-              Logout
+            <button className="px-2 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm">
+              <span className="hidden sm:block">Logout</span>
+              <span className="block sm:hidden">Exit</span>
             </button>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Welcome */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">
             Welcome back, Alex! 👋
           </h2>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600">
             Here's a quick summary of your progress today.
           </p>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <Card
             title="Courses Enrolled"
             value="10"
@@ -206,11 +217,11 @@ export default function Dashboard2() {
         </div>
 
         {/* Quick Actions */}
-        <section className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-800 mb-6">
+        <section className="mb-6 sm:mb-8">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-4 sm:mb-6">
             Quick Actions
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <QuickActionCard
               title="Browse Courses"
               description="Discover and enroll in new courses"
@@ -233,18 +244,18 @@ export default function Dashboard2() {
         </section>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Recent Activities */}
           <section className="lg:col-span-2">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-semibold text-gray-800">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <h2 className="text-base sm:text-lg font-semibold text-gray-800">
                 Recent Activities
               </h2>
-              <button className="text-blue-600 hover:text-blue-700 text-sm font-medium hover:underline">
+              <button className="text-blue-600 hover:text-blue-700 text-xs sm:text-sm font-medium hover:underline">
                 View All
               </button>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <ActivityItem
                 emoji="✅"
                 text="Completed ReactJS Basics"
@@ -273,34 +284,34 @@ export default function Dashboard2() {
           </section>
 
           {/* Sidebar */}
-          <aside className="space-y-6">
+          <aside className="space-y-4 sm:space-y-6">
             {/* Upcoming Events */}
-            <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-              <h3 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-blue-600" />
+            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 border border-gray-100">
+              <h3 className="text-sm sm:text-base font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                 Upcoming Events
               </h3>
-              <div className="space-y-3">
-                <div className="p-3 bg-blue-50 rounded-lg border border-blue-100">
-                  <p className="font-medium text-blue-900">AI Workshop</p>
-                  <p className="text-sm text-blue-700">Sep 20, 10:00 AM</p>
+              <div className="space-y-2 sm:space-y-3">
+                <div className="p-2 sm:p-3 bg-blue-50 rounded-lg border border-blue-100">
+                  <p className="text-sm sm:text-base font-medium text-blue-900">AI Workshop</p>
+                  <p className="text-xs sm:text-sm text-blue-700">Sep 20, 10:00 AM</p>
                 </div>
-                <div className="p-3 bg-green-50 rounded-lg border border-green-100">
-                  <p className="font-medium text-green-900">Career Fair</p>
-                  <p className="text-sm text-green-700">Sep 25, 2:00 PM</p>
+                <div className="p-2 sm:p-3 bg-green-50 rounded-lg border border-green-100">
+                  <p className="text-sm sm:text-base font-medium text-green-900">Career Fair</p>
+                  <p className="text-xs sm:text-sm text-green-700">Sep 25, 2:00 PM</p>
                 </div>
               </div>
             </div>
 
             {/* Learning Progress */}
-            <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-              <h3 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                <Star className="w-5 h-5 text-yellow-500" />
+            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 border border-gray-100">
+              <h3 className="text-sm sm:text-base font-semibold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
+                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
                 Learning Progress
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
-                  <div className="flex justify-between text-sm mb-2">
+                  <div className="flex justify-between text-xs sm:text-sm mb-2">
                     <span className="font-medium text-gray-700">React Development</span>
                     <span className="text-gray-600">70%</span>
                   </div>
@@ -312,7 +323,7 @@ export default function Dashboard2() {
                   </div>
                 </div>
                 <div>
-                  <div className="flex justify-between text-sm mb-2">
+                  <div className="flex justify-between text-xs sm:text-sm mb-2">
                     <span className="font-medium text-gray-700">Python Basics</span>
                     <span className="text-gray-600">85%</span>
                   </div>

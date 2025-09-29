@@ -403,7 +403,7 @@ export default function OnlineCoursesPage() {
                 Add Course
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-w-[95vw] sm:max-w-3xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto mx-2 sm:mx-auto">
               <DialogHeader className="pb-6">
                 <DialogTitle className="flex items-center gap-2 text-xl">
                   <Monitor className="h-5 w-5 text-blue-600" />
@@ -592,7 +592,7 @@ export default function OnlineCoursesPage() {
 
         {/* View Course Dialog */}
         <Dialog open={isViewOpen} onOpenChange={setIsViewOpen}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-[95vw] sm:max-w-3xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto mx-2 sm:mx-auto">
             {selectedCourse && (
               <>
                 <DialogHeader className="pb-6">

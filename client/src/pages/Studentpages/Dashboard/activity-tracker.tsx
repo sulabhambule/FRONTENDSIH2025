@@ -60,7 +60,7 @@ export function ActivityTracker() {
   return (
     <Card className="border border-gray-200 bg-white">
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
           <div>
             <CardTitle className="text-lg font-semibold text-gray-800">Activity Tracker</CardTitle>
             <CardDescription className="text-gray-600">
@@ -68,7 +68,7 @@ export function ActivityTracker() {
             </CardDescription>
           </div>
           <AddActivityModal>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto">
               <Plus className="w-4 h-4 mr-2" />
               Add Activity
             </Button>
@@ -79,11 +79,11 @@ export function ActivityTracker() {
         <div className="space-y-4">
           {recentActivities.map((activity) => (
             <div key={activity.id} className="p-4 border border-gray-200 rounded-lg bg-gray-50">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h4 className="font-medium text-gray-800">{activity.title}</h4>
-                    <Badge variant="outline" className={getStatusColor(activity.status)}>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-3 sm:space-y-0">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                    <h4 className="font-medium text-gray-800 truncate">{activity.title}</h4>
+                    <Badge variant="outline" className={`${getStatusColor(activity.status)} w-fit`}>
                       {activity.status.replace('_', ' ')}
                     </Badge>
                   </div>
@@ -92,17 +92,17 @@ export function ActivityTracker() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Progress value={activity.progress} className="flex-1 h-2" />
-                    <span className="text-sm text-gray-600">{activity.progress}%</span>
+                    <span className="text-sm text-gray-600 flex-shrink-0">{activity.progress}%</span>
                   </div>
                 </div>
-                <div className="flex gap-2 ml-4">
-                  <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-gray-100">
-                    <Upload className="w-3 h-3 mr-1" />
-                    Edit
+                <div className="flex gap-2 w-full sm:w-auto sm:ml-4">
+                  <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-gray-100 flex-1 sm:flex-none">
+                    <Upload className="w-3 h-3 sm:mr-1" />
+                    <span className="hidden sm:inline">Edit</span>
                   </Button>
-                  <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-gray-100">
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    View
+                  <Button variant="outline" size="sm" className="border-gray-200 text-gray-600 hover:bg-gray-100 flex-1 sm:flex-none">
+                    <ExternalLink className="w-3 h-3 sm:mr-1" />
+                    <span className="hidden sm:inline">View</span>
                   </Button>
                 </div>
               </div>

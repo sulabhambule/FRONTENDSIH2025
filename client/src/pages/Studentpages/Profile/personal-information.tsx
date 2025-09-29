@@ -37,7 +37,7 @@ export function PersonalInformation() {
         <CardDescription>Update your personal details and contact information</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="firstName">First Name</Label>
             <Input
@@ -69,7 +69,7 @@ export function PersonalInformation() {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="phone">Phone Number</Label>
             <Input
@@ -122,16 +122,16 @@ export function PersonalInformation() {
           />
         </div>
 
-        <div className="flex justify-end space-x-2">
+        <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-2">
           {isEditing ? (
             <>
-              <Button variant="outline" onClick={handleCancel}>
+              <Button variant="outline" onClick={handleCancel} className="w-full sm:w-auto">
                 Cancel
               </Button>
-              <Button onClick={handleSave}>Save Changes</Button>
+              <Button onClick={handleSave} className="w-full sm:w-auto">Save Changes</Button>
             </>
           ) : (
-            <Button onClick={() => setIsEditing(true)}>Edit Information</Button>
+            <Button onClick={() => setIsEditing(true)} className="w-full sm:w-auto">Edit Information</Button>
           )}
         </div>
       </CardContent>

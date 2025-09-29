@@ -12,7 +12,13 @@ import {
   BarChart3,
   BookOpen,
   Clock,
+  X,
 } from "lucide-react"
+
+interface StudentSidebarProps {
+  isOpen?: boolean
+  onClose?: () => void
+}
 
 const sidebarItems = [
   {
@@ -57,7 +63,7 @@ const sidebarItems = [
   },
 ]
 
-export function StudentSidebar() {
+export function StudentSidebar({ isOpen = false, onClose }: StudentSidebarProps = {}) {
   const navigate = useNavigate()
   const location = useLocation()
   const [activeItem, setActiveItem] = useState("/student-dashboard")
@@ -69,20 +75,37 @@ export function StudentSidebar() {
   const handleNavigation = (href: string) => {
     setActiveItem(href)
     navigate(href)
+    // Close sidebar on mobile after navigation
+    if (onClose) onClose()
   }
 
   return (
-    <div className="fixed left-0 top-16 z-40 w-64 h-[calc(100vh-4rem)] border-r border-blue-200 bg-gradient-to-b from-white via-blue-50/50 to-indigo-50 shadow-lg">
+    <div className={cn(
+      "fixed left-0 top-16 z-50 w-64 h-[calc(100vh-4rem)] border-r border-blue-200 bg-gradient-to-b from-white via-blue-50/50 to-indigo-50 shadow-lg transition-transform duration-200",
+      "lg:translate-x-0", // Always visible on large screens
+      isOpen ? "translate-x-0" : "-translate-x-full" // Mobile toggle behavior
+    )}>
       {/* Educational theme header */}
       <div className="p-4 border-b border-blue-200 bg-gradient-to-r from-blue-500 to-indigo-600">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-            <Home className="w-4 h-4 text-white" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+              <Home className="w-4 h-4 text-white" />
+            </div>
+            <div className="text-white">
+              {/* <div className="font-semibold text-sm">Student Portal</div> */}
+              <div className="text-xs opacity-90">Academic Dashboard</div>
+            </div>
           </div>
-          <div className="text-white">
-            {/* <div className="font-semibold text-sm">Student Portal</div> */}
-            <div className="text-xs opacity-90">Academic Dashboard</div>
-          </div>
+          {/* Mobile close button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden text-white hover:bg-white/10 h-8 w-8"
+            onClick={onClose}
+          >
+            <X className="w-4 h-4" />
+          </Button>
         </div>
       </div>
 

@@ -177,123 +177,136 @@ export default function ClubsPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Header Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                <Users className="h-6 w-6 text-blue-600" />
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-2 sm:p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <Users className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-semibold text-gray-800">Club Activities & Management</h1>
-                <p className="text-gray-600">
+                <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">Club Activities & Management</h1>
+                <p className="text-gray-600 text-sm sm:text-base">
                   Track club memberships, contributions, and leadership activities
                 </p>
               </div>
             </div>
-            <Badge className="bg-blue-100 text-blue-800 border border-blue-200">
+            <Badge className="bg-blue-100 text-blue-800 border border-blue-200 text-xs sm:text-sm">
               Extracurricular Records
             </Badge>
           </div>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid gap-6 md:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 lg:gap-6 grid-cols-2 lg:grid-cols-4">
           <Card className="border border-gray-200 shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-              <CardTitle className="text-sm font-medium text-gray-700">Active Clubs</CardTitle>
-              <Users className="h-4 w-4 text-blue-600" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 sm:pb-3">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-700">Active Clubs</CardTitle>
+              <Users className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-blue-600">{memberClubs.length + leadClubs.length}</div>
+            <CardContent className="pt-1 sm:pt-2">
+              <div className="text-xl sm:text-2xl font-bold text-blue-600">{memberClubs.length + leadClubs.length}</div>
               <p className="text-xs text-gray-600 flex items-center gap-1 mt-1">
-                <Crown className="h-3 w-3 text-purple-600" />
-                {leadClubs.length} leadership roles
+                <Crown className="h-2 w-2 sm:h-3 sm:w-3 text-purple-600" />
+                <span className="hidden sm:inline">{leadClubs.length} leadership roles</span>
+                <span className="sm:hidden">{leadClubs.length} lead</span>
               </p>
             </CardContent>
           </Card>
 
           <Card className="border border-gray-200 shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-              <CardTitle className="text-sm font-medium text-gray-700">Total Contributions</CardTitle>
-              <Award className="h-4 w-4 text-green-600" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 sm:pb-3">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-700">Total Contributions</CardTitle>
+              <Award className="h-3 w-3 sm:h-4 sm:w-4 text-green-600" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-green-600">{totalContributions}</div>
-              <p className="text-xs text-gray-600">{approvedContributions} approved contributions</p>
+            <CardContent className="pt-1 sm:pt-2">
+              <div className="text-xl sm:text-2xl font-bold text-green-600">{totalContributions}</div>
+              <p className="text-xs text-gray-600">
+                <span className="hidden sm:inline">{approvedContributions} approved contributions</span>
+                <span className="sm:hidden">{approvedContributions} approved</span>
+              </p>
             </CardContent>
           </Card>
 
           <Card className="border border-gray-200 shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-              <CardTitle className="text-sm font-medium text-gray-700">Attendance Rate</CardTitle>
-              <Calendar className="h-4 w-4 text-purple-600" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 sm:pb-3">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-700">Attendance Rate</CardTitle>
+              <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-purple-600" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-purple-600">
+            <CardContent className="pt-1 sm:pt-2">
+              <div className="text-xl sm:text-2xl font-bold text-purple-600">
                 {Math.round(memberClubs.reduce((acc, club) => acc + club.attendance, 0) / memberClubs.length)}%
               </div>
-              <p className="text-xs text-gray-600">Average across all clubs</p>
+              <p className="text-xs text-gray-600">
+                <span className="hidden sm:inline">Average across all clubs</span>
+                <span className="sm:hidden">Average</span>
+              </p>
             </CardContent>
           </Card>
 
           <Card className="border border-gray-200 shadow-sm">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-              <CardTitle className="text-sm font-medium text-gray-700">Pending Approvals</CardTitle>
-              <UserCheck className="h-4 w-4 text-orange-600" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 sm:pb-3">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-700">Pending Approvals</CardTitle>
+              <UserCheck className="h-3 w-3 sm:h-4 sm:w-4 text-orange-600" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-orange-600">
+            <CardContent className="pt-1 sm:pt-2">
+              <div className="text-xl sm:text-2xl font-bold text-orange-600">
                 {leadClubs.reduce((acc, club) => acc + club.pendingApprovals.length, 0)}
               </div>
-              <p className="text-xs text-gray-600">As club leader</p>
+              <p className="text-xs text-gray-600">
+                <span className="hidden sm:inline">As club leader</span>
+                <span className="sm:hidden">As leader</span>
+              </p>
             </CardContent>
           </Card>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4 sm:space-y-6">
           <TabsList className="grid w-full grid-cols-2 bg-gray-100 border border-gray-200 rounded-lg p-1">
             <TabsTrigger
               value="member"
-              className="flex items-center gap-2 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-200 transition-all duration-200"
+              className="flex items-center gap-1 sm:gap-2 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-200 transition-all duration-200 text-xs sm:text-sm"
             >
-              <Users className="h-4 w-4" />
-              Club Memberships
+              <Users className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden sm:inline">Club Memberships</span>
+              <span className="sm:hidden">Memberships</span>
             </TabsTrigger>
             <TabsTrigger
               value="leader"
-              className="flex items-center gap-2 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-200 transition-all duration-200"
+              className="flex items-center gap-1 sm:gap-2 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=inactive]:text-gray-600 data-[state=inactive]:hover:bg-gray-200 transition-all duration-200 text-xs sm:text-sm"
             >
-              <Crown className="h-4 w-4" />
-              Leadership Roles
+              <Crown className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span className="hidden sm:inline">Leadership Roles</span>
+              <span className="sm:hidden">Leadership</span>
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="member" className="space-y-6">
-            <div className="flex items-center justify-between">
+          <TabsContent value="member" className="space-y-4 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-xl font-semibold text-gray-800">Club Memberships & Contributions</h2>
-                <p className="text-gray-600">Your active club memberships and contribution records</p>
+                <h2 className="text-lg sm:text-xl font-semibold text-gray-800">Club Memberships & Contributions</h2>
+                <p className="text-gray-600 text-sm sm:text-base">Your active club memberships and contribution records</p>
               </div>
               <Dialog open={isContributionOpen} onOpenChange={setIsContributionOpen}>
                 <DialogTrigger asChild>
-                  <Button className="bg-blue-600 hover:bg-blue-700">
-                    <Plus className="h-4 w-4 mr-2" />
-                    Add Contribution
+                  <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-sm">
+                    <Plus className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
+                    <span className="hidden sm:inline">Add Contribution</span>
+                    <span className="sm:hidden">Add</span>
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-2xl">
-                  <DialogHeader>
-                    <DialogTitle>Add Club Contribution</DialogTitle>
-                    <DialogDescription>Record your contribution to club activities for approval.</DialogDescription>
+                <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto mx-2 sm:mx-auto">
+                  <DialogHeader className="pb-4 sm:pb-6">
+                    <DialogTitle className="text-lg sm:text-xl">Add Club Contribution</DialogTitle>
+                    <DialogDescription className="text-gray-600 text-sm">Record your contribution to club activities for approval.</DialogDescription>
                   </DialogHeader>
-                  <div className="grid gap-4 py-4">
+                  <div className="grid gap-3 sm:gap-4 py-2 sm:py-4 px-1">
                     <div className="space-y-2">
-                      <Label htmlFor="club">Club Name</Label>
+                      <Label htmlFor="club" className="text-xs sm:text-sm font-medium text-gray-700">Club Name</Label>
                       <Select>
-                        <SelectTrigger>
+                        <SelectTrigger className="focus:ring-2 focus:ring-blue-500 text-sm">
                           <SelectValue placeholder="Select club" />
                         </SelectTrigger>
                         <SelectContent>
@@ -307,22 +320,22 @@ export default function ClubsPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="title">Contribution Title</Label>
-                      <Input id="title" placeholder="Brief title of your contribution" />
+                      <Label htmlFor="title" className="text-xs sm:text-sm font-medium text-gray-700">Contribution Title</Label>
+                      <Input id="title" placeholder="Brief title of your contribution" className="focus:ring-2 focus:ring-blue-500 text-sm" />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="description">Description</Label>
-                      <Textarea id="description" placeholder="Detailed description of your contribution" />
+                      <Label htmlFor="description" className="text-xs sm:text-sm font-medium text-gray-700">Description</Label>
+                      <Textarea id="description" placeholder="Detailed description of your contribution" className="focus:ring-2 focus:ring-blue-500 text-sm" rows={3} />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="date">Date</Label>
-                      <Input id="date" type="date" />
+                      <Label htmlFor="date" className="text-xs sm:text-sm font-medium text-gray-700">Date</Label>
+                      <Input id="date" type="date" className="focus:ring-2 focus:ring-blue-500 text-sm" />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="certificates">Upload Certificates/Proof (Optional)</Label>
+                      <Label htmlFor="certificates" className="text-xs sm:text-sm font-medium text-gray-700">Upload Certificates/Proof (Optional)</Label>
                       <div className="relative">
                         <input
                           type="file"
@@ -331,19 +344,19 @@ export default function ClubsPage() {
                           accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
                           multiple
                         />
-                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
-                          <Upload className="h-8 w-8 mx-auto mb-2 text-gray-400" />
-                          <p className="text-sm text-gray-600">Upload any certificates or proof of contribution</p>
+                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center hover:border-blue-400 hover:bg-blue-50 transition-colors">
+                          <Upload className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-gray-400" />
+                          <p className="text-xs sm:text-sm text-gray-600">Upload any certificates or proof of contribution</p>
                           <p className="text-xs text-gray-500 mt-1">PDF, JPG, PNG, DOC up to 5MB each</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <DialogFooter>
-                    <Button variant="outline" onClick={() => setIsContributionOpen(false)}>
+                  <DialogFooter className="pt-4 sm:pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-2 sm:gap-0">
+                    <Button variant="outline" onClick={() => setIsContributionOpen(false)} className="w-full sm:w-auto text-sm">
                       Cancel
                     </Button>
-                    <Button className="bg-blue-600 hover:bg-blue-700" onClick={() => setIsContributionOpen(false)}>
+                    <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-sm" onClick={() => setIsContributionOpen(false)}>
                       Submit for Approval
                     </Button>
                   </DialogFooter>
@@ -351,17 +364,19 @@ export default function ClubsPage() {
               </Dialog>
             </div>
 
-            <div className="grid gap-6">
+            <div className="grid gap-4 sm:gap-6">
               {memberClubs.map((club) => (
                 <Card key={club.id} className="border border-gray-200 shadow-sm">
                   <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <CardTitle className="flex items-center gap-3 text-lg">
-                          <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
-                            <Users className="h-5 w-5 text-blue-600" />
+                    <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+                      <div className="flex-1">
+                        <CardTitle className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-base sm:text-lg">
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
+                              <Users className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
+                            </div>
+                            <span>{club.name}</span>
                           </div>
-                          {club.name}
                           <Badge
                             variant={club.role === "Technical Lead" ? "default" : "secondary"}
                             className={club.role === "Technical Lead"

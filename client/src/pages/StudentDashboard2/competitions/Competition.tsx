@@ -149,37 +149,37 @@ export default function CompetitionsPage() {
   const levels = [...new Set(competitions.map((comp) => comp.level))]
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Header Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                <Trophy className="h-6 w-6 text-blue-600" />
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-2 sm:p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <Trophy className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
               </div>
               <div>
-                <h1 className="text-2xl font-semibold text-gray-800">Competition Records & Achievements</h1>
-                <p className="text-gray-600">
+                <h1 className="text-xl sm:text-2xl font-semibold text-gray-800">Competition Records & Achievements</h1>
+                <p className="text-sm sm:text-base text-gray-600">
                   Track your participation in programming contests, hackathons, and competitive events
                 </p>
               </div>
             </div>
-            <Badge className="bg-blue-100 text-blue-800 border border-blue-200">
+            <Badge className="bg-blue-100 text-blue-800 border border-blue-200 text-xs sm:text-sm w-fit">
               Competition Portfolio
             </Badge>
           </div>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid gap-6 md:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 md:gap-6 grid-cols-2 lg:grid-cols-4">
           <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-sm font-medium text-gray-700">Total Competitions</CardTitle>
               <Trophy className="h-4 w-4 text-blue-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-blue-600">{competitions.length}</div>
+              <div className="text-lg sm:text-2xl font-bold text-blue-600">{competitions.length}</div>
               <p className="text-xs text-gray-600">Participated events</p>
             </CardContent>
           </Card>
@@ -190,7 +190,7 @@ export default function CompetitionsPage() {
               <Medal className="h-4 w-4 text-yellow-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-yellow-600">
+              <div className="text-lg sm:text-2xl font-bold text-yellow-600">
                 {competitions.filter((c) => c.position.includes("1st") || c.position.includes("Winner")).length}
               </div>
               <p className="text-xs text-gray-600">First place finishes</p>
@@ -203,7 +203,7 @@ export default function CompetitionsPage() {
               <CheckCircle className="h-4 w-4 text-green-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-600">
+              <div className="text-lg sm:text-2xl font-bold text-green-600">
                 {competitions.filter((c) => c.status === "approved").length}
               </div>
               <p className="text-xs text-gray-600">Verified achievements</p>
@@ -216,7 +216,7 @@ export default function CompetitionsPage() {
               <Award className="h-4 w-4 text-purple-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-600">{competitions.reduce((acc, c) => acc + c.certificates.length, 0)}</div>
+              <div className="text-lg sm:text-2xl font-bold text-purple-600">{competitions.reduce((acc, c) => acc + c.certificates.length, 0)}</div>
               <p className="text-xs text-gray-600">Total certificates</p>
             </CardContent>
           </Card>
@@ -224,65 +224,65 @@ export default function CompetitionsPage() {
 
         {/* Achievement Summary */}
         <Card className="border border-gray-200 shadow-sm">
-          <CardHeader className="pb-4">
+          <CardHeader className="pb-4 p-4 sm:p-6">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-yellow-50 rounded-lg border border-yellow-200">
-                <TrendingUp className="h-5 w-5 text-yellow-600" />
+                <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-600" />
               </div>
               <div>
-                <CardTitle className="text-lg text-gray-800">Competition Performance Overview</CardTitle>
-                <p className="text-sm text-gray-600">Your competitive journey and key achievements</p>
+                <CardTitle className="text-base sm:text-lg text-gray-800">Competition Performance Overview</CardTitle>
+                <p className="text-xs sm:text-sm text-gray-600">Your competitive journey and key achievements</p>
               </div>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <CardContent className="space-y-4 p-4 sm:p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                 <div className="flex items-center gap-2 mb-2">
                   <Medal className="h-4 w-4 text-green-600" />
                   <Label className="text-sm font-medium text-green-800">Win Rate</Label>
                 </div>
-                <div className="text-2xl font-bold text-green-700">
+                <div className="text-xl sm:text-2xl font-bold text-green-700">
                   {Math.round((competitions.filter(c => c.position.includes("1st") || c.position.includes("Winner")).length / competitions.length) * 100)}%
                 </div>
                 <p className="text-xs text-green-600">Success rate in competitions</p>
               </div>
 
-              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <div className="p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="h-4 w-4 text-blue-600" />
-                  <Label className="text-sm font-medium text-blue-800">Active Months</Label>
+                  <Label className="text-xs sm:text-sm font-medium text-blue-800">Active Months</Label>
                 </div>
-                <div className="text-2xl font-bold text-blue-700">
+                <div className="text-xl sm:text-2xl font-bold text-blue-700">
                   {new Set(competitions.map(c => new Date(c.date).getMonth())).size}
                 </div>
                 <p className="text-xs text-blue-600">Months with competitions</p>
               </div>
 
-              <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+              <div className="p-3 sm:p-4 bg-purple-50 rounded-lg border border-purple-200">
                 <div className="flex items-center gap-2 mb-2">
                   <Award className="h-4 w-4 text-purple-600" />
-                  <Label className="text-sm font-medium text-purple-800">Skill Diversity</Label>
+                  <Label className="text-xs sm:text-sm font-medium text-purple-800">Skill Diversity</Label>
                 </div>
-                <div className="text-2xl font-bold text-purple-700">
+                <div className="text-xl sm:text-2xl font-bold text-purple-700">
                   {new Set(competitions.flatMap(c => c.skills)).size}
                 </div>
                 <p className="text-xs text-purple-600">Unique skills demonstrated</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <Label className="text-sm font-medium text-gray-700 mb-3 block">Recent Competitions Timeline</Label>
-                <div className="space-y-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
+              <div className="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 sm:mb-3 block">Recent Competitions Timeline</Label>
+                <div className="space-y-2 sm:space-y-3">
                   {competitions.slice(0, 3).map((comp) => (
-                    <div key={comp.id} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                      <div className="flex-1">
-                        <div className="text-sm font-medium text-gray-800">{comp.title}</div>
+                    <div key={comp.id} className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs sm:text-sm font-medium text-gray-800 truncate">{comp.title}</div>
                         <div className="text-xs text-gray-600">{comp.date} • {comp.position}</div>
                       </div>
-                      <Badge className={`${getPositionColor(comp.position)} text-xs`}>
+                      <Badge className={`${getPositionColor(comp.position)} text-xs flex-shrink-0`}>
                         {comp.position.includes("1st") ? "🥇" : comp.position.includes("2nd") ? "🥈" : comp.position.includes("3rd") ? "🥉" : "🏆"}
                       </Badge>
                     </div>
@@ -290,9 +290,9 @@ export default function CompetitionsPage() {
                 </div>
               </div>
 
-              <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <Label className="text-sm font-medium text-gray-700 mb-3 block">Top Skills</Label>
-                <div className="space-y-2">
+              <div className="p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 sm:mb-3 block">Top Skills</Label>
+                <div className="space-y-1 sm:space-y-2">
                   {Object.entries(
                     competitions.flatMap(c => c.skills).reduce((acc, skill) => {
                       acc[skill] = (acc[skill] || 0) + 1;
@@ -302,11 +302,11 @@ export default function CompetitionsPage() {
                     .sort(([, a], [, b]) => b - a)
                     .slice(0, 5)
                     .map(([skill, count]) => (
-                      <div key={skill} className="flex items-center justify-between">
-                        <Badge className="bg-blue-100 text-blue-800 border border-blue-300 text-xs">
+                      <div key={skill} className="flex items-center justify-between gap-2">
+                        <Badge className="bg-blue-100 text-blue-800 border border-blue-300 text-xs flex-shrink-0">
                           {skill}
                         </Badge>
-                        <span className="text-xs text-gray-600">{count} competitions</span>
+                        <span className="text-xs text-gray-600 flex-shrink-0">{count} competitions</span>
                       </div>
                     ))}
                 </div>
@@ -316,10 +316,10 @@ export default function CompetitionsPage() {
         </Card>
 
         {/* Filters and Add Button */}
-        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-          <div className="flex gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 items-start sm:items-center justify-between">
+          <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
             <Select value={filterStatus} onValueChange={setFilterStatus}>
-              <SelectTrigger className="w-32">
+              <SelectTrigger className="w-28 sm:w-32 text-sm">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -331,7 +331,7 @@ export default function CompetitionsPage() {
             </Select>
 
             <Select value={filterCategory} onValueChange={setFilterCategory}>
-              <SelectTrigger className="w-40">
+              <SelectTrigger className="w-32 sm:w-40 text-sm">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
@@ -345,7 +345,7 @@ export default function CompetitionsPage() {
             </Select>
 
             <Select value={filterLevel} onValueChange={setFilterLevel}>
-              <SelectTrigger className="w-32">
+              <SelectTrigger className="w-24 sm:w-32 text-sm">
                 <SelectValue placeholder="Level" />
               </SelectTrigger>
               <SelectContent>
@@ -361,12 +361,12 @@ export default function CompetitionsPage() {
 
           <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-blue-600 hover:bg-blue-700">
+              <Button className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto text-sm">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Competition
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-w-[95vw] sm:max-w-3xl max-h-[90vh] overflow-y-auto">
               <DialogHeader className="pb-6">
                 <DialogTitle className="flex items-center gap-2 text-xl">
                   <Trophy className="h-5 w-5 text-blue-600" />
@@ -376,16 +376,16 @@ export default function CompetitionsPage() {
                   Record your participation in competitions and contests for academic verification.
                 </DialogDescription>
               </DialogHeader>
-              <div className="grid gap-6 py-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid gap-4 sm:gap-6 py-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="title" className="text-sm font-medium text-gray-700">Competition Title</Label>
-                    <Input id="title" placeholder="Enter competition name" className="focus:ring-2 focus:ring-blue-500" />
+                    <Input id="title" placeholder="Enter competition name" className="focus:ring-2 focus:ring-blue-500 text-sm" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="category" className="text-sm font-medium text-gray-700">Category</Label>
                     <Select>
-                      <SelectTrigger className="focus:ring-2 focus:ring-blue-500">
+                      <SelectTrigger className="focus:ring-2 focus:ring-blue-500 text-sm">
                         <SelectValue placeholder="Select category" />
                       </SelectTrigger>
                       <SelectContent>
@@ -405,20 +405,20 @@ export default function CompetitionsPage() {
                   <Textarea
                     id="description"
                     placeholder="Brief description of the competition and what it involved"
-                    className="focus:ring-2 focus:ring-blue-500"
+                    className="focus:ring-2 focus:ring-blue-500 text-sm"
                     rows={3}
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="date" className="text-sm font-medium text-gray-700">Date</Label>
-                    <Input id="date" type="date" className="focus:ring-2 focus:ring-blue-500" />
+                    <Input id="date" type="date" className="focus:ring-2 focus:ring-blue-500 text-sm" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="level" className="text-sm font-medium text-gray-700">Level</Label>
                     <Select>
-                      <SelectTrigger className="focus:ring-2 focus:ring-blue-500">
+                      <SelectTrigger className="focus:ring-2 focus:ring-blue-500 text-sm">
                         <SelectValue placeholder="Select level" />
                       </SelectTrigger>
                       <SelectContent>
@@ -431,18 +431,18 @@ export default function CompetitionsPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="team-size" className="text-sm font-medium text-gray-700">Team Size</Label>
-                    <Input id="team-size" type="number" placeholder="1" className="focus:ring-2 focus:ring-blue-500" />
+                    <Input id="team-size" type="number" placeholder="1" className="focus:ring-2 focus:ring-blue-500 text-sm" />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="organizer" className="text-sm font-medium text-gray-700">Organizer</Label>
-                    <Input id="organizer" placeholder="Organization/Institution" className="focus:ring-2 focus:ring-blue-500" />
+                    <Input id="organizer" placeholder="Organization/Institution" className="focus:ring-2 focus:ring-blue-500 text-sm" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="position" className="text-sm font-medium text-gray-700">Position/Result</Label>
-                    <Input id="position" placeholder="e.g., 1st Place, Finalist" className="focus:ring-2 focus:ring-blue-500" />
+                    <Input id="position" placeholder="e.g., 1st Place, Finalist" className="focus:ring-2 focus:ring-blue-500 text-sm" />
                   </div>
                 </div>
 
@@ -451,7 +451,7 @@ export default function CompetitionsPage() {
                   <Input
                     id="skills"
                     placeholder="e.g., Python, React, Problem Solving, Teamwork"
-                    className="focus:ring-2 focus:ring-blue-500"
+                    className="focus:ring-2 focus:ring-blue-500 text-sm"
                   />
                   <p className="text-xs text-gray-600">Separate skills with commas</p>
                 </div>
@@ -461,7 +461,7 @@ export default function CompetitionsPage() {
                   <Input
                     id="prize"
                     placeholder="e.g., ₹10,000, Certificate, Internship Opportunity"
-                    className="focus:ring-2 focus:ring-blue-500"
+                    className="focus:ring-2 focus:ring-blue-500 text-sm"
                   />
                 </div>
 
@@ -476,20 +476,20 @@ export default function CompetitionsPage() {
                       multiple
                       required
                     />
-                    <div className="border-2 border-dashed border-blue-300 bg-blue-50 rounded-lg p-6 text-center hover:border-blue-500 hover:bg-blue-100 transition-colors">
-                      <Upload className="h-8 w-8 mx-auto mb-2 text-blue-600" />
-                      <p className="text-sm text-gray-700">Upload certificates, awards, or participation proof</p>
+                    <div className="border-2 border-dashed border-blue-300 bg-blue-50 rounded-lg p-4 sm:p-6 text-center hover:border-blue-500 hover:bg-blue-100 transition-colors">
+                      <Upload className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 text-blue-600" />
+                      <p className="text-xs sm:text-sm text-gray-700">Upload certificates, awards, or participation proof</p>
                       <p className="text-xs text-blue-600 mt-1 font-medium">Certificates are mandatory for verification</p>
                       <p className="text-xs text-gray-500 mt-1">PDF, JPG, PNG, DOC up to 5MB each</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <DialogFooter className="pt-6 border-t border-gray-200">
-                <Button variant="outline" onClick={() => setIsAddOpen(false)}>
+              <DialogFooter className="pt-4 sm:pt-6 border-t border-gray-200 flex-col sm:flex-row gap-2 sm:gap-0">
+                <Button variant="outline" onClick={() => setIsAddOpen(false)} className="w-full sm:w-auto text-sm">
                   Cancel
                 </Button>
-                <Button className="bg-blue-600 hover:bg-blue-700" onClick={() => setIsAddOpen(false)}>
+                <Button className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto text-sm" onClick={() => setIsAddOpen(false)}>
                   Submit for Approval
                 </Button>
               </DialogFooter>
@@ -497,30 +497,31 @@ export default function CompetitionsPage() {
           </Dialog>
         </div>
 
-        {/* Competitions Table */}
+        {/* Competitions Display - Responsive */}
         <Card className="border border-gray-200 shadow-sm">
           <CardContent className="p-0">
-            <div className="bg-gray-50 rounded-t-lg border-b border-gray-200 overflow-hidden">
-              <Table>
+            {/* Desktop Table View */}
+            <div className="hidden lg:block bg-gray-50 rounded-t-lg border-b border-gray-200 overflow-x-auto">
+              <Table className="min-w-full">
                 <TableHeader>
                   <TableRow className="bg-blue-50 border-b border-blue-200">
-                    <TableHead className="text-blue-800 font-medium">Competition Details</TableHead>
-                    <TableHead className="text-blue-800 font-medium">Category</TableHead>
-                    <TableHead className="text-blue-800 font-medium">Level</TableHead>
-                    <TableHead className="text-blue-800 font-medium">Position</TableHead>
-                    <TableHead className="text-blue-800 font-medium">Date</TableHead>
-                    <TableHead className="text-blue-800 font-medium">Status</TableHead>
-                    <TableHead className="text-blue-800 font-medium">Actions</TableHead>
+                    <TableHead className="text-blue-800 font-medium text-sm min-w-[200px]">Competition Details</TableHead>
+                    <TableHead className="text-blue-800 font-medium text-sm min-w-[100px]">Category</TableHead>
+                    <TableHead className="text-blue-800 font-medium text-sm min-w-[80px]">Level</TableHead>
+                    <TableHead className="text-blue-800 font-medium text-sm min-w-[90px]">Position</TableHead>
+                    <TableHead className="text-blue-800 font-medium text-sm min-w-[90px]">Date</TableHead>
+                    <TableHead className="text-blue-800 font-medium text-sm min-w-[80px]">Status</TableHead>
+                    <TableHead className="text-blue-800 font-medium text-sm min-w-[80px]">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredCompetitions.map((competition) => (
                     <TableRow key={competition.id} className="hover:bg-blue-100/50">
-                      <TableCell>
+                      <TableCell className="min-w-[200px]">
                         <div>
-                          <div className="font-medium text-gray-800">{competition.title}</div>
-                          <div className="text-sm text-gray-600">{competition.organizer}</div>
-                          <div className="flex gap-1 mt-1">
+                          <div className="font-medium text-gray-800 text-sm">{competition.title}</div>
+                          <div className="text-xs text-gray-600">{competition.organizer}</div>
+                          <div className="flex gap-1 mt-1 flex-wrap">
                             {competition.skills.slice(0, 2).map((skill, index) => (
                               <Badge key={index} className="bg-blue-100 text-blue-800 border border-blue-300 text-xs">
                                 {skill}
@@ -534,34 +535,34 @@ export default function CompetitionsPage() {
                           </div>
                         </div>
                       </TableCell>
-                      <TableCell>
-                        <Badge className="bg-purple-100 text-purple-800 border border-purple-300">
+                      <TableCell className="min-w-[100px]">
+                        <Badge className="bg-purple-100 text-purple-800 border border-purple-300 text-xs">
                           {competition.category}
                         </Badge>
                       </TableCell>
-                      <TableCell>
-                        <Badge className="bg-gray-100 text-gray-800 border border-gray-300">
+                      <TableCell className="min-w-[80px]">
+                        <Badge className="bg-gray-100 text-gray-800 border border-gray-300 text-xs">
                           {competition.level}
                         </Badge>
                       </TableCell>
-                      <TableCell>
-                        <Badge className={getPositionColor(competition.position)}>{competition.position}</Badge>
+                      <TableCell className="min-w-[90px]">
+                        <Badge className={`${getPositionColor(competition.position)} text-xs`}>{competition.position}</Badge>
                       </TableCell>
-                      <TableCell className="text-gray-600">{competition.date}</TableCell>
-                      <TableCell>
-                        <Badge className={`${getStatusColor(competition.status)} border`}>
+                      <TableCell className="text-gray-600 text-sm min-w-[90px]">{competition.date}</TableCell>
+                      <TableCell className="min-w-[80px]">
+                        <Badge className={`${getStatusColor(competition.status)} border text-xs`}>
                           <div className="flex items-center gap-1">
                             {getStatusIcon(competition.status)}
-                            {competition.status}
+                            <span>{competition.status}</span>
                           </div>
                         </Badge>
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="min-w-[80px]">
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={() => handleViewCompetition(competition)}
-                          className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
+                          className="text-blue-600 hover:text-blue-800 hover:bg-blue-100 p-2"
                         >
                           <Eye className="h-4 w-4" />
                         </Button>
@@ -571,27 +572,95 @@ export default function CompetitionsPage() {
                 </TableBody>
               </Table>
             </div>
+
+            {/* Mobile Card View */}
+            <div className="lg:hidden space-y-3 p-3 sm:p-4">
+              {filteredCompetitions.map((competition) => (
+                <div key={competition.id} className="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 shadow-sm">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-medium text-gray-800 text-sm truncate">{competition.title}</h3>
+                      <p className="text-xs text-gray-600 mt-1">{competition.organizer}</p>
+                    </div>
+                    <div className="flex items-center gap-2 ml-2 flex-shrink-0">
+                      <Badge className={`${getStatusColor(competition.status)} border text-xs`}>
+                        <div className="flex items-center gap-1">
+                          {getStatusIcon(competition.status)}
+                          <span className="hidden xs:inline">{competition.status}</span>
+                        </div>
+                      </Badge>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleViewCompetition(competition)}
+                        className="text-blue-600 hover:text-blue-800 hover:bg-blue-100 p-1.5"
+                      >
+                        <Eye className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 mb-3">
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">Category</p>
+                      <Badge className="bg-purple-100 text-purple-800 border border-purple-300 text-xs">
+                        {competition.category}
+                      </Badge>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">Level</p>
+                      <Badge className="bg-gray-100 text-gray-800 border border-gray-300 text-xs">
+                        {competition.level}
+                      </Badge>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">Position</p>
+                      <Badge className={`${getPositionColor(competition.position)} text-xs`}>
+                        {competition.position}
+                      </Badge>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">Date</p>
+                      <p className="text-xs text-gray-700">{competition.date}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1">
+                    {competition.skills.slice(0, 3).map((skill, index) => (
+                      <Badge key={index} className="bg-blue-100 text-blue-800 border border-blue-300 text-xs">
+                        {skill}
+                      </Badge>
+                    ))}
+                    {competition.skills.length > 3 && (
+                      <Badge className="bg-gray-100 text-gray-700 border border-gray-300 text-xs">
+                        +{competition.skills.length - 3}
+                      </Badge>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </CardContent>
         </Card>
 
         {/* View Competition Dialog */}
         <Dialog open={isViewOpen} onOpenChange={setIsViewOpen}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-[95vw] sm:max-w-3xl max-h-[90vh] overflow-y-auto">
             {selectedCompetition && (
               <>
-                <DialogHeader className="pb-6">
-                  <DialogTitle className="flex items-center gap-3 text-xl">
+                <DialogHeader className="pb-4 sm:pb-6">
+                  <DialogTitle className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl">
                     <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
-                      <Trophy className="h-5 w-5 text-blue-600" />
+                      <Trophy className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
                     </div>
-                    {selectedCompetition.title}
+                    <span className="break-words">{selectedCompetition.title}</span>
                   </DialogTitle>
-                  <DialogDescription className="text-gray-600">
+                  <DialogDescription className="text-gray-600 text-sm">
                     Competition details and verification status
                   </DialogDescription>
                 </DialogHeader>
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
                     <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
                       <Label className="text-sm font-medium text-gray-700">Category</Label>
                       <p className="text-sm text-gray-600 mt-1">{selectedCompetition.category}</p>

@@ -66,15 +66,15 @@ export function PortfolioProgress() {
   return (
     <Card className="border border-gray-200 bg-white">
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-2 sm:space-y-0">
           <div>
             <CardTitle className="text-lg font-semibold text-gray-800">Portfolio Progress</CardTitle>
             <CardDescription className="text-gray-600">
               Complete your digital portfolio
             </CardDescription>
           </div>
-          <div className="text-right">
-            <div className="text-2xl font-bold text-gray-800">{overallProgress}%</div>
+          <div className="text-left sm:text-right">
+            <div className="text-xl sm:text-2xl font-bold text-gray-800">{overallProgress}%</div>
             <div className="text-sm text-gray-500">Complete</div>
           </div>
         </div>
@@ -86,7 +86,7 @@ export function PortfolioProgress() {
 
         <div className="space-y-3">
           {portfolioSections.slice(0, 5).map((section) => (
-            <div key={section.id} className="flex items-center justify-between p-3 border border-gray-200 rounded-lg bg-gray-50">
+            <div key={section.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 border border-gray-200 rounded-lg bg-gray-50 space-y-2 sm:space-y-0">
               <div className="flex items-center gap-3 flex-1 min-w-0">
                 {section.completed ? (
                   <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
@@ -100,15 +100,15 @@ export function PortfolioProgress() {
                   <p className="text-sm text-gray-600 truncate">{section.description}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 flex-shrink-0 ml-2">
-                <div className="text-right">
+              <div className="flex items-center gap-2 w-full sm:w-auto sm:flex-shrink-0 sm:ml-2">
+                <div className="flex-1 sm:text-right">
                   <div className="text-sm font-medium text-gray-700">{section.progress}%</div>
-                  <Progress value={section.progress} className="w-12 h-1" />
+                  <Progress value={section.progress} className="w-full sm:w-12 h-1" />
                 </div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-gray-200 text-gray-600 hover:bg-gray-100"
+                  className="border-gray-200 text-gray-600 hover:bg-gray-100 flex-shrink-0"
                 >
                   {section.completed ? "View" : "Update"}
                 </Button>

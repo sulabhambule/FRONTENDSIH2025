@@ -92,16 +92,16 @@ export function RecentActivities() {
             <div key={activity.id} className="flex items-start gap-3 p-3 border border-gray-200 rounded-lg bg-gray-50">
               <div className="text-lg flex-shrink-0">{getTypeEmoji(activity.type)}</div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
                   <h4 className="font-medium text-gray-800 truncate">{activity.title}</h4>
-                  <Badge variant="outline" className={`${getStatusColor(activity.status)} text-xs flex-shrink-0`}>
+                  <Badge variant="outline" className={`${getStatusColor(activity.status)} text-xs flex-shrink-0 w-fit`}>
                     {activity.status}
                   </Badge>
                 </div>
                 <p className="text-sm text-gray-600 mb-2 line-clamp-2">{activity.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">{activity.timestamp}</span>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:bg-gray-100 h-6 px-2">
+                  <span className="text-xs text-gray-500 truncate">{activity.timestamp}</span>
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:bg-gray-100 h-6 px-2 flex-shrink-0">
                     <ExternalLink className="w-3 h-3" />
                   </Button>
                 </div>
