@@ -39,21 +39,21 @@ export function Dashboard() {
   */
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-4 sm:space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600 mt-1">Overview of your teaching activities and pending tasks</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard</h1>
+          <p className="text-gray-600 mt-1 text-sm sm:text-base">Overview of your teaching activities and pending tasks</p>
         </div>
-        <div className="text-right">
-          <p className="text-sm text-gray-500">Last updated</p>
-          <p className="text-sm font-medium text-gray-900">{new Date().toLocaleString()}</p>
+        <div className="text-left sm:text-right">
+          <p className="text-xs sm:text-sm text-gray-500">Last updated</p>
+          <p className="text-xs sm:text-sm font-medium text-gray-900">{new Date().toLocaleString()}</p>
         </div>
       </div>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
         <StatCard
           title="Total Classes"
           value={data.stats.totalClasses}
@@ -82,32 +82,32 @@ export function Dashboard() {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <AssignedClasses classes={data.assignedClasses} />
         <QuickActions />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <PendingApprovals approvals={data.pendingApprovals} />
 
         {/* Club Overview */}
         <Card className="animate-slide-up">
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Trophy className="mr-2 h-5 w-5 text-yellow-600" />
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="flex items-center text-base sm:text-lg">
+              <Trophy className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-yellow-600 flex-shrink-0" />
               Club Advisor Role
             </CardTitle>
-            <CardDescription>Clubs where you serve as faculty advisor</CardDescription>
+            <CardDescription className="text-sm">Clubs where you serve as faculty advisor</CardDescription>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+          <CardContent className="p-4 sm:p-6">
+            <div className="space-y-3 sm:space-y-4">
               {data.clubs.map((club) => (
-                <div key={club.id} className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
+                <div key={club.id} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 bg-yellow-50 rounded-lg">
                   <div>
-                    <h4 className="font-medium text-gray-900">{club.name}</h4>
-                    <p className="text-sm text-gray-600">{club.memberCount} active members</p>
+                    <h4 className="font-medium text-gray-900 text-sm sm:text-base">{club.name}</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">{club.memberCount} active members</p>
                   </div>
-                  <Button size="sm" variant="outline">
+                  <Button size="sm" variant="outline" className="w-full sm:w-auto">
                     Manage
                   </Button>
                 </div>
@@ -115,10 +115,10 @@ export function Dashboard() {
             </div>
 
             {/* Attendance Progress */}
-            <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-              <h4 className="font-medium text-gray-900 mb-2">Overall Class Attendance</h4>
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-blue-50 rounded-lg">
+              <h4 className="font-medium text-gray-900 mb-2 text-sm sm:text-base">Overall Class Attendance</h4>
               <Progress value={data.stats.averageAttendance} className="mb-2" />
-              <p className="text-sm text-gray-600">{data.stats.averageAttendance}% average across all classes</p>
+              <p className="text-xs sm:text-sm text-gray-600">{data.stats.averageAttendance}% average across all classes</p>
             </div>
           </CardContent>
         </Card>
@@ -126,17 +126,17 @@ export function Dashboard() {
 
       {/* Recent Activities */}
       <Card className="animate-slide-up">
-        <CardHeader>
-          <CardTitle>Recent Activities</CardTitle>
-          <CardDescription>Your latest actions and updates</CardDescription>
+        <CardHeader className="p-4 sm:p-6">
+          <CardTitle className="text-base sm:text-lg">Recent Activities</CardTitle>
+          <CardDescription className="text-sm">Your latest actions and updates</CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
+        <CardContent className="p-4 sm:p-6">
+          <div className="space-y-2 sm:space-y-3">
             {data.recentActivities.map((activity) => (
-              <div key={activity.id} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                <div className="h-2 w-2 bg-blue-600 rounded-full"></div>
-                <div className="flex-1">
-                  <p className="text-sm text-gray-900">{activity.action}</p>
+              <div key={activity.id} className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gray-50 rounded-lg">
+                <div className="h-2 w-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs sm:text-sm text-gray-900 truncate">{activity.action}</p>
                   <p className="text-xs text-gray-500">{activity.time}</p>
                 </div>
               </div>

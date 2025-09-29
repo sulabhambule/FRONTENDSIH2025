@@ -148,13 +148,13 @@ export function TeacherLeaderboard() {
   const getRankIcon = (rank: number) => {
     switch (rank) {
       case 1:
-        return <Trophy className="h-5 w-5 text-yellow-500" />
+        return <Trophy className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500" />
       case 2:
-        return <Medal className="h-5 w-5 text-gray-400" />
+        return <Medal className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
       case 3:
-        return <Award className="h-5 w-5 text-amber-600" />
+        return <Award className="h-4 w-4 sm:h-5 sm:w-5 text-amber-600" />
       default:
-        return <span className="text-sm font-medium text-muted-foreground">#{rank}</span>
+        return <span className="text-xs sm:text-sm font-medium text-muted-foreground">#{rank}</span>
     }
   }
 
@@ -166,41 +166,41 @@ export function TeacherLeaderboard() {
   }
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="container mx-auto p-3 sm:p-4 lg:p-6 space-y-4 md:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold text-balance">Student Achievement Leaderboard</h1>
-          <p className="text-muted-foreground">Track and monitor student performance across departments</p>
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-balance">Student Achievement Leaderboard</h1>
+          <p className="text-muted-foreground text-sm sm:text-base">Track and monitor student performance across departments</p>
         </div>
-        <div className="flex items-center gap-2">
-          <GraduationCap className="h-8 w-8 text-primary" />
-          <Badge variant="secondary" className="text-sm">
+        <div className="flex items-center gap-2 self-start md:self-auto">
+          <GraduationCap className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+          <Badge variant="secondary" className="text-xs sm:text-sm">
             Teacher Admin Panel
           </Badge>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <Users className="h-8 w-8 text-primary" />
-              <div>
-                <p className="text-sm text-muted-foreground">Total Students</p>
-                <p className="text-2xl font-bold">{filteredStudents.length}</p>
+          <CardContent className="p-3 sm:p-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Users className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+              <div className="min-w-0 flex-1">
+                <p className="text-xs sm:text-sm text-muted-foreground">Total Students</p>
+                <p className="text-lg sm:text-2xl font-bold">{filteredStudents.length}</p>
               </div>
             </div>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <TrendingUp className="h-8 w-8 text-success" />
-              <div>
-                <p className="text-sm text-muted-foreground">Avg Score</p>
-                <p className="text-2xl font-bold">
+          <CardContent className="p-3 sm:p-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-success" />
+              <div className="min-w-0 flex-1">
+                <p className="text-xs sm:text-sm text-muted-foreground">Avg Score</p>
+                <p className="text-lg sm:text-2xl font-bold">
                   {filteredStudents.length > 0
                     ? (filteredStudents.reduce((sum, s) => sum + s.score, 0) / filteredStudents.length).toFixed(1)
                     : "0.0"}
@@ -210,12 +210,12 @@ export function TeacherLeaderboard() {
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <Award className="h-8 w-8 text-warning" />
-              <div>
-                <p className="text-sm text-muted-foreground">Top Performer</p>
-                <p className="text-lg font-semibold text-pretty">
+          <CardContent className="p-3 sm:p-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Award className="h-6 w-6 sm:h-8 sm:w-8 text-warning" />
+              <div className="min-w-0 flex-1">
+                <p className="text-xs sm:text-sm text-muted-foreground">Top Performer</p>
+                <p className="text-sm sm:text-lg font-semibold text-pretty truncate">
                   {filteredStudents.length > 0 ? filteredStudents[0]?.name : "No data"}
                 </p>
               </div>
@@ -223,12 +223,12 @@ export function TeacherLeaderboard() {
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <Trophy className="h-8 w-8 text-primary" />
-              <div>
-                <p className="text-sm text-muted-foreground">Departments</p>
-                <p className="text-2xl font-bold">{departments.length - 1}</p>
+          <CardContent className="p-3 sm:p-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Trophy className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+              <div className="min-w-0 flex-1">
+                <p className="text-xs sm:text-sm text-muted-foreground">Departments</p>
+                <p className="text-lg sm:text-2xl font-bold">{departments.length - 1}</p>
               </div>
             </div>
           </CardContent>
@@ -237,30 +237,30 @@ export function TeacherLeaderboard() {
 
       {/* Filters */}
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+        <CardHeader className="p-4 md:p-6">
+          <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
             <Filter className="h-5 w-5" />
             Filter & Search
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <CardContent className="p-4 md:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium">Search Students</label>
+              <label className="text-xs sm:text-sm font-medium">Search Students</label>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search by name..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 text-sm md:text-base"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Department</label>
+              <label className="text-xs sm:text-sm font-medium">Department</label>
               <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
-                <SelectTrigger>
+                <SelectTrigger className="text-sm md:text-base">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -273,9 +273,9 @@ export function TeacherLeaderboard() {
               </Select>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Academic Year</label>
+              <label className="text-xs sm:text-sm font-medium">Academic Year</label>
               <Select value={selectedYear} onValueChange={setSelectedYear}>
-                <SelectTrigger>
+                <SelectTrigger className="text-sm md:text-base">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -288,9 +288,9 @@ export function TeacherLeaderboard() {
               </Select>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Branch/Specialization</label>
+              <label className="text-xs sm:text-sm font-medium">Branch/Specialization</label>
               <Select value={selectedBranch} onValueChange={setSelectedBranch}>
-                <SelectTrigger>
+                <SelectTrigger className="text-sm md:text-base">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -312,6 +312,7 @@ export function TeacherLeaderboard() {
                 setSelectedBranch("All Branches")
                 setSearchQuery("")
               }}
+              className="text-sm md:text-base"
             >
               Clear Filters
             </Button>
@@ -321,46 +322,46 @@ export function TeacherLeaderboard() {
 
       {/* Leaderboard */}
       <Card>
-        <CardHeader>
-          <CardTitle>Student Rankings</CardTitle>
+        <CardHeader className="p-4 md:p-6">
+          <CardTitle className="text-lg md:text-xl">Student Rankings</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 md:p-6">
           <div className="space-y-3">
             {filteredStudents.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">
-                <GraduationCap className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No students found matching the current filters.</p>
+              <div className="text-center py-6 sm:py-8 text-muted-foreground">
+                <GraduationCap className="h-10 w-10 sm:h-12 sm:w-12 mx-auto mb-4 opacity-50" />
+                <p className="text-sm sm:text-base">No students found matching the current filters.</p>
               </div>
             ) : (
               filteredStudents.map((student, index) => (
                 <div
                   key={student.id}
-                  className={`flex items-center justify-between p-4 rounded-lg border transition-colors hover:bg-accent/50 ${index < 3 ? "bg-accent/20 border-primary/20" : "bg-card"
+                  className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 rounded-lg border transition-colors hover:bg-accent/50 gap-3 sm:gap-4 ${index < 3 ? "bg-accent/20 border-primary/20" : "bg-card"
                     }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center w-10 h-10">{getRankIcon(student.rank)}</div>
-                    <div className="space-y-1">
-                      <h3 className="font-semibold text-pretty">{student.name}</h3>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Badge variant="outline" className="text-xs">
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                    <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 shrink-0">{getRankIcon(student.rank)}</div>
+                    <div className="space-y-1 min-w-0 flex-1">
+                      <h3 className="font-semibold text-sm sm:text-base text-pretty truncate">{student.name}</h3>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <Badge variant="outline" className="text-xs self-start">
                           {student.department}
                         </Badge>
-                        <span>•</span>
-                        <span>{student.branch}</span>
-                        <span>•</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span className="truncate">{student.branch}</span>
+                        <span className="hidden sm:inline">•</span>
                         <span>Class of {student.year}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-6">
-                    <div className="text-right">
-                      <p className="text-sm text-muted-foreground">Achievements</p>
-                      <p className="font-semibold">{student.achievements}</p>
+                  <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 shrink-0">
+                    <div className="text-center sm:text-right">
+                      <p className="text-xs sm:text-sm text-muted-foreground">Achievements</p>
+                      <p className="font-semibold text-sm sm:text-base">{student.achievements}</p>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-muted-foreground">Score</p>
-                      <p className={`text-xl font-bold ${getScoreColor(student.score)}`}>{student.score}%</p>
+                    <div className="text-center sm:text-right">
+                      <p className="text-xs sm:text-sm text-muted-foreground">Score</p>
+                      <p className={`text-lg sm:text-xl font-bold ${getScoreColor(student.score)}`}>{student.score}%</p>
                     </div>
                   </div>
                 </div>

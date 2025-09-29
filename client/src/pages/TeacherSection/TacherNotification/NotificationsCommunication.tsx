@@ -42,11 +42,11 @@ export const NotificationsCommunication: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 p-3 sm:p-4 lg:p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">Notifications & Communication</h1>
-          <p className="text-gray-600">Manage your tasks, reminders, and communications</p>
+        <div className="mb-4 sm:mb-6">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Notifications & Communication</h1>
+          <p className="text-sm sm:text-base text-gray-600">Manage your tasks, reminders, and communications</p>
         </div>
 
         <NotificationStats
@@ -55,7 +55,7 @@ export const NotificationsCommunication: React.FC = () => {
           messages={notificationData.messages}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
           <PendingTasks tasks={notificationData.pendingTasks} />
           <Reminders reminders={notificationData.reminders} />
         </div>

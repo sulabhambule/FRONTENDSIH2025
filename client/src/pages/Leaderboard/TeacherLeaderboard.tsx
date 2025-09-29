@@ -271,13 +271,13 @@ export function TeacherLeaderboard() {
   const getRankIcon = (rank: number) => {
     switch (rank) {
       case 1:
-        return <Trophy className="h-6 w-6 text-yellow-500" />
+        return <Trophy className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-500" />
       case 2:
-        return <Medal className="h-6 w-6 text-gray-400" />
+        return <Medal className="h-5 w-5 sm:h-6 sm:w-6 text-gray-400" />
       case 3:
-        return <Award className="h-6 w-6 text-amber-600" />
+        return <Award className="h-5 w-5 sm:h-6 sm:w-6 text-amber-600" />
       default:
-        return <span className="text-lg font-bold text-gray-600">#{rank}</span>
+        return <span className="text-base sm:text-lg font-bold text-gray-600">#{rank}</span>
     }
   }
 
@@ -306,52 +306,52 @@ export function TeacherLeaderboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gray-50 p-3 sm:p-4 lg:p-6">
+      <div className="max-w-7xl mx-auto space-y-4 md:space-y-6">
 
         {/* Header Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                <GraduationCap className="h-8 w-8 text-blue-600" />
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="p-2 sm:p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <GraduationCap className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
               </div>
-              <div>
-                <h1 className="text-2xl font-semibold text-gray-800">Student Performance Dashboard</h1>
-                <p className="text-gray-600">Monitor and track student academic records</p>
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800">Student Performance Dashboard</h1>
+                <p className="text-gray-600 text-sm sm:text-base">Monitor and track student academic records</p>
               </div>
             </div>
-            <Badge className="bg-blue-100 text-blue-800 border border-blue-200 text-sm px-3 py-1">
+            <Badge className="bg-blue-100 text-blue-800 border border-blue-200 text-xs sm:text-sm px-2 sm:px-3 py-1 self-start md:self-auto">
               Academic Records Management
             </Badge>
           </div>
         </div>
 
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <Card className="border border-gray-200 shadow-sm">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
-                  <Users className="h-6 w-6 text-blue-600" />
+            <CardContent className="p-3 sm:p-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 bg-blue-50 rounded-lg border border-blue-200">
+                  <Users className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-600">Total Students</p>
-                  <p className="text-2xl font-bold text-gray-800">{filteredAndSortedStudents.length}</p>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs sm:text-sm text-gray-600">Total Students</p>
+                  <p className="text-lg sm:text-2xl font-bold text-gray-800">{filteredAndSortedStudents.length}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card className="border border-gray-200 shadow-sm">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
-                  <TrendingUp className="h-6 w-6 text-blue-600" />
+            <CardContent className="p-3 sm:p-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 bg-blue-50 rounded-lg border border-blue-200">
+                  <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-600">Average Score</p>
-                  <p className="text-2xl font-bold text-gray-800">
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs sm:text-sm text-gray-600">Average Score</p>
+                  <p className="text-lg sm:text-2xl font-bold text-gray-800">
                     {filteredAndSortedStudents.length > 0
                       ? (filteredAndSortedStudents.reduce((sum, s) => sum + s.score, 0) / filteredAndSortedStudents.length).toFixed(1)
                       : "0.0"}%
@@ -362,14 +362,14 @@ export function TeacherLeaderboard() {
           </Card>
 
           <Card className="border border-gray-200 shadow-sm">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
-                  <Trophy className="h-6 w-6 text-blue-600" />
+            <CardContent className="p-3 sm:p-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 bg-blue-50 rounded-lg border border-blue-200">
+                  <Trophy className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-600">Top Performer</p>
-                  <p className="text-lg font-semibold text-gray-800">
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs sm:text-sm text-gray-600">Top Performer</p>
+                  <p className="text-sm sm:text-lg font-semibold text-gray-800 truncate">
                     {filteredAndSortedStudents.length > 0 ? filteredAndSortedStudents[0]?.name : "No data"}
                   </p>
                 </div>
@@ -378,14 +378,14 @@ export function TeacherLeaderboard() {
           </Card>
 
           <Card className="border border-gray-200 shadow-sm">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-blue-50 rounded-lg border border-blue-200">
-                  <BarChart3 className="h-6 w-6 text-blue-600" />
+            <CardContent className="p-3 sm:p-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 bg-blue-50 rounded-lg border border-blue-200">
+                  <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                 </div>
-                <div>
-                  <p className="text-sm text-gray-600">Excellence Rate</p>
-                  <p className="text-2xl font-bold text-gray-800">
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs sm:text-sm text-gray-600">Excellence Rate</p>
+                  <p className="text-lg sm:text-2xl font-bold text-gray-800">
                     {filteredAndSortedStudents.length > 0
                       ? Math.round((filteredAndSortedStudents.filter(s => s.score >= 90).length / filteredAndSortedStudents.length) * 100)
                       : 0}%
@@ -398,34 +398,34 @@ export function TeacherLeaderboard() {
 
         {/* Filters and Search */}
         <Card className="border border-gray-200 shadow-sm">
-          <CardHeader className="pb-4">
-            <CardTitle className="flex items-center gap-2 text-lg text-gray-800">
+          <CardHeader className="pb-4 p-4 sm:p-6">
+            <CardTitle className="flex items-center gap-2 text-base sm:text-lg text-gray-800">
               <Filter className="h-5 w-5 text-blue-600" />
               Filter & Search Options
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+          <CardContent className="p-4 sm:p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 mb-6">
 
               {/* Search Input */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Search Students</label>
+              <div className="space-y-2 sm:col-span-2 md:col-span-1">
+                <label className="text-xs sm:text-sm font-medium text-gray-700">Search Students</label>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                   <Input
                     placeholder="Search by name or ID..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                    className="pl-10 border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm md:text-base"
                   />
                 </div>
               </div>
 
               {/* Department Filter */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Department</label>
+                <label className="text-xs sm:text-sm font-medium text-gray-700">Department</label>
                 <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
-                  <SelectTrigger className="border-gray-300 focus:border-blue-500">
+                  <SelectTrigger className="border-gray-300 focus:border-blue-500 text-sm md:text-base">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -440,9 +440,9 @@ export function TeacherLeaderboard() {
 
               {/* Year Filter */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Academic Year</label>
+                <label className="text-xs sm:text-sm font-medium text-gray-700">Academic Year</label>
                 <Select value={selectedYear} onValueChange={setSelectedYear}>
-                  <SelectTrigger className="border-gray-300 focus:border-blue-500">
+                  <SelectTrigger className="border-gray-300 focus:border-blue-500 text-sm md:text-base">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -457,9 +457,9 @@ export function TeacherLeaderboard() {
 
               {/* Branch Filter */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Branch/Specialization</label>
+                <label className="text-xs sm:text-sm font-medium text-gray-700">Branch/Specialization</label>
                 <Select value={selectedBranch} onValueChange={setSelectedBranch}>
-                  <SelectTrigger className="border-gray-300 focus:border-blue-500">
+                  <SelectTrigger className="border-gray-300 focus:border-blue-500 text-sm md:text-base">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -473,11 +473,11 @@ export function TeacherLeaderboard() {
               </div>
 
               {/* Sort Options */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Sort By</label>
+              <div className="space-y-2 sm:col-span-2 md:col-span-3 xl:col-span-1">
+                <label className="text-xs sm:text-sm font-medium text-gray-700">Sort By</label>
                 <div className="flex gap-2">
                   <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger className="border-gray-300 focus:border-blue-500">
+                    <SelectTrigger className="border-gray-300 focus:border-blue-500 text-sm md:text-base">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -492,7 +492,7 @@ export function TeacherLeaderboard() {
                     variant="outline"
                     size="sm"
                     onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
-                    className="px-3 border-gray-300"
+                    className="px-2 sm:px-3 border-gray-300 text-sm md:text-base"
                   >
                     {sortOrder === "asc" ? "↑" : "↓"}
                   </Button>
@@ -500,17 +500,17 @@ export function TeacherLeaderboard() {
               </div>
             </div>
 
-            <div className="flex justify-between items-center pt-4 border-t border-gray-200">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center pt-4 border-t border-gray-200 gap-3">
               <div className="flex gap-2">
                 <Button
                   variant="outline"
                   onClick={clearAllFilters}
-                  className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400 text-sm md:text-base"
                 >
                   Clear All Filters
                 </Button>
               </div>
-              <div className="text-sm text-gray-600">
+              <div className="text-xs sm:text-sm text-gray-600">
                 Showing {paginatedStudents.length} of {filteredAndSortedStudents.length} students
               </div>
             </div>
@@ -519,26 +519,26 @@ export function TeacherLeaderboard() {
 
         {/* Leaderboard Table */}
         <Card className="border border-gray-200 shadow-sm">
-          <CardHeader className="pb-4">
-            <div className="flex items-center justify-between">
-              <CardTitle className="flex items-center gap-2 text-lg text-gray-800">
+          <CardHeader className="pb-4 p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+              <CardTitle className="flex items-center gap-2 text-base sm:text-lg text-gray-800">
                 <Trophy className="h-5 w-5 text-blue-600" />
                 Student Performance Rankings
               </CardTitle>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600">
                 <Calendar className="h-4 w-4" />
                 Page {currentPage} of {totalPages || 1}
               </div>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 sm:p-6">
             <div className="space-y-2">
               {paginatedStudents.length === 0 ? (
-                <div className="text-center py-12">
-                  <div className="p-6 bg-gray-50 rounded-lg border border-gray-200 inline-block">
-                    <GraduationCap className="h-16 w-16 mx-auto mb-4 text-gray-400" />
-                    <p className="text-gray-600 font-medium text-lg">No students found</p>
-                    <p className="text-gray-500">Try adjusting your search filters</p>
+                <div className="text-center py-8 sm:py-12">
+                  <div className="p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200 inline-block">
+                    <GraduationCap className="h-12 w-12 sm:h-16 sm:w-16 mx-auto mb-4 text-gray-400" />
+                    <p className="text-gray-600 font-medium text-base sm:text-lg">No students found</p>
+                    <p className="text-gray-500 text-sm sm:text-base">Try adjusting your search filters</p>
                   </div>
                 </div>
               ) : (
@@ -548,58 +548,58 @@ export function TeacherLeaderboard() {
                   return (
                     <div
                       key={student.id}
-                      className={`p-4 rounded-lg border transition-all duration-200 hover:shadow-md ${isTopThree
+                      className={`p-3 sm:p-4 rounded-lg border transition-all duration-200 hover:shadow-md ${isTopThree
                         ? "bg-blue-50 border-blue-200 shadow-sm"
                         : "bg-white border-gray-200 hover:bg-gray-50"
                         }`}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <div className="flex items-center justify-center w-12 h-12">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+                        <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                          <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 shrink-0">
                             {getRankIcon(student.rank)}
                           </div>
-                          <div className="space-y-1">
-                            <h3 className="font-semibold text-gray-800 text-lg">{student.name}</h3>
-                            <p className="text-sm text-gray-600 font-medium">{student.studentId}</p>
-                            <div className="flex items-center gap-2 text-sm">
-                              <Badge className="bg-blue-100 text-blue-800 border border-blue-200">
+                          <div className="space-y-1 min-w-0 flex-1">
+                            <h3 className="font-semibold text-gray-800 text-base sm:text-lg truncate">{student.name}</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 font-medium">{student.studentId}</p>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                              <Badge className="bg-blue-100 text-blue-800 border border-blue-200 self-start">
                                 {student.department}
                               </Badge>
-                              <span className="text-gray-400">•</span>
-                              <span className="text-gray-600">{student.branch}</span>
-                              <span className="text-gray-400">•</span>
+                              <span className="hidden sm:inline text-gray-400">•</span>
+                              <span className="text-gray-600 truncate">{student.branch}</span>
+                              <span className="hidden sm:inline text-gray-400">•</span>
                               <span className="text-gray-600">Class of {student.year}</span>
                             </div>
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-6">
+                        <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-6 shrink-0">
                           <div className="text-center">
                             <p className="text-xs text-gray-500 mb-1">Overall Score</p>
-                            <p className={`text-2xl font-bold ${getPerformanceColor(student.score)}`}>
+                            <p className={`text-lg sm:text-2xl font-bold ${getPerformanceColor(student.score)}`}>
                               {student.score}%
                             </p>
-                            <p className="text-xs text-gray-500">{getPerformanceLabel(student.score)}</p>
+                            <p className="text-xs text-gray-500 hidden sm:block">{getPerformanceLabel(student.score)}</p>
                           </div>
 
                           <div className="text-center">
                             <p className="text-xs text-gray-500 mb-1">Achievements</p>
                             <div className="flex items-center gap-1 justify-center">
-                              <Award className="h-4 w-4 text-purple-600" />
-                              <span className="font-semibold text-gray-800">{student.achievements}</span>
+                              <Award className="h-3 w-3 sm:h-4 sm:w-4 text-purple-600" />
+                              <span className="font-semibold text-gray-800 text-sm sm:text-base">{student.achievements}</span>
                             </div>
                           </div>
 
                           <div className="text-center">
                             <p className="text-xs text-gray-500 mb-1">GPA</p>
-                            <p className="text-lg font-bold text-gray-800">{student.gpa}</p>
+                            <p className="text-base sm:text-lg font-bold text-gray-800">{student.gpa}</p>
                           </div>
 
                           <Button
                             variant="ghost"
                             size="sm"
                             onClick={() => setShowDetails(isExpanded ? null : student.id)}
-                            className="text-blue-600 hover:text-blue-800 hover:bg-blue-100"
+                            className="text-blue-600 hover:text-blue-800 hover:bg-blue-100 p-2"
                           >
                             {isExpanded ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                           </Button>
@@ -608,35 +608,35 @@ export function TeacherLeaderboard() {
 
                       {isExpanded && (
                         <div className="mt-4 pt-4 border-t border-gray-200">
-                          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
-                            <div className="p-3 bg-gray-50 rounded-lg border">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-xs sm:text-sm">
+                            <div className="p-2 sm:p-3 bg-gray-50 rounded-lg border">
                               <div className="flex items-center gap-2 mb-2">
                                 <BookOpen className="h-4 w-4 text-blue-600" />
-                                <p className="font-medium text-gray-700">Academic Details</p>
+                                <p className="font-medium text-gray-700 text-xs sm:text-sm">Academic Details</p>
                               </div>
                               <p className="text-gray-600">Attendance: {student.attendanceRate}%</p>
                               <p className="text-gray-600">Projects: {student.projects}</p>
                             </div>
-                            <div className="p-3 bg-gray-50 rounded-lg border">
+                            <div className="p-2 sm:p-3 bg-gray-50 rounded-lg border">
                               <div className="flex items-center gap-2 mb-2">
                                 <Trophy className="h-4 w-4 text-blue-600" />
-                                <p className="font-medium text-gray-700">Achievements</p>
+                                <p className="font-medium text-gray-700 text-xs sm:text-sm">Achievements</p>
                               </div>
                               <p className="text-gray-600">Total: {student.achievements}</p>
                               <p className="text-gray-600">Certifications: {student.certifications}</p>
                             </div>
-                            <div className="p-3 bg-gray-50 rounded-lg border">
+                            <div className="p-2 sm:p-3 bg-gray-50 rounded-lg border">
                               <div className="flex items-center gap-2 mb-2">
                                 <BarChart3 className="h-4 w-4 text-blue-600" />
-                                <p className="font-medium text-gray-700">Performance</p>
+                                <p className="font-medium text-gray-700 text-xs sm:text-sm">Performance</p>
                               </div>
                               <p className="text-gray-600">Rank: #{student.rank} of {mockStudents.length}</p>
                               <p className="text-gray-600">Level: {getPerformanceLabel(student.score)}</p>
                             </div>
-                            <div className="p-3 bg-gray-50 rounded-lg border">
+                            <div className="p-2 sm:p-3 bg-gray-50 rounded-lg border">
                               <div className="flex items-center gap-2 mb-2">
                                 <Users className="h-4 w-4 text-blue-600" />
-                                <p className="font-medium text-gray-700">Program Info</p>
+                                <p className="font-medium text-gray-700 text-xs sm:text-sm">Program Info</p>
                               </div>
                               <p className="text-gray-600">{student.department}</p>
                               <p className="text-gray-600">{student.branch}</p>
@@ -652,62 +652,64 @@ export function TeacherLeaderboard() {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200">
-                <div className="text-sm text-gray-600">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 pt-4 border-t border-gray-200 gap-4">
+                <div className="text-xs sm:text-sm text-gray-600 order-2 sm:order-1">
                   Showing {(currentPage - 1) * studentsPerPage + 1} to{" "}
                   {Math.min(currentPage * studentsPerPage, filteredAndSortedStudents.length)} of{" "}
                   {filteredAndSortedStudents.length} students
                 </div>
-                <div className="flex items-center gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setCurrentPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className="border-gray-300"
-                  >
-                    <ChevronLeft className="h-4 w-4" />
-                    Previous
-                  </Button>
-                  <div className="flex items-center gap-1">
-                    {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                      const pageNumber = i + 1
-                      return (
-                        <Button
-                          key={pageNumber}
-                          variant={currentPage === pageNumber ? "default" : "outline"}
-                          size="sm"
-                          onClick={() => setCurrentPage(pageNumber)}
-                          className={currentPage === pageNumber ? "bg-blue-600 hover:bg-blue-700" : "border-gray-300"}
-                        >
-                          {pageNumber}
-                        </Button>
-                      )
-                    })}
-                    {totalPages > 5 && (
-                      <>
-                        <span className="text-gray-400">...</span>
-                        <Button
-                          variant={currentPage === totalPages ? "default" : "outline"}
-                          size="sm"
-                          onClick={() => setCurrentPage(totalPages)}
-                          className={currentPage === totalPages ? "bg-blue-600 hover:bg-blue-700" : "border-gray-300"}
-                        >
-                          {totalPages}
-                        </Button>
-                      </>
-                    )}
+                <div className="flex flex-col sm:flex-row items-center gap-2 order-1 sm:order-2">
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="border-gray-300 text-xs sm:text-sm px-2 sm:px-3"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                      <span className="hidden sm:inline">Previous</span>
+                    </Button>
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: Math.min(3, totalPages) }, (_, i) => {
+                        const pageNumber = i + 1
+                        return (
+                          <Button
+                            key={pageNumber}
+                            variant={currentPage === pageNumber ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => setCurrentPage(pageNumber)}
+                            className={`text-xs sm:text-sm px-2 sm:px-3 ${currentPage === pageNumber ? "bg-blue-600 hover:bg-blue-700" : "border-gray-300"}`}
+                          >
+                            {pageNumber}
+                          </Button>
+                        )
+                      })}
+                      {totalPages > 3 && (
+                        <>
+                          <span className="text-gray-400 text-xs sm:text-sm">...</span>
+                          <Button
+                            variant={currentPage === totalPages ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => setCurrentPage(totalPages)}
+                            className={`text-xs sm:text-sm px-2 sm:px-3 ${currentPage === totalPages ? "bg-blue-600 hover:bg-blue-700" : "border-gray-300"}`}
+                          >
+                            {totalPages}
+                          </Button>
+                        </>
+                      )}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="border-gray-300 text-xs sm:text-sm px-2 sm:px-3"
+                    >
+                      <span className="hidden sm:inline">Next</span>
+                      <ChevronRight className="h-4 w-4" />
+                    </Button>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setCurrentPage(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className="border-gray-300"
-                  >
-                    Next
-                    <ChevronRight className="h-4 w-4" />
-                  </Button>
                 </div>
               </div>
             )}

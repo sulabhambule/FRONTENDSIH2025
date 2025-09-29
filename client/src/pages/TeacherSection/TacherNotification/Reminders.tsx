@@ -59,58 +59,58 @@ export const Reminders: React.FC<RemindersProps> = ({ reminders }) => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Bell className="w-5 h-5 text-blue-600" />
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+          <Bell className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
           Reminders ({reminders.length})
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {reminders.map((reminder) => (
-            <div key={reminder.id} className="border rounded-lg p-4 hover:shadow-sm transition-shadow">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-blue-100 rounded-lg text-blue-600">{getReminderIcon(reminder.type)}</div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{reminder.title}</h4>
-                    <p className="text-sm text-gray-600 mt-1">{reminder.description}</p>
-                    {reminder.clubName && <p className="text-sm text-purple-600 mt-1">Club: {reminder.clubName}</p>}
+            <div key={reminder.id} className="border rounded-lg p-3 sm:p-4 hover:shadow-sm transition-shadow">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 gap-3 sm:gap-0">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div className="p-1.5 sm:p-2 bg-blue-100 rounded-lg text-blue-600 flex-shrink-0">{getReminderIcon(reminder.type)}</div>
+                  <div className="min-w-0 flex-1">
+                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{reminder.title}</h4>
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">{reminder.description}</p>
+                    {reminder.clubName && <p className="text-xs sm:text-sm text-purple-600 mt-1">Club: {reminder.clubName}</p>}
                     {reminder.subject && (
-                      <p className="text-sm text-blue-600 mt-1">
+                      <p className="text-xs sm:text-sm text-blue-600 mt-1">
                         Subject: {reminder.subject} - {reminder.class}
                       </p>
                     )}
-                    {reminder.location && <p className="text-sm text-green-600 mt-1">Location: {reminder.location}</p>}
+                    {reminder.location && <p className="text-xs sm:text-sm text-green-600 mt-1">Location: {reminder.location}</p>}
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 items-end">
-                  <Badge className={getPriorityColor(reminder.priority)}>{reminder.priority}</Badge>
-                  <div className={`text-sm font-medium ${getDaysLeftColor(reminder.daysLeft)}`}>
+                <div className="flex flex-row sm:flex-col gap-2 items-start sm:items-end ml-8 sm:ml-0">
+                  <Badge className={`${getPriorityColor(reminder.priority)} text-xs`}>{reminder.priority}</Badge>
+                  <div className={`text-xs sm:text-sm font-medium ${getDaysLeftColor(reminder.daysLeft)}`}>
                     {reminder.daysLeft} days left
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-500">Due: {new Date(reminder.dueDate).toLocaleDateString()}</div>
-                <div className="flex gap-2">
-                  <Button size="sm" variant="outline" onClick={() => handleSnoozeReminder(reminder.id)}>
-                    <Clock className="w-4 h-4 mr-1" />
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
+                <div className="text-xs sm:text-sm text-gray-500 order-2 sm:order-1">Due: {new Date(reminder.dueDate).toLocaleDateString()}</div>
+                <div className="flex flex-col sm:flex-row gap-2 order-1 sm:order-2">
+                  <Button size="sm" variant="outline" onClick={() => handleSnoozeReminder(reminder.id)} className="text-xs sm:text-sm">
+                    <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                     Snooze
                   </Button>
                   {reminder.type === "club_report" && (
-                    <Button size="sm" onClick={() => handleReminderAction(reminder.id, "submit_report")}>
+                    <Button size="sm" onClick={() => handleReminderAction(reminder.id, "submit_report")} className="text-xs sm:text-sm">
                       Submit Report
                     </Button>
                   )}
                   {reminder.type === "grade_submission" && (
-                    <Button size="sm" onClick={() => handleReminderAction(reminder.id, "submit_grades")}>
+                    <Button size="sm" onClick={() => handleReminderAction(reminder.id, "submit_grades")} className="text-xs sm:text-sm">
                       Submit Grades
                     </Button>
                   )}
                   {reminder.type === "meeting" && (
-                    <Button size="sm" onClick={() => handleReminderAction(reminder.id, "add_calendar")}>
+                    <Button size="sm" onClick={() => handleReminderAction(reminder.id, "add_calendar")} className="text-xs sm:text-sm">
                       Add to Calendar
                     </Button>
                   )}
@@ -120,7 +120,7 @@ export const Reminders: React.FC<RemindersProps> = ({ reminders }) => {
           ))}
         </div>
 
-        {reminders.length === 0 && <div className="text-center py-8 text-gray-500">No upcoming reminders.</div>}
+        {reminders.length === 0 && <div className="text-center py-6 sm:py-8 text-sm sm:text-base text-gray-500">No upcoming reminders.</div>}
 
         {/* TODO: API calls for reminder management */}
         {/*

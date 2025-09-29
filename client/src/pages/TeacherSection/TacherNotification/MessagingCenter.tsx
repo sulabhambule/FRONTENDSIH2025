@@ -68,7 +68,7 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -78,20 +78,20 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
         </CardHeader>
         <CardContent>
           <div className="space-y-4 mb-4">
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
                   placeholder="Search messages..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 text-sm md:text-base"
                 />
               </div>
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                className="px-3 py-2 border rounded-md"
+                className="px-3 py-2 border rounded-md text-sm md:text-base min-w-0 sm:min-w-[120px]"
               >
                 <option value="all">All</option>
                 <option value="unread">Unread</option>
@@ -104,22 +104,22 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
             {filteredMessages.map((message) => (
               <div
                 key={message.id}
-                className={`border rounded-lg p-3 cursor-pointer hover:shadow-sm transition-shadow ${message.status === "unread" ? "bg-blue-50 border-blue-200" : "bg-white"
+                className={`border rounded-lg p-3 md:p-4 cursor-pointer hover:shadow-sm transition-shadow ${message.status === "unread" ? "bg-blue-50 border-blue-200" : "bg-white"
                   }`}
                 onClick={() => setSelectedMessage(message)}
               >
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h4 className="font-medium text-gray-900">{message.from}</h4>
-                    <p className="text-sm text-gray-600">{message.subject}</p>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-gray-900 text-sm md:text-base truncate">{message.from}</h4>
+                    <p className="text-xs md:text-sm text-gray-600 line-clamp-2 sm:line-clamp-1">{message.subject}</p>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <Badge className={getPriorityColor(message.priority)}>{message.priority}</Badge>
+                  <div className="flex flex-row sm:flex-col items-start sm:items-end gap-1 shrink-0">
+                    <Badge className={`${getPriorityColor(message.priority)} text-xs`}>{message.priority}</Badge>
                     {message.status === "unread" && <div className="w-2 h-2 bg-blue-600 rounded-full"></div>}
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-blue-600">{message.course}</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+                  <span className="text-xs text-blue-600 font-medium">{message.course}</span>
                   <span className="text-xs text-gray-500">{new Date(message.timestamp).toLocaleDateString()}</span>
                 </div>
               </div>
@@ -127,11 +127,11 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
           </div>
 
           {selectedMessage && (
-            <div className="mt-4 p-4 border rounded-lg bg-gray-50">
+            <div className="mt-4 p-3 md:p-4 border rounded-lg bg-gray-50">
               <div className="mb-3">
-                <h4 className="font-semibold">{selectedMessage.subject}</h4>
-                <p className="text-sm text-gray-600 mb-2">From: {selectedMessage.from}</p>
-                <p className="text-sm">{selectedMessage.message}</p>
+                <h4 className="font-semibold text-sm md:text-base">{selectedMessage.subject}</h4>
+                <p className="text-xs md:text-sm text-gray-600 mb-2">From: {selectedMessage.from}</p>
+                <p className="text-xs md:text-sm">{selectedMessage.message}</p>
               </div>
               <div className="space-y-2">
                 <Textarea
@@ -140,15 +140,17 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
                   onChange={(e) => setReplyText(e.target.value)}
                   rows={3}
                 />
-                <div className="flex gap-2">
-                  <Button size="sm" onClick={() => handleReply(selectedMessage.id)} disabled={!replyText.trim()}>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Button size="sm" onClick={() => handleReply(selectedMessage.id)} disabled={!replyText.trim()} className="flex-1 sm:flex-none">
                     <Send className="w-4 h-4 mr-1" />
-                    Send Reply
+                    <span className="hidden sm:inline">Send Reply</span>
+                    <span className="sm:hidden">Reply</span>
                   </Button>
-                  <Button size="sm" variant="outline" onClick={() => handleMarkAsRead(selectedMessage.id)}>
-                    Mark as Read
+                  <Button size="sm" variant="outline" onClick={() => handleMarkAsRead(selectedMessage.id)} className="flex-1 sm:flex-none">
+                    <span className="hidden sm:inline">Mark as Read</span>
+                    <span className="sm:hidden">Mark Read</span>
                   </Button>
-                  <Button size="sm" variant="outline" onClick={() => setSelectedMessage(null)}>
+                  <Button size="sm" variant="outline" onClick={() => setSelectedMessage(null)} className="flex-1 sm:flex-none">
                     Close
                   </Button>
                 </div>
@@ -159,16 +161,16 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
       </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+        <CardHeader className="p-4 md:p-6">
+          <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
             <Send className="w-5 h-5 text-green-600" />
             Send Announcement
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 md:p-6">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+              <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Title</label>
               <Input
                 placeholder="Announcement title..."
                 value={newAnnouncement.title}
@@ -178,11 +180,12 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
                     title: e.target.value,
                   })
                 }
+                className="text-sm md:text-base"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Target Audience</label>
+              <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Target Audience</label>
               <select
                 value={newAnnouncement.targetAudience}
                 onChange={(e) =>
@@ -191,7 +194,7 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
                     targetAudience: e.target.value,
                   })
                 }
-                className="w-full px-3 py-2 border rounded-md"
+                className="w-full px-3 py-2 border rounded-md text-sm md:text-base"
               >
                 <option value="all_students">All Students</option>
                 <option value="my_classes">My Classes Only</option>
@@ -201,7 +204,7 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Content</label>
+              <label className="block text-xs md:text-sm font-medium text-gray-700 mb-1">Content</label>
               <Textarea
                 placeholder="Write your announcement..."
                 value={newAnnouncement.content}
@@ -218,7 +221,7 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
             <Button
               onClick={handleSendAnnouncement}
               disabled={!newAnnouncement.title.trim() || !newAnnouncement.content.trim()}
-              className="w-full"
+              className="w-full text-sm md:text-base"
             >
               <Send className="w-4 h-4 mr-2" />
               Send Announcement
@@ -226,14 +229,14 @@ export const MessagingCenter: React.FC<MessagingCenterProps> = ({ messages, anno
           </div>
 
           <div className="mt-6">
-            <h4 className="font-semibold text-gray-900 mb-3">Recent Announcements</h4>
+            <h4 className="font-semibold text-gray-900 mb-3 text-sm md:text-base">Recent Announcements</h4>
             <div className="space-y-2 max-h-48 overflow-y-auto">
               {announcements.map((announcement) => (
-                <div key={announcement.id} className="border rounded p-3 bg-green-50">
-                  <h5 className="font-medium text-gray-900">{announcement.title}</h5>
-                  <p className="text-sm text-gray-600 mt-1">{announcement.content}</p>
-                  <div className="flex justify-between items-center mt-2">
-                    <Badge variant="outline" className="text-xs">
+                <div key={announcement.id} className="border rounded p-2 md:p-3 bg-green-50">
+                  <h5 className="font-medium text-gray-900 text-sm md:text-base">{announcement.title}</h5>
+                  <p className="text-xs md:text-sm text-gray-600 mt-1 line-clamp-2">{announcement.content}</p>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-2 gap-1">
+                    <Badge variant="outline" className="text-xs self-start">
                       {announcement.targetAudience.replace("_", " ")}
                     </Badge>
                     <span className="text-xs text-gray-500">

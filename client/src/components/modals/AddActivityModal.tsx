@@ -310,15 +310,15 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
     switch (currentStep) {
       case 1:
         return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Basic Information</h3>
-              <p className="text-sm text-gray-600">Let's start with the essential details of your activity</p>
+          <div className="space-y-4 sm:space-y-6">
+            <div className="text-center mb-4 sm:mb-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Basic Information</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Let's start with the essential details of your activity</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-3 lg:gap-4">
               <div className="lg:col-span-2">
-                <Label htmlFor="title" className="text-xs lg:text-sm font-medium text-gray-700">Activity Title *</Label>
+                <Label htmlFor="title" className="text-xs sm:text-sm font-medium text-gray-700">Activity Title *</Label>
                 <Input
                   id="title"
                   placeholder="e.g., Machine Learning Workshop at Google"
@@ -351,7 +351,7 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
               </div>
 
               <div>
-                <Label htmlFor="type" className="text-sm font-medium text-gray-700">Activity Type *</Label>
+                <Label htmlFor="type" className="text-xs sm:text-sm font-medium text-gray-700">Activity Type *</Label>
                 <Select
                   value={formData.type}
                   onValueChange={(value) => handleInputChange('type', value)}
@@ -372,36 +372,36 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                 </Select>
               </div>
 
-              <div className="col-span-2">
-                <Label htmlFor="description" className="text-sm font-medium text-gray-700">Description *</Label>
+              <div className="sm:col-span-1 lg:col-span-2">
+                <Label htmlFor="description" className="text-xs sm:text-sm font-medium text-gray-700">Description *</Label>
                 <Textarea
                   id="description"
                   placeholder="Describe what you did, what you learned, and the impact of this activity..."
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
-                  className="mt-1 min-h-[100px]"
+                  className="mt-1 min-h-[80px] sm:min-h-[100px]"
                 />
               </div>
 
               <div>
-                <Label htmlFor="organization" className="text-sm font-medium text-gray-700">Organization</Label>
+                <Label htmlFor="organization" className="text-xs sm:text-sm font-medium text-gray-700">Organization</Label>
                 <Input
                   id="organization"
                   placeholder="e.g., Google, IEEE, Local NGO"
                   value={formData.organization}
                   onChange={(e) => handleInputChange('organization', e.target.value)}
-                  className="mt-1"
+                  className="mt-1 text-sm lg:text-base"
                 />
               </div>
 
               <div>
-                <Label htmlFor="location" className="text-sm font-medium text-gray-700">Location</Label>
+                <Label htmlFor="location" className="text-xs sm:text-sm font-medium text-gray-700">Location</Label>
                 <Input
                   id="location"
                   placeholder="e.g., Online, Mumbai, IIT Delhi"
                   value={formData.location}
                   onChange={(e) => handleInputChange('location', e.target.value)}
-                  className="mt-1"
+                  className="mt-1 text-sm lg:text-base"
                 />
               </div>
             </div>
@@ -410,15 +410,15 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
 
       case 2:
         return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Timeline & Duration</h3>
-              <p className="text-sm text-gray-600">When did this activity take place?</p>
+          <div className="space-y-4 sm:space-y-6">
+            <div className="text-center mb-4 sm:mb-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Timeline & Duration</h3>
+              <p className="text-xs sm:text-sm text-gray-600">When did this activity take place?</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-3 lg:gap-4">
               <div>
-                <Label htmlFor="startDate" className="text-xs lg:text-sm font-medium text-gray-700">Start Date *</Label>
+                <Label htmlFor="startDate" className="text-xs sm:text-sm font-medium text-gray-700">Start Date *</Label>
                 <Input
                   id="startDate"
                   type="date"
@@ -429,18 +429,18 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
               </div>
 
               <div>
-                <Label htmlFor="endDate" className="text-xs lg:text-sm font-medium text-gray-700">End Date</Label>
+                <Label htmlFor="endDate" className="text-xs sm:text-sm font-medium text-gray-700">End Date</Label>
                 <Input
                   id="endDate"
                   type="date"
                   value={formData.endDate}
                   onChange={(e) => handleInputChange('endDate', e.target.value)}
-                  className="mt-1"
+                  className="mt-1 text-sm lg:text-base"
                   disabled={formData.isOngoing}
                 />
               </div>
 
-              <div className="col-span-2">
+              <div className="sm:col-span-1 lg:col-span-2">
                 <div className="flex items-center space-x-2">
                   <input
                     type="checkbox"
@@ -449,15 +449,15 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                     onChange={(e) => handleInputChange('isOngoing', e.target.checked)}
                     className="rounded border-gray-300"
                   />
-                  <Label htmlFor="ongoing" className="text-sm font-medium text-gray-700">
+                  <Label htmlFor="ongoing" className="text-xs sm:text-sm font-medium text-gray-700">
                     This is an ongoing activity
                   </Label>
                 </div>
               </div>
 
-              <div className="col-span-2">
-                <Label className="text-sm font-medium text-gray-700 mb-3 block">Impact Metrics (Optional)</Label>
-                <div className="grid grid-cols-2 gap-4">
+              <div className="sm:col-span-1 lg:col-span-2">
+                <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 sm:mb-3 block">Impact Metrics (Optional)</Label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <Label htmlFor="duration" className="text-xs text-gray-600">Duration (hours/days)</Label>
                     <Input
@@ -465,7 +465,7 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                       placeholder="e.g., 40 hours, 3 days"
                       value={formData.impactMetrics.duration}
                       onChange={(e) => handleMetricChange('duration', e.target.value)}
-                      className="mt-1"
+                      className="mt-1 text-sm"
                     />
                   </div>
                   <div>
@@ -475,7 +475,7 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                       placeholder="e.g., 50 participants"
                       value={formData.impactMetrics.participants}
                       onChange={(e) => handleMetricChange('participants', e.target.value)}
-                      className="mt-1"
+                      className="mt-1 text-sm"
                     />
                   </div>
                   <div>
@@ -485,7 +485,7 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                       placeholder="e.g., ₹10,000"
                       value={formData.impactMetrics.budget}
                       onChange={(e) => handleMetricChange('budget', e.target.value)}
-                      className="mt-1"
+                      className="mt-1 text-sm"
                     />
                   </div>
                   <div>
@@ -495,7 +495,7 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                       placeholder="e.g., 1000+ beneficiaries"
                       value={formData.impactMetrics.reach}
                       onChange={(e) => handleMetricChange('reach', e.target.value)}
-                      className="mt-1"
+                      className="mt-1 text-sm"
                     />
                   </div>
                 </div>
@@ -506,27 +506,27 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
 
       case 3:
         return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Skills & Outcomes</h3>
-              <p className="text-sm text-gray-600">What skills did you gain and what did you achieve?</p>
+          <div className="space-y-4 sm:space-y-6">
+            <div className="text-center mb-4 sm:mb-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Skills & Outcomes</h3>
+              <p className="text-xs sm:text-sm text-gray-600">What skills did you gain and what did you achieve?</p>
             </div>
 
             {/* Skills Selection */}
             <div>
-              <Label className="text-sm font-medium text-gray-700 mb-3 block">Skills Gained</Label>
-              <div className="space-y-4">
+              <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 sm:mb-3 block">Skills Gained</Label>
+              <div className="space-y-3 sm:space-y-4">
                 {skillCategories.map((category) => (
                   <div key={category.name}>
-                    <h4 className="text-sm font-medium text-gray-600 mb-2">{category.name}</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <h4 className="text-xs sm:text-sm font-medium text-gray-600 mb-2">{category.name}</h4>
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
                       {category.skills.map((skill) => (
                         <Badge
                           key={skill}
                           variant={selectedSkills.includes(skill) ? "default" : "outline"}
-                          className={`cursor-pointer transition-colors ${selectedSkills.includes(skill)
-                            ? "bg-blue-600 text-white hover:bg-blue-700"
-                            : "border-gray-200 text-gray-600 hover:bg-gray-100"
+                          className={`cursor-pointer transition-colors text-xs sm:text-sm ${selectedSkills.includes(skill)
+                              ? "bg-blue-600 text-white hover:bg-blue-700"
+                              : "border-gray-200 text-gray-600 hover:bg-gray-100"
                             }`}
                           onClick={() => handleSkillToggle(skill)}
                         >
@@ -541,21 +541,22 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
 
             {/* Achievements */}
             <div>
-              <Label className="text-sm font-medium text-gray-700 mb-2 block">Key Achievements</Label>
-              <div className="flex gap-2 mb-2">
+              <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 block">Key Achievements</Label>
+              <div className="flex flex-col sm:flex-row gap-2 mb-2">
                 <Input
                   placeholder="e.g., Won first prize, Led a team of 10..."
                   value={newAchievement}
                   onChange={(e) => setNewAchievement(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && addAchievement()}
+                  className="text-sm"
                 />
-                <Button type="button" onClick={addAchievement} size="sm">
+                <Button type="button" onClick={addAchievement} size="sm" className="w-full sm:w-auto">
                   <Plus className="w-4 h-4" />
                 </Button>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {achievements.map((achievement, index) => (
-                  <Badge key={index} variant="secondary" className="flex items-center gap-1">
+                  <Badge key={index} variant="secondary" className="flex items-center gap-1 text-xs sm:text-sm">
                     {achievement}
                     <X
                       className="w-3 h-3 cursor-pointer"
@@ -568,21 +569,22 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
 
             {/* Learning Outcomes */}
             <div>
-              <Label className="text-sm font-medium text-gray-700 mb-2 block">Learning Outcomes</Label>
-              <div className="flex gap-2 mb-2">
+              <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 block">Learning Outcomes</Label>
+              <div className="flex flex-col sm:flex-row gap-2 mb-2">
                 <Input
                   placeholder="e.g., Learned React.js, Improved communication skills..."
                   value={newLearning}
                   onChange={(e) => setNewLearning(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && addLearningOutcome()}
+                  className="text-sm"
                 />
-                <Button type="button" onClick={addLearningOutcome} size="sm">
+                <Button type="button" onClick={addLearningOutcome} size="sm" className="w-full sm:w-auto">
                   <Plus className="w-4 h-4" />
                 </Button>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {learningOutcomes.map((learning, index) => (
-                  <Badge key={index} variant="secondary" className="flex items-center gap-1">
+                  <Badge key={index} variant="secondary" className="flex items-center gap-1 text-xs sm:text-sm">
                     {learning}
                     <X
                       className="w-3 h-3 cursor-pointer"
@@ -597,18 +599,18 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
 
       case 4:
         return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Documentation & References</h3>
-              <p className="text-sm text-gray-600">Upload certificates, photos, or add reference links</p>
+          <div className="space-y-4 sm:space-y-6">
+            <div className="text-center mb-4 sm:mb-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Documentation & References</h3>
+              <p className="text-xs sm:text-sm text-gray-600">Upload certificates, photos, or add reference links</p>
             </div>
 
             {/* File Upload */}
             <div>
-              <Label className="text-sm font-medium text-gray-700 mb-2 block">Upload Documents</Label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-600 mb-2">
+              <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 block">Upload Documents</Label>
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center">
+                <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400 mx-auto mb-2" />
+                <p className="text-xs sm:text-sm text-gray-600 mb-2">
                   Drop files here or click to upload
                 </p>
                 <input
@@ -619,7 +621,7 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                   className="hidden"
                   id="file-upload"
                 />
-                <Button type="button" variant="outline" size="sm" onClick={() => document.getElementById('file-upload')?.click()}>
+                <Button type="button" variant="outline" size="sm" onClick={() => document.getElementById('file-upload')?.click()} className="text-xs sm:text-sm px-3 sm:px-4">
                   Choose Files
                 </Button>
               </div>
@@ -629,17 +631,18 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
                 <div className="mt-3 space-y-2">
                   {uploadedFiles.map((file, index) => (
                     <div key={index} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                      <div className="flex items-center gap-2">
-                        <FileText className="w-4 h-4 text-gray-500" />
-                        <span className="text-sm text-gray-700">{file.name}</span>
+                      <div className="flex items-center gap-1 sm:gap-2 flex-1 min-w-0">
+                        <FileText className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-gray-700 truncate">{file.name}</span>
                       </div>
                       <Button
                         type="button"
                         variant="ghost"
                         size="sm"
                         onClick={() => removeFile(index)}
+                        className="flex-shrink-0"
                       >
-                        <X className="w-4 h-4" />
+                        <X className="w-3 h-3 sm:w-4 sm:h-4" />
                       </Button>
                     </div>
                   ))}
@@ -648,52 +651,55 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
             </div>
 
             {/* URLs */}
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4">
               <div>
-                <Label htmlFor="certificateUrl" className="text-sm font-medium text-gray-700">Certificate URL</Label>
+                <Label htmlFor="certificateUrl" className="text-xs sm:text-sm font-medium text-gray-700">Certificate URL</Label>
                 <Input
                   id="certificateUrl"
                   placeholder="https://certificate-link.com"
                   value={formData.certificateUrl}
                   onChange={(e) => handleInputChange('certificateUrl', e.target.value)}
-                  className="mt-1"
+                  className="mt-1 text-sm lg:text-base"
                 />
               </div>
 
               <div>
-                <Label htmlFor="projectUrl" className="text-sm font-medium text-gray-700">Project/Portfolio URL</Label>
+                <Label htmlFor="projectUrl" className="text-xs sm:text-sm font-medium text-gray-700">Project/Portfolio URL</Label>
                 <Input
                   id="projectUrl"
                   placeholder="https://github.com/username/project"
                   value={formData.projectUrl}
                   onChange={(e) => handleInputChange('projectUrl', e.target.value)}
-                  className="mt-1"
+                  className="mt-1 text-sm lg:text-base"
                 />
               </div>
             </div>
 
             {/* Mentor/Reference Information */}
             <div>
-              <Label className="text-sm font-medium text-gray-700 mb-3 block">Mentor/Reference (Optional)</Label>
+              <Label className="text-xs sm:text-sm font-medium text-gray-700 mb-2 sm:mb-3 block">Mentor/Reference (Optional)</Label>
               <div className="grid grid-cols-1 gap-3">
                 <div>
                   <Input
                     placeholder="Mentor/Supervisor Name"
                     value={formData.mentorName}
                     onChange={(e) => handleInputChange('mentorName', e.target.value)}
+                    className="text-sm lg:text-base"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Input
                     placeholder="mentor@email.com"
                     type="email"
                     value={formData.mentorEmail}
                     onChange={(e) => handleInputChange('mentorEmail', e.target.value)}
+                    className="text-sm lg:text-base"
                   />
                   <Input
                     placeholder="Phone Number"
                     value={formData.mentorPhone}
                     onChange={(e) => handleInputChange('mentorPhone', e.target.value)}
+                    className="text-sm lg:text-base"
                   />
                 </div>
               </div>
@@ -711,13 +717,13 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-xl border border-white/20 shadow-xl">
-        <DialogHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 lg:p-6 -m-4 lg:-m-6 mb-4 lg:mb-6 rounded-t-lg">
-          <DialogTitle className="text-lg lg:text-xl font-semibold flex items-center gap-2">
-            <Plus className="w-4 h-4 lg:w-5 lg:h-5" />
+      <DialogContent className="w-[95vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl 2xl:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-white/95 backdrop-blur-xl border border-white/20 shadow-xl">
+        <DialogHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 sm:p-4 lg:p-6 -m-3 sm:-m-4 lg:-m-6 mb-3 sm:mb-4 lg:mb-6 rounded-t-lg">
+          <DialogTitle className="text-sm sm:text-base lg:text-lg xl:text-xl font-semibold flex items-center gap-1 sm:gap-2">
+            <Plus className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 flex-shrink-0" />
             Add New Activity
           </DialogTitle>
-          <DialogDescription className="text-blue-100 mt-2 text-sm lg:text-base">
+          <DialogDescription className="text-blue-100 mt-1 sm:mt-2 text-xs sm:text-sm lg:text-base">
             Step {currentStep} of 4: Document your academic and extracurricular activities
           </DialogDescription>
         </DialogHeader>
@@ -748,10 +754,10 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
         {renderStepContent()}
 
         {/* Navigation Buttons */}
-        <div className="flex flex-col sm:flex-row justify-between pt-4 lg:pt-6 mt-4 lg:mt-6 border-t border-gray-200 gap-3 sm:gap-0">
+        <div className="flex flex-col sm:flex-row justify-between pt-3 sm:pt-4 lg:pt-6 mt-3 sm:mt-4 lg:mt-6 border-t border-gray-200 gap-2 sm:gap-3">
           <div>
             {currentStep > 1 && (
-              <Button variant="outline" onClick={prevStep} className="w-full sm:w-auto text-sm lg:text-base">
+              <Button variant="outline" onClick={prevStep} className="w-full sm:w-auto text-xs sm:text-sm lg:text-base px-3 sm:px-4">
                 Previous
               </Button>
             )}
@@ -761,7 +767,7 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
             <Button
               variant="outline"
               onClick={() => setIsOpen(false)}
-              className="w-full sm:w-auto text-sm lg:text-base order-2 sm:order-1"
+              className="w-full sm:w-auto text-xs sm:text-sm lg:text-base px-3 sm:px-4 order-2 sm:order-1"
             >
               Cancel
             </Button>
@@ -769,14 +775,14 @@ export function AddActivityModal({ children }: AddActivityModalProps) {
             {currentStep < 4 ? (
               <Button
                 onClick={nextStep}
-                className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto text-sm lg:text-base order-1 sm:order-2"
+                className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto text-xs sm:text-sm lg:text-base px-3 sm:px-4 order-1 sm:order-2"
               >
                 Next
               </Button>
             ) : (
               <Button
                 onClick={handleSubmit}
-                className="bg-green-600 hover:bg-green-700 w-full sm:w-auto text-sm lg:text-base order-1 sm:order-2"
+                className="bg-green-600 hover:bg-green-700 w-full sm:w-auto text-xs sm:text-sm lg:text-base px-3 sm:px-4 order-1 sm:order-2"
               >
                 Add Activity
               </Button>

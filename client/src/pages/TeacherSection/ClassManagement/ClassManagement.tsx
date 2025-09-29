@@ -62,20 +62,20 @@ export function ClassManagement() {
   }
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-4 sm:space-y-6 animate-fade-in px-3 sm:px-0">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Class Management</h1>
-          <p className="text-gray-600 mt-1">Manage attendance, marks, and assignments for your classes</p>
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Class Management</h1>
+          <p className="text-sm sm:text-base text-gray-600 mt-1">Manage attendance, marks, and assignments for your classes</p>
         </div>
-        <div className="flex space-x-3">
-          <Button variant="outline">
-            <Download className="mr-2 h-4 w-4" />
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+          <Button variant="outline" className="text-xs sm:text-sm">
+            <Download className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             Export Data
           </Button>
-          <Button className="education-gradient text-white">
-            <Upload className="mr-2 h-4 w-4" />
+          <Button className="education-gradient text-white text-xs sm:text-sm">
+            <Upload className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
             Bulk Upload
           </Button>
         </div>
@@ -84,34 +84,34 @@ export function ClassManagement() {
       <ClassSelector classes={classData.classes} selectedClass={selectedClass} onClassSelect={setSelectedClass} />
 
       {/* Class Management Tabs */}
-      <Tabs defaultValue="overview" className="space-y-4">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="attendance">Attendance</TabsTrigger>
-          <TabsTrigger value="marks">Marks</TabsTrigger>
-          <TabsTrigger value="assignments">Assignments</TabsTrigger>
+      <Tabs defaultValue="overview" className="space-y-3 sm:space-y-4">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 h-auto">
+          <TabsTrigger value="overview" className="text-xs sm:text-sm py-2">Overview</TabsTrigger>
+          <TabsTrigger value="attendance" className="text-xs sm:text-sm py-2">Attendance</TabsTrigger>
+          <TabsTrigger value="marks" className="text-xs sm:text-sm py-2">Marks</TabsTrigger>
+          <TabsTrigger value="assignments" className="text-xs sm:text-sm py-2">Assignments</TabsTrigger>
         </TabsList>
 
         {/* Overview Tab */}
-        <TabsContent value="overview" className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <TabsContent value="overview" className="space-y-3 sm:space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <Card className="animate-slide-up">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Class Performance</CardTitle>
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg">Class Performance</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-gray-600">Average Attendance</span>
-                      <span className="text-sm font-medium">{selectedClass.averageAttendance}%</span>
+                      <span className="text-xs sm:text-sm text-gray-600">Average Attendance</span>
+                      <span className="text-xs sm:text-sm font-medium">{selectedClass.averageAttendance}%</span>
                     </div>
                     <Progress value={selectedClass.averageAttendance} className="h-2" />
                   </div>
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-gray-600">Average Marks</span>
-                      <span className="text-sm font-medium">{selectedClass.averageMarks}%</span>
+                      <span className="text-xs sm:text-sm text-gray-600">Average Marks</span>
+                      <span className="text-xs sm:text-sm font-medium">{selectedClass.averageMarks}%</span>
                     </div>
                     <Progress value={selectedClass.averageMarks} className="h-2" />
                   </div>
@@ -120,47 +120,47 @@ export function ClassManagement() {
             </Card>
 
             <Card className="animate-slide-up">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Quick Stats</CardTitle>
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg">Quick Stats</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Total Students</span>
-                    <span className="font-medium">{selectedClass.studentCount}</span>
+                    <span className="text-xs sm:text-sm text-gray-600">Total Students</span>
+                    <span className="text-xs sm:text-sm font-medium">{selectedClass.studentCount}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Schedule</span>
-                    <span className="font-medium text-sm">{selectedClass.schedule}</span>
+                    <span className="text-xs sm:text-sm text-gray-600">Schedule</span>
+                    <span className="text-xs sm:text-sm font-medium">{selectedClass.schedule}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-gray-600">Semester</span>
-                    <span className="font-medium">{selectedClass.semester}</span>
+                    <span className="text-xs sm:text-sm text-gray-600">Semester</span>
+                    <span className="text-xs sm:text-sm font-medium">{selectedClass.semester}</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="animate-slide-up">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg">Quick Actions</CardTitle>
+            <Card className="animate-slide-up sm:col-span-2 lg:col-span-1">
+              <CardHeader className="pb-2 sm:pb-3">
+                <CardTitle className="text-base sm:text-lg">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button size="sm" className="w-full justify-start" onClick={handleAttendanceUpload}>
-                  <Upload className="mr-2 h-3 w-3" />
+                <Button size="sm" className="w-full justify-start text-xs sm:text-sm" onClick={handleAttendanceUpload}>
+                  <Upload className="mr-1 sm:mr-2 h-3 w-3" />
                   Upload Attendance
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
-                  className="w-full justify-start bg-transparent"
+                  className="w-full justify-start bg-transparent text-xs sm:text-sm"
                   onClick={handleMarksUpload}
                 >
-                  <Upload className="mr-2 h-3 w-3" />
+                  <Upload className="mr-1 sm:mr-2 h-3 w-3" />
                   Upload Marks
                 </Button>
-                <Button size="sm" variant="outline" className="w-full justify-start bg-transparent">
-                  <TrendingUp className="mr-2 h-3 w-3" />
+                <Button size="sm" variant="outline" className="w-full justify-start bg-transparent text-xs sm:text-sm">
+                  <TrendingUp className="mr-1 sm:mr-2 h-3 w-3" />
                   Generate Report
                 </Button>
               </CardContent>
@@ -170,16 +170,16 @@ export function ClassManagement() {
           {/* Student List */}
           <Card className="animate-slide-up">
             <CardHeader>
-              <CardTitle>Student List</CardTitle>
-              <CardDescription>Overview of students in {selectedClass.name}</CardDescription>
+              <CardTitle className="text-base sm:text-lg lg:text-xl">Student List</CardTitle>
+              <CardDescription className="text-xs sm:text-sm">Overview of students in {selectedClass.name}</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {classData.students.map((student) => (
-                  <div key={student.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <div className="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <span className="text-sm font-medium text-blue-600">
+                  <div key={student.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-2 sm:p-3 bg-gray-50 rounded-lg gap-3 sm:gap-0">
+                    <div className="flex items-center space-x-2 sm:space-x-3">
+                      <div className="h-6 w-6 sm:h-8 sm:w-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-xs sm:text-sm font-medium text-blue-600">
                           {student.name
                             .split(" ")
                             .map((n) => n[0])
@@ -187,20 +187,20 @@ export function ClassManagement() {
                         </span>
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">{student.name}</h4>
-                        <p className="text-sm text-gray-600">{student.rollNumber}</p>
+                        <h4 className="text-sm sm:text-base font-medium text-gray-900">{student.name}</h4>
+                        <p className="text-xs sm:text-sm text-gray-600">{student.rollNumber}</p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center justify-between sm:justify-end space-x-3 sm:space-x-4">
                       <div className="text-center">
                         <p className="text-xs text-gray-500">Attendance</p>
-                        <p className="text-sm font-medium text-green-600">{student.attendance}%</p>
+                        <p className="text-xs sm:text-sm font-medium text-green-600">{student.attendance}%</p>
                       </div>
                       <div className="text-center">
                         <p className="text-xs text-gray-500">Marks</p>
-                        <p className="text-sm font-medium text-blue-600">{student.marks}%</p>
+                        <p className="text-xs sm:text-sm font-medium text-blue-600">{student.marks}%</p>
                       </div>
-                      <Button size="sm" variant="outline">
+                      <Button size="sm" variant="outline" className="text-xs sm:text-sm px-2 sm:px-3">
                         View Profile
                       </Button>
                     </div>
@@ -217,29 +217,29 @@ export function ClassManagement() {
           {/* Attendance History */}
           <Card className="animate-slide-up">
             <CardHeader>
-              <CardTitle>Attendance History</CardTitle>
-              <CardDescription>Recent attendance records for {selectedClass.name}</CardDescription>
+              <CardTitle className="text-base sm:text-lg lg:text-xl">Attendance History</CardTitle>
+              <CardDescription className="text-xs sm:text-sm">Recent attendance records for {selectedClass.name}</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {[1, 2, 3, 4, 5].map((day) => (
-                  <div key={day} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div key={day} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-2 sm:p-3 bg-gray-50 rounded-lg gap-3 sm:gap-0">
                     <div>
-                      <p className="font-medium text-gray-900">
+                      <p className="text-sm sm:text-base font-medium text-gray-900">
                         {new Date(Date.now() - day * 24 * 60 * 60 * 1000).toLocaleDateString()}
                       </p>
-                      <p className="text-sm text-gray-600">Morning Session</p>
+                      <p className="text-xs sm:text-sm text-gray-600">Morning Session</p>
                     </div>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center justify-between sm:justify-end space-x-3 sm:space-x-4">
                       <div className="text-center">
-                        <p className="text-sm font-medium text-green-600">
+                        <p className="text-xs sm:text-sm font-medium text-green-600">
                           {Math.floor(Math.random() * 10) + 35} Present
                         </p>
                         <p className="text-xs text-gray-500">
                           {selectedClass.studentCount - (Math.floor(Math.random() * 10) + 35)} Absent
                         </p>
                       </div>
-                      <Button size="sm" variant="outline">
+                      <Button size="sm" variant="outline" className="text-xs sm:text-sm px-2 sm:px-3">
                         Edit
                       </Button>
                     </div>

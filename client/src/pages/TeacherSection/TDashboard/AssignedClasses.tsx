@@ -19,38 +19,38 @@ interface AssignedClassesProps {
 export function AssignedClasses({ classes }: AssignedClassesProps) {
   return (
     <Card className="lg:col-span-2 animate-slide-up">
-      <CardHeader>
-        <CardTitle className="flex items-center">
-          <BookOpen className="mr-2 h-5 w-5 text-blue-600" />
+      <CardHeader className="p-4 sm:p-6">
+        <CardTitle className="flex items-center text-base sm:text-lg">
+          <BookOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-blue-600 flex-shrink-0" />
           Assigned Classes
         </CardTitle>
-        <CardDescription>Your current semester teaching assignments</CardDescription>
+        <CardDescription className="text-sm">Your current semester teaching assignments</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="p-4 sm:p-6">
+        <div className="space-y-3 sm:space-y-4">
           {classes.map((classItem) => (
             <div
               key={classItem.id}
-              className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+              className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">{classItem.name}</h3>
-                <p className="text-sm text-gray-600">
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900 text-sm sm:text-base truncate">{classItem.name}</h3>
+                <p className="text-xs sm:text-sm text-gray-600">
                   {classItem.subject} • {classItem.semester}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">{classItem.schedule}</p>
               </div>
-              <div className="text-right">
-                <Badge variant="secondary" className="mb-2">
+              <div className="flex flex-col sm:text-right gap-2">
+                <Badge variant="secondary" className="w-fit text-xs">
                   {classItem.studentCount} students
                 </Badge>
-                <div className="flex space-x-2">
-                  <Button size="sm" variant="outline">
-                    <Upload className="h-3 w-3 mr-1" />
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Button size="sm" variant="outline" className="text-xs">
+                    <Upload className="h-3 w-3 mr-1 flex-shrink-0" />
                     Upload
                   </Button>
-                  <Button size="sm" variant="outline">
-                    <Eye className="h-3 w-3 mr-1" />
+                  <Button size="sm" variant="outline" className="text-xs">
+                    <Eye className="h-3 w-3 mr-1 flex-shrink-0" />
                     View
                   </Button>
                 </div>

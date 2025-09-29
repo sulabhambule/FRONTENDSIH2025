@@ -34,41 +34,41 @@ export function PendingApprovals({ approvals }: PendingApprovalsProps) {
   }
   return (
     <Card className="animate-slide-up">
-      <CardHeader>
-        <CardTitle className="flex items-center justify-between">
+      <CardHeader className="p-4 sm:p-6">
+        <CardTitle className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-base sm:text-lg">
           <span className="flex items-center">
-            <Clock className="mr-2 h-5 w-5 text-orange-600" />
+            <Clock className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-orange-600 flex-shrink-0" />
             Pending Approvals
           </span>
-          <Badge variant="destructive">{approvals.length}</Badge>
+          <Badge variant="destructive" className="w-fit text-xs">{approvals.length}</Badge>
         </CardTitle>
-        <CardDescription>Student activities awaiting your review</CardDescription>
+        <CardDescription className="text-sm">Student activities awaiting your review</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="p-4 sm:p-6">
+        <div className="space-y-3 sm:space-y-4">
           {approvals.slice(0, 3).map((approval) => (
-            <div key={approval.id} className="p-4 bg-orange-50 rounded-lg border border-orange-100">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h4 className="font-medium text-gray-900">{approval.student}</h4>
-                    <Badge variant="outline" className="text-orange-600 border-orange-200 text-xs">
+            <div key={approval.id} className="p-3 sm:p-4 bg-orange-50 rounded-lg border border-orange-100">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-3">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1">
+                    <h4 className="font-medium text-gray-900 text-sm sm:text-base truncate">{approval.student}</h4>
+                    <Badge variant="outline" className="text-orange-600 border-orange-200 text-xs w-fit">
                       {approval.type}
                     </Badge>
                   </div>
-                  <p className="text-sm text-gray-600 mb-1">{approval.activity}</p>
+                  <p className="text-xs sm:text-sm text-gray-600 mb-1">{approval.activity}</p>
                   <p className="text-xs text-gray-500">{approval.submittedAt}</p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-orange-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 pt-3 border-t border-orange-200">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => handleViewDetails(approval.id)}
-                  className="text-gray-600 hover:text-gray-800 hover:bg-gray-100"
+                  className="text-gray-600 hover:text-gray-800 hover:bg-gray-100 text-xs w-full sm:w-auto"
                 >
-                  <Eye className="w-4 h-4 mr-1" />
+                  <Eye className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
                   Details
                 </Button>
 
@@ -77,17 +77,17 @@ export function PendingApprovals({ approvals }: PendingApprovalsProps) {
                     variant="outline"
                     size="sm"
                     onClick={() => handleReject(approval.id)}
-                    className="border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300"
+                    className="border-red-200 text-red-600 hover:bg-red-50 hover:border-red-300 text-xs flex-1 sm:flex-initial"
                   >
-                    <X className="w-4 h-4 mr-1" />
+                    <X className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
                     Reject
                   </Button>
                   <Button
                     size="sm"
                     onClick={() => handleApprove(approval.id)}
-                    className="bg-green-600 hover:bg-green-700 text-white"
+                    className="bg-green-600 hover:bg-green-700 text-white text-xs flex-1 sm:flex-initial"
                   >
-                    <Check className="w-4 h-4 mr-1" />
+                    <Check className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
                     Approve
                   </Button>
                 </div>
@@ -95,7 +95,7 @@ export function PendingApprovals({ approvals }: PendingApprovalsProps) {
             </div>
           ))}
           {approvals.length > 3 && (
-            <Button variant="link" className="w-full text-blue-600">
+            <Button variant="link" className="w-full text-blue-600 text-sm">
               View all {approvals.length} pending approvals
             </Button>
           )}
