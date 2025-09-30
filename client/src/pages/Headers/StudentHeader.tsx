@@ -35,6 +35,10 @@ export function StudentNavbar({ onToggleSidebar }: StudentNavbarProps = {}) {
     navigate("/student2/profile")
   }
 
+  const handleLogoClick = () => {
+    navigate("/login")
+  }
+
   return (
     <header className="fixed top-0 z-50 w-full border-b border-blue-200 bg-gradient-to-r from-white via-blue-50 to-indigo-50 backdrop-blur-sm shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4">
@@ -49,15 +53,15 @@ export function StudentNavbar({ onToggleSidebar }: StudentNavbarProps = {}) {
             <Menu className="h-5 w-5" />
           </Button>
 
-          <div className="flex items-center space-x-3">
-            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={handleLogoClick}>
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
               <span className="text-white font-bold text-xs sm:text-sm">SH</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
+              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent hover:from-blue-500 hover:to-indigo-600 transition-colors">
                 Smart Student Hub
               </h1>
-              <p className="text-xs text-blue-600/70">Academic Excellence Portal</p>
+              <p className="text-xs text-blue-600/70">Student Portal</p>
             </div>
           </div>
         </div>

@@ -37,6 +37,10 @@ export function TeacherHeader({ sidebarOpen, setSidebarOpen }: TeacherHeaderProp
     navigate("/teacher/profile")
   }
 
+  const handleLogoClick = () => {
+    navigate("/login")
+  }
+
   return (
     <header className="fixed top-0 z-50 w-full border-b border-blue-200 bg-gradient-to-r from-white via-blue-50 to-indigo-50 backdrop-blur-sm shadow-sm">
       <div className="flex h-16 items-center justify-between px-3 sm:px-4 lg:px-6">
@@ -55,12 +59,12 @@ export function TeacherHeader({ sidebarOpen, setSidebarOpen }: TeacherHeaderProp
             )}
           </Button>
 
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+          <div className="flex items-center space-x-2 sm:space-x-3 cursor-pointer" onClick={handleLogoClick}>
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
               <span className="text-white font-bold text-xs sm:text-sm">SH</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
+              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent hover:from-blue-500 hover:to-indigo-600 transition-colors">
                 Smart Student Hub
               </h1>
               <p className="text-xs text-blue-600/70">Teacher Portal</p>
@@ -69,15 +73,6 @@ export function TeacherHeader({ sidebarOpen, setSidebarOpen }: TeacherHeaderProp
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-4">
-          {/* Search bar - hidden on smaller screens */}
-          <div className="relative hidden lg:block">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <Input
-              placeholder="Search students, classes..."
-              className="pl-10 w-48 xl:w-64 border-blue-200 focus:border-blue-400"
-            />
-          </div>
-
           {/* Search button for mobile */}
           <Button
             variant="ghost"
@@ -85,14 +80,6 @@ export function TeacherHeader({ sidebarOpen, setSidebarOpen }: TeacherHeaderProp
             className="lg:hidden hover:bg-blue-100 hover:text-blue-700"
           >
             <Search className="h-4 w-4 sm:h-5 sm:w-5" />
-          </Button>
-
-          {/* Notifications */}
-          <Button variant="ghost" size="icon" className="relative hover:bg-blue-100 hover:text-blue-700">
-            <Bell className="h-4 w-4 sm:h-5 sm:w-5" />
-            <span className="absolute -top-1 -right-1 h-2 w-2 sm:h-3 sm:w-3 bg-gradient-to-r from-red-500 to-pink-500 rounded-full text-xs flex items-center justify-center text-white shadow-sm">
-              <span className="hidden sm:block text-xs">3</span>
-            </span>
           </Button>
 
           {/* User dropdown */}

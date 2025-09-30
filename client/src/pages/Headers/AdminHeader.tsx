@@ -29,11 +29,15 @@ export function AdminHeader({ onToggleSidebar }: AdminHeaderProps) {
 
   const handleLogout = () => {
     // TODO: Clear authentication data when implemented
-    navigate("/login")
+    navigate("/login");
   }
 
   const handleProfileClick = () => {
     navigate("/admin/profile")
+  }
+
+  const handleLogoClick = () => {
+    navigate("/login")
   }
 
   return (
@@ -48,12 +52,12 @@ export function AdminHeader({ onToggleSidebar }: AdminHeaderProps) {
           >
             <Menu className="h-5 w-5" />
           </Button>
-          <div className="flex items-center space-x-3">
-            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={handleLogoClick}>
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
               <span className="text-white font-bold text-xs sm:text-sm">SH</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
+              <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent hover:from-blue-500 hover:to-indigo-600 transition-colors">
                 Smart Student Hub
               </h1>
               <p className="text-xs text-blue-600/70">Admin Portal</p>
@@ -104,10 +108,6 @@ export function AdminHeader({ onToggleSidebar }: AdminHeaderProps) {
               <DropdownMenuItem onClick={handleProfileClick}>
                 <User className="mr-2 h-4 w-4" />
                 <span>Profile</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Settings className="mr-2 h-4 w-4" />
-                <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout}>
