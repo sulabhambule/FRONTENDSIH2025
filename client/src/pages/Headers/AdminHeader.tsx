@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Bell, Settings, LogOut, User, Search, Menu } from "lucide-react"
+import { Bell, LogOut, User, Search, Menu } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
 interface AdminHeaderProps {

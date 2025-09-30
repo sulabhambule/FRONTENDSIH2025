@@ -9,8 +9,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Bell, Settings, LogOut, User, Search, Menu, X } from "lucide-react"
-import { Input } from "@/components/ui/input"
+import { Settings, LogOut, User, Search, Menu, X } from "lucide-react"
+// import { Input } from "@/components/ui/input"
 
 interface TeacherHeaderProps {
   sidebarOpen: boolean
